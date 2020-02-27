@@ -1,0 +1,88 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            name = "gradle"
+            url = "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'co.riiid:gradle-github-plugin:0.4.2'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
+    }
+}
+
+apply plugin: "net.minecraftforge.gradle.forge"
+apply plugin: 'co.riiid.gradle'
+apply plugin: "com.matthewprenger.cursegradle"
+
+sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
+version = minecraft_version + "-" + mod_version
+group= mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = mod_id
+
+repositories {
+	maven {
+		// location of the maven that hosts JEI files
+		name = "Progwml6 maven"
+		url = "http://dvs1.progwml6.com/files/maven"
+	}
+	maven {
+		url "http://maven.shadowfacts.net/"
+	}
+    maven {
+        name = "Cyclops Repo"
+        url = "https://oss.jfrog.org/artifactory/simple/libs-release/"
+    }
+	maven { url "https://kotlin.bintray.com/kotlinx" }
+}
+
+minecraft {
+    version = minecraft_version + "-" + forge_version
+    runDir = "run"
+
+    replace "@version@", mod_version
+
+    mappings = mcp_mapping_version
+}
+
+dependencies {
+	compileOnly "mezz.jei:jei_1.12.2:4.15.0.293:api"
+	compile "net.shadowfacts:Forgelin:1.8.4"
+    deobfCompile "org.cyclops.commoncapabilities:CommonCapabilities:1.12.2-1.4.0-174:deobf"
+
+    testCompile "junit:junit:4.12"
+}
+
+processResources
+{
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

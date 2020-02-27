@@ -1,0 +1,32 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "foodcraftreloaded:fruit_cake_uneaten",
+        "uvlock": true
+    },
+    "variants": {
+        "bites": {
+            0: {
+                "model": "foodcraftreloaded:fruit_cake_uneaten"
+            },
+            1: {
+                "model": "foodcraftreloaded:fruit_cake_slice1"
+            },
+            2: {
+                "model": "foodcraftreloaded:fruit_cake_slice2"
+            },
+            3: {
+                "model": "foodcraftreloaded:fruit_cake_slice3"
+            },
+            4: {
+                "model": "foodcraftreloaded:fruit_cake_slice4"
+            },
+            5: {
+                "model": "foodcraftreloaded:fruit_cake_slice5"
+            },
+            6: {
+                "model": "foodcraftreloaded:fruit_cake_slice6"
+            }
+        }
+    }
+}

@@ -1,0 +1,217 @@
+# Blocks
+# Machines
+tile.smeltingDrinkMachine.name=烧炼饮料制作机
+tile.drinkMachine.name=饮料制作机
+
+# Items
+# Vegetables
+# Beans
+item.foodcraftreloaded.bedBean=红豆
+item.foodcraftreloaded.blackBean=黑豆
+item.foodcraftreloaded.greenBean=绿豆
+item.foodcraftreloaded.SoyBean=黄豆
+
+# Bean Sprouts
+item.foodcraftreloaded.redBeanSprouts=红豆芽
+item.foodcraftreloaded.blackBeanSprouts=黑豆芽
+item.foodcraftreloaded.greenBeanSprouts=绿豆芽
+item.foodcraftreloaded.soyBeanSprouts=黄豆芽
+
+item.foodcraftreloaded.cooked_rice.name=米饭
+item.foodcraftreloaded.chicken_leg.name=鸡腿
+item.foodcraftreloaded.chicken_wing.name=鸡翅
+item.foodcraftreloaded.poached_egg.name=荷包蛋
+item.foodcraftreloaded.pancakes.name=烙饼
+item.foodcraftreloaded.dumpling.name=饺子
+item.foodcraftreloaded.fried_dumpling.name=煎饺
+item.foodcraftreloaded.chocolate_bar.name=巧克力
+item.foodcraftreloaded.tofu.name=豆腐
+item.foodcraftreloaded.dehydrated_tofu.name=豆腐干
+item.foodcraftreloaded.fried_potato_chips.name=炒土豆片
+item.foodcraftreloaded.zongzi.name=粽子
+item.foodcraftreloaded.tangyuan.name=汤圆
+item.foodcraftreloaded.fried_chicken.name=炸鸡块
+item.foodcraftreloaded.french_fries.name=薯条
+item.foodcraftreloaded.orlean_chicken_wings.name=奥尔良鸡翅
+item.foodcraftreloaded.popcorn_chicken.name=鸡米花
+item.foodcraftreloaded.original_chicken.name=原味鸡块
+item.foodcraftreloaded.dough_twist.name=麻花
+item.foodcraftreloaded.niangao.name=年糕
+item.foodcraftreloaded.chunjuan.name=春卷
+item.foodcraftreloaded.fried_tofu.name=炸豆腐
+item.foodcraftreloaded.fried_niangao.name=炸年糕
+item.foodcraftreloaded.potato_chips.name=土豆片
+item.foodcraftreloaded.fried_bread.name=炸面包
+item.foodcraftreloaded.fried_chunjuan.name=炸春卷
+item.foodcraftreloaded.fried_dough_twist.name=炸麻花
+item.foodcraftreloaded.fried_chicken_leg.name=炸鸡腿
+item.foodcraftreloaded.mooncake.name=月饼
+item.foodcraftreloaded.steamed_buns.name=馒头
+item.foodcraftreloaded.sauerkraut_cake.name=酸菜饼
+item.foodcraftreloaded.youtiao.name=油条
+item.foodcraftreloaded.chili_tofu_strip.name=辣条
+item.foodcraftreloaded.walnut_shortbread.name=核桃酥
+item.foodcraftreloaded.aici.name=艾糍
+item.foodcraftreloaded.ciba.name=糍粑
+item.foodcraftreloaded.sausage.name=香肠
+item.foodcraftreloaded.hot_dog.name=热狗
+item.foodcraftreloaded.bolongna.name=腊肠
+item.foodcraftreloaded.bacon.name=腊肉
+item.foodcraftreloaded.fried_sausage.name=炸香肠
+item.foodcraftreloaded.cheese.name=奶酪
+item.foodcraftreloaded.pizza.name=披萨
+item.foodcraftreloaded.hamburger.name=汉堡包
+item.foodcraftreloaded.squid_meat.name=鱿鱼肉
+item.foodcraftreloaded.cooked_squid_meat.name=熟鱿鱼肉
+item.foodcraftreloaded.squid_slice.name=鱿鱼丝
+item.foodcraftreloaded.cooked_sweet_potato.name=烤红薯
+item.foodcraftreloaded.cooked_corn.name=烤玉米
+item.foodcraftreloaded.popcorn.name=爆米花
+item.foodcraftreloaded.cookie.name=饼干
+item.foodcraftreloaded.smiley_cookie.name=笑脸饼干
+item.foodcraftreloaded.iron_plate.name=铁板
+item.foodcraftreloaded.purified_water.name=纯净水
+item.foodcraftreloaded.milled_rice.name=大米
+item.foodcraftreloaded.flour.name=面粉
+item.foodcraftreloaded.peanut_oil.name=花生油
+item.foodcraftreloaded.circuit.name=食物电路板
+item.foodcraftreloaded.dough.name=面团
+item.foodcraftreloaded.dumpling_meat.name=饺子馅
+item.foodcraftreloaded.salt.name=盐
+item.foodcraftreloaded.soy_sauce.name=酱油
+item.foodcraftreloaded.vinegar.name=醋
+item.foodcraftreloaded.potato_sliced.name=土豆片
+item.foodcraftreloaded.potato_shredded.name=土豆丝
+item.foodcraftreloaded.pixian_watercress.name=豆瓣
+item.foodcraftreloaded.starches.name=淀粉
+item.foodcraftreloaded.zongye.name=粽叶
+item.foodcraftreloaded.sticky_rice_flour.name=糯米粉
+item.foodcraftreloaded.sticky_rice_dough.name=糯米团
+item.foodcraftreloaded.peanut_tangyuan_stuffing.name=花生汤圆馅
+item.foodcraftreloaded.chicken_large.name=鸡肉 (大块)
+item.foodcraftreloaded.chicken_medium.name=鸡肉 (中块)
+item.foodcraftreloaded.chicken_small.name=鸡肉 (小块)
+item.foodcraftreloaded.tofu_shredded.name=豆腐丝
+item.foodcraftreloaded.carrot_shredded.name=胡萝卜丝
+item.foodcraftreloaded.dough_shredded.name=面丝
+item.foodcraftreloaded.lawei_flavor.name=腊味熏料
+item.foodcraftreloaded.white_radish_shredded.name=白萝卜丝
+item.foodcraftreloaded.red_bean_paste.name=豆馅
+item.foodcraftreloaded.jinkela.name=金坷垃
+item.foodcraftreloaded.overcooked_food.name=烧焦的食物
+
+# Foods
+# Fruits
+item.foodcraftreloaded.pear.name=梨
+item.foodcraftreloaded.litchi.name=荔枝
+item.foodcraftreloaded.peach.name=桃
+item.foodcraftreloaded.orange.name=橘子
+item.foodcraftreloaded.mango.name=芒果
+item.foodcraftreloaded.lemon.name=柠檬
+item.foodcraftreloaded.grapefruit.name=柚子
+item.foodcraftreloaded.persimmon.name=柿子
+item.foodcraftreloaded.papaya.name=木瓜
+item.foodcraftreloaded.hawthorn.name=山楂
+item.foodcraftreloaded.pomegranate.name=石榴
+item.foodcraftreloaded.date.name=红枣
+item.foodcraftreloaded.cherry.name=樱桃
+item.foodcraftreloaded.coconut.name=椰子
+item.foodcraftreloaded.banana.name=香蕉
+
+# Vegetable
+item.foodcraftreloaded.vegetableEggplant=茄子
+item.foodcraftreloaded.vegetableCucumber=黄瓜
+item.foodcraftreloaded.vegetableCabbage=白菜
+item.foodcraftreloaded.vegetableLettuce=莴苣
+item.foodcraftreloaded.vegetableArtemisiaStalk=蒿子杆
+item.foodcraftreloaded.vegetableSpinach=菠菜
+item.foodcraftreloaded.vegetableCelery=芹菜
+item.foodcraftreloaded.vegetableTomato=番茄
+item.foodcraftreloaded.vegetableRice=大米
+item.foodcraftreloaded.vegetableGlutinousRice=糯米
+item.foodcraftreloaded.vegetableBlackRice=黑米
+item.foodcraftreloaded.vegetableCorn=玉米
+item.foodcraftreloaded.vegetablePeanut=花生
+item.foodcraftreloaded.vegetableRadish=水萝卜
+item.foodcraftreloaded.vegetableWhiteRadish=白萝卜
+item.foodcraftreloaded.vegetableRedPepper=红椒
+item.foodcraftreloaded.vegetableGreenPepper=青椒
+item.foodcraftreloaded.vegetableFacingHeavenPepper=朝天椒
+item.foodcraftreloaded.vegetablePepper=胡椒
+item.foodcraftreloaded.vegetableZanthoxylum=花椒
+item.foodcraftreloaded.vegetableRedSweetPotato=红薯
+item.foodcraftreloaded.vegetableWhiteSweetPotato=白薯
+item.foodcraftreloaded.vegetablePurpleSweetPotato=紫薯
+item.foodcraftreloaded.vegetableSesame=芝麻
+item.foodcraftreloaded.vegetableGarlic=蒜
+item.foodcraftreloaded.vegetableGinger=姜
+item.foodcraftreloaded.vegetableOnion=洋葱
+item.foodcraftreloaded.vegetableGreenOnion=葱
+
+# Kitchen knife
+item.foodcraftreloaded.kitchenKnifeStone.name=石刀
+item.foodcraftreloaded.kitchenKnifeIron.name=铁刀
+item.foodcraftreloaded.kitchenKnifeGold.name=金刀
+item.foodcraftreloaded.kitchenKnifeDiamond.name=钻石刀
+item.foodcraftreloaded.kitchenKnifeEmerald.name=绿宝石刀
+
+# Sapling
+item.foodcraftreloaded.sapling=%s树苗
+
+# Cake
+item.foodcraftreloaded.cake=%s蛋糕
+item.foodcraftreloaded.cake.name=蛋糕
+
+# Juice
+item.foodcraftreloaded.juice=%s汁
+item.foodcraftreloaded.vegetableJuice=%s汁
+
+# Cookie
+item.foodcraftreloaded.sandwich_cookie=%s夹心饼干
+
+# Soda
+item.foodcraftreloaded.soda=%s苏打水
+
+# Ice-cream
+item.foodcraftreloaded.originalIceCream.name=原味冰激凌
+item.foodcraftreloaded.iceCream=%s冰激凌
+
+# Liqueur
+item.foodcraftreloaded.liqueur=%s酒
+
+# Yogurt
+item.foodcraftreloaded.Yogurt=%s酸奶
+
+# Blocks
+tile.foodcraftreloaded.rice.name=水稻块
+
+# Gui
+container.drink_machine=饮料处理机
+
+# ItemGroups
+itemGroup.foodcraftreloaded.base=食物工艺|基础
+itemGroup.foodcraftreloaded.plant=食物工艺|植物
+itemGroup.foodcraftreloaded.drink=食物工艺|饮品
+itemGroup.foodcraftreloaded.staple=食物工艺|主食
+itemGroup.foodcraftreloaded.ingredient=食物工艺|食材
+itemGroup.foodcraftreloaded.snack=食物工艺|小吃
+
+# Fluid
+fluid.foodcraftreloaded.juice=%s汁
+
+# Tooltip
+tooltip.fcrfood.heal=饱食度回复: %s
+tooltip.fcrfood.duration=需要食用时间: %s秒
+tooltip.fcrfood.liqueur.type=酒种: %s
+tooltip.fcrfood.liqueur.type.normal=普通
+tooltip.fcrfood.liqueur.type.aged=陈酿
+tooltip.fcrfood.liqueur.type.cocktail=鸡尾
+
+# Extra
+# Cyl18
+item.foodcraftreloaded.cyl18.name=Cy冰激凌
+item.foodcraftreloaded.cyl18.lore=变幻出随机的冰激凌效果~
+
+# Shp241
+item.foodcraftreloaded.shp241.name=Shp烤鱿鱼
+item.foodcraftreloaded.shp241.lore=鱿鱼先生, 我们以shp241的名义起誓

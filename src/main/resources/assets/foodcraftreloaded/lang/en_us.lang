@@ -1,0 +1,165 @@
+# Items
+# Vegetables
+# Beans
+item.foodcraftreloaded.red_bean.name=Red Bean
+item.foodcraftreloaded.blackBean=Black Bean
+item.foodcraftreloaded.greenBean=Green Bean
+item.foodcraftreloaded.soyBean=Soy Bean
+
+# Bean Sprouts
+item.foodcraftreloaded.redBeanSprouts=Red Bean Sprouts
+item.foodcraftreloaded.blackBeanSprouts=Black Bean Sprouts
+item.foodcraftreloaded.greenBeanSprouts=Green Bean Sprouts
+item.foodcraftreloaded.soyBeanSprouts=Soy Bean Sprouts
+
+# Ingredients
+item.foodcraftreloaded.cooked_rice.name=Cooked Rice
+item.foodcraftreloaded.chicken_leg.name=Chicken Leg
+item.foodcraftreloaded.chicken_wing.name=Chicken Wing
+item.foodcraftreloaded.poached_egg.name=Poached egg
+item.foodcraftreloaded.pancakes.name=Pancakes
+item.foodcraftreloaded.dumpling.name=Chinese Dumpling
+item.foodcraftreloaded.fried_dumpling.name=Fried Dumpling
+item.foodcraftreloaded.chocolate_bar.name=Chocolate bar
+item.foodcraftreloaded.tofu.name=Tofu
+item.foodcraftreloaded.dehydrated_tofu.name=Dehydrated Tofu
+item.foodcraftreloaded.fried_potato_chips.name=Fried Potato Chips
+item.foodcraftreloaded.zongzi.name=Zongzi
+item.foodcraftreloaded.tangyuan.name=Tangyuan
+item.foodcraftreloaded.fried_chicken.name=Fried Chicken
+item.foodcraftreloaded.french_fries.name=French Fries
+item.foodcraftreloaded.orlean_chicken_wings.name=Orlean Chicken Wings
+item.foodcraftreloaded.popcorn_chicken.name=Popcorn Chicken
+item.foodcraftreloaded.original_chicken.name=Original Taste Chicken
+item.foodcraftreloaded.dough_twist.name=Dough Twist
+item.foodcraftreloaded.niangao.name=Niangao
+item.foodcraftreloaded.chunjuan.name=Chunjuan
+item.foodcraftreloaded.fried_tofu.name=Fried Tofu
+item.foodcraftreloaded.fried_niangao.name=Fried Niangao
+item.foodcraftreloaded.potato_chips.name=Potato Chips
+item.foodcraftreloaded.fried_bread.name=Fried Bread
+item.foodcraftreloaded.fried_chunjuan.name=Fried Chunjuan
+item.foodcraftreloaded.fried_dough_twist.name=Fried Dough Twist
+item.foodcraftreloaded.fried_chicken_leg.name=Fried Chicken Leg
+item.foodcraftreloaded.mooncake.name=Mooncake
+item.foodcraftreloaded.steamed_buns.name=Steamed Buns
+item.foodcraftreloaded.sauerkraut_cake.name=Sauerkraut Cake
+item.foodcraftreloaded.youtiao.name=Youtiao
+item.foodcraftreloaded.chili_tofu_strip.name=Chili Tofu Strip
+item.foodcraftreloaded.walnut_shortbread.name=Walnut Shortbread
+item.foodcraftreloaded.aici.name=Aici
+item.foodcraftreloaded.ciba.name=Ciba
+item.foodcraftreloaded.sausage.name=Sausage
+item.foodcraftreloaded.hot_dog.name=Hot Dog
+item.foodcraftreloaded.bolongna.name=Bolongna
+item.foodcraftreloaded.bacon.name=Bacon
+item.foodcraftreloaded.fried_sausage.name=Fried Sausage
+item.foodcraftreloaded.cheese.name=Cheese
+item.foodcraftreloaded.pizza.name=Pizza
+item.foodcraftreloaded.hamburger.name=Hamburger
+item.foodcraftreloaded.squid_meat.name=Squid Meat
+item.foodcraftreloaded.cooked_squid_meat.name=Cooked Squid Meat
+item.foodcraftreloaded.squid_slice.name=Squid Slice
+item.foodcraftreloaded.cooked_sweet_potato.name=Cooked Sweet Potato
+item.foodcraftreloaded.cooked_corn.name=Cooked Corn
+item.foodcraftreloaded.popcorn.name=Popcorn
+item.foodcraftreloaded.cookie.name=Cookie
+item.foodcraftreloaded.smiley_cookie.name=Smiley Cookie
+item.foodcraftreloaded.iron_plate.name=Iron Plate
+item.foodcraftreloaded.purified_water.name=Purified Water
+item.foodcraftreloaded.milled_rice.name=Milled Rice
+item.foodcraftreloaded.flour.name=Flour
+item.foodcraftreloaded.peanut_oil.name=Peanut Oil
+item.foodcraftreloaded.circuit.name=Food Circuit
+item.foodcraftreloaded.dough.name=Dough
+item.foodcraftreloaded.dumpling_meat.name=Dumpling Meat
+item.foodcraftreloaded.salt.name=Salt
+item.foodcraftreloaded.soy_sauce.name=Soy Sauce
+item.foodcraftreloaded.vinegar.name=Vinegar
+item.foodcraftreloaded.potato_sliced.name=Sliced Potato
+item.foodcraftreloaded.potato_shredded.name=Shredded Potato
+item.foodcraftreloaded.pixian_watercress.name=Pixian Watercress
+item.foodcraftreloaded.starches.name=Starches
+item.foodcraftreloaded.zongye.name=Zongye
+item.foodcraftreloaded.sticky_rice_flour.name=Sticky Rice Flour
+item.foodcraftreloaded.sticky_rice_dough.name=Sticky Rice Dough
+item.foodcraftreloaded.peanut_tangyuan_stuffing.name=Peanut Tangyuan Stuffing
+item.foodcraftreloaded.chicken_large.name=Chicken (Large)
+item.foodcraftreloaded.chicken_medium.name=Chicken (Medium)
+item.foodcraftreloaded.chicken_small.name=Chicken (Small)
+item.foodcraftreloaded.tofu_shredded.name=Shredded Tofu
+item.foodcraftreloaded.carrot_shredded.name=Shredded Carrot
+item.foodcraftreloaded.dough_shredded.name=Shredded Dough
+item.foodcraftreloaded.lawei_flavor.name="Lawei" Flavor
+item.foodcraftreloaded.white_radish_shredded.name=Shredded White Radish
+item.foodcraftreloaded.red_bean_paste.name=Red Bean Paste
+item.foodcraftreloaded.jinkela.name=JINKELA
+item.foodcraftreloaded.overcooked_food.name=Overcooked Food
+
+# Foods
+# s
+item.foodcraftreloaded.pear.name=Pear
+item.foodcraftreloaded.litchi.name=Litchi
+item.foodcraftreloaded.peach.name=Peach
+item.foodcraftreloaded.orange.name=Orange
+item.foodcraftreloaded.mango.name=Mango
+item.foodcraftreloaded.lemon.name=Lemon
+item.foodcraftreloaded.grape.name=Grape
+item.foodcraftreloaded.persimmon.name=Persimmon
+item.foodcraftreloaded.papaya=Papaya
+item.foodcraftreloaded.hawthorn=Hawthorn
+item.foodcraftreloaded.pomegranate=Pomegranate
+item.foodcraftreloaded.date.name=Date
+item.foodcraftreloaded.cherry.name=Cherry
+item.foodcraftreloaded.coconut.name=Coconut
+item.foodcraftreloaded.banana.name=Banana
+
+# Sapling
+item.foodcraftreloaded.sapling=%s Sapling
+
+# Cake
+item.foodcraftreloaded.cake=%s Cake
+item.foodcraftreloaded.cake.name=Cake
+
+# Juice
+item.foodcraftreloaded.juice=%s Juice
+
+# Soda
+item.foodcraftreloaded.soda=%s Soda
+
+# Ice-cream
+item.foodcraftreloaded.originalIceCream.name=Original Ice-cream
+item.foodcraftreloaded.iceCream=%s Ice-cream
+
+# Liqueur
+item.foodcraftreloaded.liqueur=%s Liqueur
+
+# Yogurt
+item.foodcraftreloaded.yogurt=%s Yogurt
+
+# Blocks
+tile.rice.name=Rice Block
+tile.drinkMachine.name=Drink Machine
+tile.smeltingDrinkMachine.name=Smelting Drink Machine
+
+# Gui
+container.drink_machine=Drink Machine
+
+# ItemGroups
+itemGroup.foodcraftreloaded.base=FoodCraft|Base
+itemGroup.foodcraftreloaded.plant=FoodCraft|Plants
+itemGroup.foodcraftreloaded.drink=FoodCraft|Drinks
+itemGroup.foodcraftreloaded.staple=FoodCraft|Staples
+itemGroup.foodcraftreloaded.ingredient=FoodCraft|Ingredients
+itemGroup.foodcraftreloaded.snack=FoodCraft|Snacks
+
+# Tooltip
+tooltip.fcrfood.heal=Heal amount: %s
+tooltip.fcrfood.duration=Eat duration: %s second(s)
+tooltip.fcrfood.liqueur.type=Type: %s
+tooltip.fcrfood.liqueur.type.normal=Normal
+tooltip.fcrfood.liqueur.type.aged=Aged
+tooltip.fcrfood.liqueur.type.cocktail=Cocktail
+
+# Energy
+tooltip.fcr.energy=Energy: %sJ
