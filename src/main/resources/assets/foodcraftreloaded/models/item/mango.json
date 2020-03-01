@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/fruit_mango"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/mango"}}

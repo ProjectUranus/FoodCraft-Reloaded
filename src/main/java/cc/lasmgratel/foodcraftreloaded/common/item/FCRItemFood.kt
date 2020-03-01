@@ -1,5 +1,6 @@
 package cc.lasmgratel.foodcraftreloaded.common.item
 
+import cc.lasmgratel.foodcraftreloaded.MODID
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.Item
@@ -19,6 +20,7 @@ open class FCRItemFood : ItemFood(1, 0f, false) {
     open var isWolfFood = false
     open var duration = 32
     open var potion: PotionEffect? = null
+    open var potions: Lazy<List<PotionEffect>> = lazyOf(listOf())
     open var potionProbability = 0f
 
     override fun getHealAmount(stack: ItemStack): Int {
@@ -63,15 +65,24 @@ open class FCRItemFood : ItemFood(1, 0f, false) {
         return this
     }
 
-    override fun onFoodEaten(stack: ItemStack, worldIn: World, player: EntityPlayer) {
-        if (!worldIn.isRemote && potion != null && worldIn.rand.nextFloat() < potionProbability)
-            player.addPotionEffect(PotionEffect(potion!!))
+    override fun onFoodEaten(stack: ItemStack, world: World, player: EntityPlayer) {
+        if (!world.isRemote && world.rand.nextFloat() < potionProbability)
+            if (potion != null)
+                player.addPotionEffect(PotionEffect(potion!!))
+            else if (potions.value.isNotEmpty())
+                player.addPotionEffect(PotionEffect(potions.value[world.rand.nextInt(potions.value.size)]))
     }
 }
 
-fun food(registry: IForgeRegistry<Item>? = null, init: FCRItemFood.() -> Unit): FCRItemFood {
+fun food(registry: IForgeRegistry<Item>? = null, name: String? = null, healAmount: Int = 0, saturation: Float = 0f, init: FCRItemFood.() -> Unit): FCRItemFood {
     val food = FCRItemFood()
+    name?.let { food.setRegistryName(MODID, it); food.translationKey = "$MODID.$name" }
+    if (healAmount != 0)
+        food.healAmount = healAmount
+    if (saturation != 0f)
+        food.saturation = saturation
     food.init()
     registry?.register(food)
     return food
 }
+

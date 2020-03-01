@@ -1,0 +1,16 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSilkentofu"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:dehydrated_tofu"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllporkcooked"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodPasta"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:pork_fried_pasta"
+    }
+}

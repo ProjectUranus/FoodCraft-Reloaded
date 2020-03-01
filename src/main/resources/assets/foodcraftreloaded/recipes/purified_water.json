@@ -1,0 +1,17 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "wool"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:purified_water",
+        "count": 2
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCabbage"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodBread"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodBread"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllmeatcooked"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:hamburger"
+    }
+}

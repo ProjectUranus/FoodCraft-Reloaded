@@ -1,0 +1,21 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "##X",
+        "## ",
+        "   "
+    ],
+    "key": {
+        "#": {
+            "type": "forge:ore_dict",
+            "ore": "gemDiamond"
+        },
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "stickWood"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:diamond_kitchen_knife"
+    }
+}

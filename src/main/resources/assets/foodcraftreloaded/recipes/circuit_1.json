@@ -1,0 +1,25 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "CBC",
+        "AAA"
+    ],
+    "key": {
+        "C": {
+            "type": "forge:ore_dict",
+            "ore": "redstone"
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "ingotIron"
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "cropPeanut"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:machine_casing"
+    }
+}

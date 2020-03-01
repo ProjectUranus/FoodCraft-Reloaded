@@ -64,9 +64,9 @@ public enum VegetableTypes implements Colorable {
 
     /**
      * 糯米
-     * Glutinous rice
+     * Sticky rice
      */
-    GLUTINOUS_RICE(new Color(0xffffdd)),
+    STICKY_RICE(new Color(0xffffdd)),
 
     /**
      * 黑米
@@ -130,9 +130,9 @@ public enum VegetableTypes implements Colorable {
 
     /**
      * 红薯
-     * Red sweet potato
+     * Sweet potato
      */
-    RED_SWEET_POTATO(new Color(0xFFA265)),
+    SWEET_POTATO(new Color(0xFFA265)),
 
     /**
      * 白薯

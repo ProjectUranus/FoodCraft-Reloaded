@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/fruit_persimmon"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/persimmon"}}

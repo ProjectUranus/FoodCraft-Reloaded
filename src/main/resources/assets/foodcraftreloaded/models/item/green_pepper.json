@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/vegetable_green_pepper"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/green_pepper"}}

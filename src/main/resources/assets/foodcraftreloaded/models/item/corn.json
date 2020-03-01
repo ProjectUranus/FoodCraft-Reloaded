@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/vegetable_corn"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/corn"}}

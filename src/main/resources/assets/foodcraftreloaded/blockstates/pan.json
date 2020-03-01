@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=north,working=false": { "model": "foodcraftreloaded:pan" },
+        "facing=south,working=false": { "model": "foodcraftreloaded:pan", "y": 180 },
+        "facing=west,working=false":  { "model": "foodcraftreloaded:pan", "y": 270 },
+        "facing=east,working=false":  { "model": "foodcraftreloaded:pan", "y": 90 },
+        "facing=north,working=true": { "model": "foodcraftreloaded:pan" },
+        "facing=south,working=true": { "model": "foodcraftreloaded:pan", "y": 180 },
+        "facing=west,working=true":  { "model": "foodcraftreloaded:pan", "y": 270 },
+        "facing=east,working=true":  { "model": "foodcraftreloaded:pan", "y": 90 }
+    }
+}

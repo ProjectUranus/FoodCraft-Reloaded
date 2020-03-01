@@ -1,0 +1,21 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "ABA",
+        "AAA"
+    ],
+    "key": {
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "foodFloursticky"
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "flourEqualswheat"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:niangao"
+    }
+}

@@ -2,12 +2,11 @@ package cc.lasmgratel.foodcraftreloaded.common.init
 
 import cc.lasmgratel.foodcraftreloaded.MODID
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 
 val FcTabMachine: CreativeTabs = object : CreativeTabs("$MODID.machine") {
     override fun createIcon(): ItemStack {
-        return ItemStack.EMPTY
+        return ItemStack(FCRItems.CIRCUIT)
     }
 }
 val FcTabPlant: CreativeTabs = object : CreativeTabs("$MODID.plant") {
@@ -15,7 +14,7 @@ val FcTabPlant: CreativeTabs = object : CreativeTabs("$MODID.plant") {
 //    val tabIconItem: Item? get() = FoodcraftItems.ItemLajiao
 
     override fun createIcon(): ItemStack {
-        return ItemStack.EMPTY
+        return ItemStack(FCRItems.FACING_HEAVEN_PEPPER)
     }
 }
 val FcTabDrink: CreativeTabs = object : CreativeTabs("$MODID.drink") {
@@ -23,7 +22,7 @@ val FcTabDrink: CreativeTabs = object : CreativeTabs("$MODID.drink") {
 //    val tabIconItem: Item? get() = FoodcraftItems.ItemPutaozhi
 
     override fun createIcon(): ItemStack {
-        return ItemStack.EMPTY
+        return ItemStack(FCRItems.GRAPE_JUICE)
     }
 }
 val FcTabStaple: CreativeTabs = object : CreativeTabs("$MODID.staple") {
@@ -31,7 +30,7 @@ val FcTabStaple: CreativeTabs = object : CreativeTabs("$MODID.staple") {
 //    val tabIconItem: Item? get() = FoodcraftItems.ItemChaotudousifan
 
     override fun createIcon(): ItemStack {
-        return ItemStack.EMPTY
+        return ItemStack(FCRItems.FRIED_SHREDDED_POTATO_RICE)
     }
 }
 val FcTabIngredient: CreativeTabs = object : CreativeTabs("$MODID.ingredient") {
@@ -39,7 +38,7 @@ val FcTabIngredient: CreativeTabs = object : CreativeTabs("$MODID.ingredient") {
 //    val tabIconItem: Item? get() = FoodcraftItems.ItemMianfen
 
     override fun createIcon(): ItemStack {
-        return ItemStack.EMPTY
+        return ItemStack(FCRItems.FLOUR)
     }
 }
 val FcTabSnack: CreativeTabs = object : CreativeTabs("$MODID.snack") {

@@ -1,0 +1,24 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodPancake"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCarrot"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodCheese"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllmushroom"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:pizza"
+    }
+}

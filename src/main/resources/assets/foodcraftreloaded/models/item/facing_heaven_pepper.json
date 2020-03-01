@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/vegetable_facing_heaven_pepper"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/facing_heaven_pepper"}}

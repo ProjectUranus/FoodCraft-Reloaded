@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "foodcraftreloaded:items/vegetable_green_onion"
+    "layer0": "foodcraftreloaded:items/green_onion"
   }
 }

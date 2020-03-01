@@ -1,0 +1,15 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "item": "foodcraftreloaded:tofu_shredded"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropFacingheavenpepper"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:chili_tofu_strip"
+    }
+}

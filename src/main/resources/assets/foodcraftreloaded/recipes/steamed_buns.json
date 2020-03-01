@@ -1,0 +1,21 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "A#A",
+        "AAA"
+    ],
+    "key": {
+        "#": {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "foodFlour"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:steamed_buns"
+    }
+}

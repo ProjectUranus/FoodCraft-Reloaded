@@ -1,0 +1,25 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "XBX",
+        "AAA"
+    ],
+    "key": {
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "foodFlour"
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "listAllegg"
+        },
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "dyeYellow"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:mooncake"
+    }
+}

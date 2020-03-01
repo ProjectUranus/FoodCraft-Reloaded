@@ -1,0 +1,18 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "###",
+        "# #",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "type": "forge:ore_dict",
+            "ore": "ingotIron"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:iron_plate",
+        "count": 8
+    }
+}

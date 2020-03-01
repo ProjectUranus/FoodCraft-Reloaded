@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/vegetable_white_radish"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/white_radish"}}

@@ -1,0 +1,21 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "A#A",
+        "A#A",
+        "A#A"
+    ],
+    "key": {
+        "#": {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "foodMilledrice"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:crossing_bridge_noodles"
+    }
+}

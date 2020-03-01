@@ -9,6 +9,11 @@ import java.util.Arrays;
 
 public enum FruitTypes implements Colorable {
     /**
+     * Grape
+     * 葡萄
+     */
+    GRAPE(new Color(0x6f2da8)),
+    /**
      * Pear
      * 梨
      */
@@ -19,6 +24,12 @@ public enum FruitTypes implements Colorable {
      * 荔枝
      */
     LITCHI(new Color(0xf6edd0)),
+
+    /**
+     * 龙眼
+     * Longan
+     */
+    LONGAN(new Color(0xF6F3C9)),
 
     /**
      * Peach
@@ -63,6 +74,12 @@ public enum FruitTypes implements Colorable {
     PAPAYA(new Color(0xf18a25)),
 
     /**
+     * 枇杷
+     * Loquat
+     */
+    LOQUAT(new Color(0xCE7031)),
+
+    /**
      * Hawthorn
      * 山楂
      */
@@ -91,6 +108,12 @@ public enum FruitTypes implements Colorable {
      * 椰子
      */
     COCONUT(new Color(0xfcf4d6)),
+
+    /**
+     * Strawberry
+     * 草莓
+     */
+    STRAWBERRY(new Color(0xfc5a8d)),
 
     /**
      * Banana

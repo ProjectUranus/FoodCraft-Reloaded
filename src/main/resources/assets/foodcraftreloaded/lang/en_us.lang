@@ -1,16 +1,51 @@
 # Items
+item.foodcraftreloaded.glass_cup.name=Glass Cup
 # Vegetables
 # Beans
-item.foodcraftreloaded.red_bean.name=Red Bean
-item.foodcraftreloaded.blackBean=Black Bean
-item.foodcraftreloaded.greenBean=Green Bean
-item.foodcraftreloaded.soyBean=Soy Bean
+item.foodcraftreloaded.soybean.name=Soybean
+item.foodcraftreloaded.adzuki_bean.name=Adzuki Bean
+item.foodcraftreloaded.mung_bean.name=Mung Bean
 
 # Bean Sprouts
 item.foodcraftreloaded.redBeanSprouts=Red Bean Sprouts
 item.foodcraftreloaded.blackBeanSprouts=Black Bean Sprouts
 item.foodcraftreloaded.greenBeanSprouts=Green Bean Sprouts
 item.foodcraftreloaded.soyBeanSprouts=Soy Bean Sprouts
+
+# Staples
+item.foodcraftreloaded.rice_porridge.name=Rice Porridge
+item.foodcraftreloaded.egg_custard.name=Egg Custard
+item.foodcraftreloaded.mushroom_egg_soup.name=Mushrooms with Egg Soup
+item.foodcraftreloaded.noodles.name=Noodles
+item.foodcraftreloaded.crossing_bridge_noodles.name=Crossing Bridge Noodles
+item.foodcraftreloaded.pasta.name=Pasta
+item.foodcraftreloaded.preserved_egg_porridge.name=Preserved Egg Porridge
+item.foodcraftreloaded.changfen.name=Chang Fen
+item.foodcraftreloaded.laba_porridge.name=La Ba Porridge
+item.foodcraftreloaded.tomato_fried_egg_rice.name=Tomato Fried Egg Rice
+item.foodcraftreloaded.disanxian_rice.name=Di San Xian Rice
+item.foodcraftreloaded.shredded_pork_rice.name=Shredded Pork Rice
+item.foodcraftreloaded.kung_pao_chicken_rice.name=Kung Pao Chicken Rice
+item.foodcraftreloaded.fried_shredded_potato_rice.name=Fried Shredded Potato Rice
+item.foodcraftreloaded.fish_head_rice.name=Steamed Fish Head with Chopped Pepper Rice
+item.foodcraftreloaded.mapo_tofu_rice.name=Ma Po Tofu Rice
+item.foodcraftreloaded.pork_braised_in_brown_sauce_rice.name=Pork Braised in Brown Sauce Rice
+item.foodcraftreloaded.twice_cooked_pork_slices_rice.name=Twice-Cooked Pork Slices Rice
+item.foodcraftreloaded.orlean_chicken_wings_rice.name=Orlean Chicken Wings Rice
+item.foodcraftreloaded.sliced_cold_chicken.name=Sliced Cold Chicken
+item.foodcraftreloaded.scallion_chicken.name=Scallion Chicken
+item.foodcraftreloaded.chicken_with_chili_sauce.name=Chicken With Chili Sauce
+item.foodcraftreloaded.peppery_chicken.name=Peppery Chicken
+item.foodcraftreloaded.steamed_fish.name=Steamed Fish
+item.foodcraftreloaded.spicy_fish.name=Spicy Fish
+item.foodcraftreloaded.boiled_fish_with_pickled_cabbage.name=Boiled Fish With Pickled Cabbage
+item.foodcraftreloaded.coke_chicken_rice.name=Coke Chicken Rice
+item.foodcraftreloaded.curry_rice.name=Curry Chicken Rice
+item.foodcraftreloaded.boiled_beef.name=Boiled Beef
+item.foodcraftreloaded.pork_fried_pasta.name=Pork Fried Pasta
+item.foodcraftreloaded.beef_fried_pasta.name=Beef Fried Pasta
+item.foodcraftreloaded.chicken_fried_pasta.name=Chicken Fried Pasta
+item.foodcraftreloaded.japanese_tofu_rice.name=Japanese Tofu Rice
 
 # Ingredients
 item.foodcraftreloaded.cooked_rice.name=Cooked Rice
@@ -97,7 +132,6 @@ item.foodcraftreloaded.jinkela.name=JINKELA
 item.foodcraftreloaded.overcooked_food.name=Overcooked Food
 
 # Foods
-# s
 item.foodcraftreloaded.pear.name=Pear
 item.foodcraftreloaded.litchi.name=Litchi
 item.foodcraftreloaded.peach.name=Peach
@@ -113,40 +147,107 @@ item.foodcraftreloaded.date.name=Date
 item.foodcraftreloaded.cherry.name=Cherry
 item.foodcraftreloaded.coconut.name=Coconut
 item.foodcraftreloaded.banana.name=Banana
+item.foodcraftreloaded.strawberry.name=Strawberry
+item.foodcraftreloaded.golden_grape.name=Golden Grape
+
+# Vegetable
+item.foodcraftreloaded.eggplant.name=Eggplant
+item.foodcraftreloaded.cucumber.name=Cucumber
+item.foodcraftreloaded.cabbage.name=Cabbage
+item.foodcraftreloaded.lettuce.name=Lettuce
+item.foodcraftreloaded.artemisia_stalk.name=Artemisia Stalk
+item.foodcraftreloaded.spinach.name=Spinach
+item.foodcraftreloaded.celery.name=Celery
+item.foodcraftreloaded.tomato.name=Tomato
+item.foodcraftreloaded.rice.name=Rice
+item.foodcraftreloaded.sticky_rice.name=Sticky Rice
+item.foodcraftreloaded.glutinous_rice.name=Sticky Rice
+item.foodcraftreloaded.black_rice.name=Black Rice
+item.foodcraftreloaded.corn.name=Corn
+item.foodcraftreloaded.peanut.name=Peanut
+item.foodcraftreloaded.radish.name=Radish
+item.foodcraftreloaded.white_radish.name=White Radish
+item.foodcraftreloaded.red_pepper.name=Red Pepper
+item.foodcraftreloaded.green_pepper.name=Green Pepper
+item.foodcraftreloaded.facing_heaven_pepper.name=Facing Heaven Pepper
+item.foodcraftreloaded.pepper.name=Pepper
+item.foodcraftreloaded.zanthoxylum.name=Zanthoxylum
+item.foodcraftreloaded.sweet_potato.name=Sweet Potato
+item.foodcraftreloaded.red_sweet_potato.name=Red Sweet Potato
+item.foodcraftreloaded.white_sweet_potato.name=White Sweet Potato
+item.foodcraftreloaded.purple_sweet_potato.name=Purple Sweet Potato
+item.foodcraftreloaded.sesame.name=Sesame
+item.foodcraftreloaded.garlic.name=Garlic
+item.foodcraftreloaded.ginger.name=Ginger
+item.foodcraftreloaded.onion.name=Onion
+item.foodcraftreloaded.green_onion.name=Green Onion
 
 # Sapling
 item.foodcraftreloaded.sapling=%s Sapling
+
+# Jam
+item.foodcraftreloaded.jam.name=%s Jam
 
 # Cake
 item.foodcraftreloaded.cake=%s Cake
 item.foodcraftreloaded.cake.name=Cake
 
 # Juice
-item.foodcraftreloaded.juice=%s Juice
+item.foodcraftreloaded.juice.name=%s Juice
+item.foodcraftreloaded.soymilk.name=Soymilk
+item.foodcraftreloaded.soybean_milk.name=Soybean Milk
+item.foodcraftreloaded.hot_chocolate.name=Hot Chocolate
+item.foodcraftreloaded.chocolate_milk.name=Chocolate Milk
+item.foodcraftreloaded.carrot_juice.name=Carrot Juice
+item.foodcraftreloaded.apple_juice.name=Apple Juice
+item.foodcraftreloaded.coconut_juice_milk.name=Coconut Milk Juice
+item.foodcraftreloaded.melon_juice.name=Melon Juice
+item.foodcraftreloaded.golden_apple_juice.name=Golden Apple Juice
+item.foodcraftreloaded.golden_grape_juice.name=Golden Grape Juice
+item.foodcraftreloaded.cola.name=Cola™
+item.foodcraftreloaded.tea.name=Tea
+item.foodcraftreloaded.milk_tea.name=Milk Tea
+item.foodcraftreloaded.coffee.name=Coffee
+
 
 # Soda
 item.foodcraftreloaded.soda=%s Soda
 
 # Ice-cream
-item.foodcraftreloaded.originalIceCream.name=Original Ice-cream
-item.foodcraftreloaded.iceCream=%s Ice-cream
+item.foodcraftreloaded.original_ice_cream.name=Original Ice-cream
+item.foodcraftreloaded.ice_cream.name=%s Ice-cream
 
 # Liqueur
-item.foodcraftreloaded.liqueur=%s Liqueur
+item.foodcraftreloaded.wine.name=Wine
+item.foodcraftreloaded.spirit.name=Spirit
+item.foodcraftreloaded.apple_liqueur.name=Cider
+item.foodcraftreloaded.golden_apple_liqueur.name=Golden Cider
+item.foodcraftreloaded.golden_grape_liqueur.name=Golden Grape Wine
+item.foodcraftreloaded.liqueur.name=%s Liqueur
 
 # Yogurt
-item.foodcraftreloaded.yogurt=%s Yogurt
+item.foodcraftreloaded.yogurt.name=%s Yogurt
 
 # Blocks
 tile.rice.name=Rice Block
 tile.drinkMachine.name=Drink Machine
 tile.smeltingDrinkMachine.name=Smelting Drink Machine
 
+tile.foodcraftreloaded.mill.name=Mill
+tile.foodcraftreloaded.pan.name=Pan
+tile.foodcraftreloaded.pressure_cooker.name=Pressure Cooker
+tile.foodcraftreloaded.pot.name=Pot
+tile.foodcraftreloaded.frying_pan.name=Frying Machine
+tile.foodcraftreloaded.chopping_board.name=Chopping Board
+tile.foodcraftreloaded.brew_barrel.name=Brew Barrel
+tile.foodcraftreloaded.stove.name=Stove
+tile.foodcraftreloaded.beverage_making.name=Beverage Making Machine
+
 # Gui
 container.drink_machine=Drink Machine
 
 # ItemGroups
-itemGroup.foodcraftreloaded.base=FoodCraft|Base
+itemGroup.foodcraftreloaded.machine=FoodCraft|Machine
 itemGroup.foodcraftreloaded.plant=FoodCraft|Plants
 itemGroup.foodcraftreloaded.drink=FoodCraft|Drinks
 itemGroup.foodcraftreloaded.staple=FoodCraft|Staples

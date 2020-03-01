@@ -1,0 +1,16 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodCiba"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "treeLeaves"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:aici"
+    }
+}

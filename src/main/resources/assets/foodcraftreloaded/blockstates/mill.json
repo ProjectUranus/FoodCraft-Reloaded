@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=north,working=true": { "model": "foodcraftreloaded:working_mill" },
+        "facing=south,working=true": { "model": "foodcraftreloaded:working_mill", "y": 180 },
+        "facing=west,working=true":  { "model": "foodcraftreloaded:working_mill", "y": 270 },
+        "facing=east,working=true":  { "model": "foodcraftreloaded:working_mill", "y": 90 },
+        "facing=north,working=false": { "model": "foodcraftreloaded:mill" },
+        "facing=south,working=false": { "model": "foodcraftreloaded:mill", "y": 180 },
+        "facing=west,working=false":  { "model": "foodcraftreloaded:mill", "y": 270 },
+        "facing=east,working=false":  { "model": "foodcraftreloaded:mill", "y": 90 }
+    }
+}

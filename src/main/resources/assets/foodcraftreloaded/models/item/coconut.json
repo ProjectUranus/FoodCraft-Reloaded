@@ -1,6 +1,1 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "foodcraftreloaded:items/fruit_coconut"
-  }
-}
+{"parent":"item/generated","textures":{"layer0":"foodcraftreloaded:items/coconut"}}

@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "age=15": { "model": "foodcraftreloaded:green_onion" },
+		"age=14": { "model": "foodcraftreloaded:green_onion" },
+	    "age=13": { "model": "foodcraftreloaded:green_onion" },
+        "age=12": { "model": "foodcraftreloaded:green_onion" },
+	    "age=11": { "model": "foodcraftreloaded:green_onion" },
+		"age=10": { "model": "foodcraftreloaded:green_onion" },
+		"age=9": { "model": "foodcraftreloaded:green_onion" },
+		"age=8": { "model": "foodcraftreloaded:green_onion" },
+		"age=7": { "model": "foodcraftreloaded:green_onion" },
+		"age=6": { "model": "foodcraftreloaded:green_onion" },
+		"age=5": { "model": "foodcraftreloaded:green_onion" },
+		"age=4": { "model": "foodcraftreloaded:green_onion" },
+		"age=3": { "model": "foodcraftreloaded:green_onion" },
+		"age=2": { "model": "foodcraftreloaded:green_onion" },
+		"age=1": { "model": "foodcraftreloaded:green_onion" },
+		"age=0": { "model": "foodcraftreloaded:green_onion" }
+    }
+}

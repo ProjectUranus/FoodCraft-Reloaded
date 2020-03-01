@@ -1,0 +1,20 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCabbage"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSausage"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "bread"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:hot_dog"
+    }
+}

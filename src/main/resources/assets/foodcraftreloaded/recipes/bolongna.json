@@ -1,0 +1,15 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "item": "foodcraftreloaded:lawei_flavor"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSausagefried"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:bolongna"
+    }
+}

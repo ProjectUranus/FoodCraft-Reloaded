@@ -1,0 +1,33 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "BBB",
+        "CDE"
+    ],
+    "key": {
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "foodMilledrice"
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
+        },
+        "C": {
+            "type": "forge:ore_dict",
+            "ore": "foodGreenonion"
+        },
+        "D": {
+            "type": "forge:ore_dict",
+            "ore": "listAllmeatcooked"
+        },
+        "E": {
+            "type": "forge:ore_dict",
+            "ore": "foodSausagefried"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:changfen"
+    }
+}
