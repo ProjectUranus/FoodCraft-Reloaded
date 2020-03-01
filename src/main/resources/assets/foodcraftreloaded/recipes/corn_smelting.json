@@ -1,0 +1,9 @@
+{
+    "type": "foodcraftreloaded:blasting",
+    "ingredient": {
+        "item": "foodcraftreloaded:corn"
+    },
+    "result": "foodcraftreloaded:cooked_corn",
+    "experience": 0.4,
+    "cookingtime": 100
+}

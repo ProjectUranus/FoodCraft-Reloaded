@@ -1,0 +1,9 @@
+{
+    "type": "foodcraftreloaded:blasting",
+    "ingredient": {
+        "item": "foodcraftreloaded:squid_meat"
+    },
+    "result": "foodcraftreloaded:cooked_squid_meat",
+    "experience": 0.4,
+    "cookingtime": 100
+}

@@ -1,0 +1,32 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "D#D",
+        "ECE"
+    ],
+    "key": {
+        "#": {
+            "item": "foodcraftreloaded:machine_casing"
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "cropWheat"
+        },
+        "C": {
+            "type": "forge:ore_dict",
+            "ore": "circuitBasic"
+        },
+        "D": {
+            "type": "forge:ore_dict",
+            "ore": "blockGlass"
+        },
+        "E": {
+            "type": "forge:ore_dict",
+            "ore": "listAllmilk"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:mill"
+    }
+}

@@ -2,10 +2,8 @@ package org.cyclops.commoncapabilities.api.ingredient.storage;
 
 import org.cyclops.commoncapabilities.api.ingredient.IngredientComponent;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * A capability that can hold ingredient component storages.

@@ -1,0 +1,24 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "shredTofu"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "shredWhiteradish"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllmeatcooked"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCabbage"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:chunjuan"
+    }
+}

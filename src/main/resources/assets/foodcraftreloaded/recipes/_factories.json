@@ -1,0 +1,5 @@
+{
+    "recipes": {
+        "blasting": "com.projecturanus.foodcraft.common.recipe.BlastingRecipeFactory"
+    }
+}

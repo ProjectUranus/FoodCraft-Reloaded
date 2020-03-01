@@ -1,0 +1,14 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "item": "foodcraftreloaded:orlean_chicken_wings"
+        },
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:orlean_chicken_wings_rice"
+    }
+}

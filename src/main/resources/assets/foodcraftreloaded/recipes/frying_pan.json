@@ -1,0 +1,28 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "D#D",
+        "CCC"
+    ],
+    "key": {
+        "#": {
+            "item": "foodcraftreloaded:machine_casing"
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        "C": {
+            "type": "forge:ore_dict",
+            "ore": "circuitBasic"
+        },
+        "D": {
+            "type": "forge:ore_dict",
+            "ore": "blockGlass"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:frying_pan"
+    }
+}

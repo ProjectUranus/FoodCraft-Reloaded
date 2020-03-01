@@ -3,8 +3,6 @@ package org.cyclops.commoncapabilities.api.ingredient.storage;
 import org.cyclops.commoncapabilities.api.ingredient.IngredientComponent;
 
 import javax.annotation.Nonnull;
-import java.util.Collections;
-import java.util.Iterator;
 
 /**
  * A dummy slotted ingredient component storage that is empty.

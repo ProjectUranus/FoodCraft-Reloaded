@@ -48,6 +48,10 @@ repositories {
         url = "https://oss.jfrog.org/artifactory/simple/libs-release/"
     }
 	maven { url "https://kotlin.bintray.com/kotlinx" }
+	maven { // TOP
+		name 'tterrag maven'
+		url "http://maven.tterrag.com/"
+	}
 }
 
 minecraft {
@@ -64,6 +68,7 @@ dependencies {
 	compile "net.shadowfacts:Forgelin:1.8.4"
     deobfCompile "org.cyclops.commoncapabilities:CommonCapabilities:1.12.2-1.4.0-174:deobf"
 
+	compileOnly "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.28-17:api"
     testCompile "junit:junit:4.12"
 }
 

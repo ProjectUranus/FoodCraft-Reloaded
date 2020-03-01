@@ -5,7 +5,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 import java.util.Objects;
-import java.util.Random;
 
 /**
  * An inventory state implementation that wraps around an {@link IItemHandlerModifiable}.

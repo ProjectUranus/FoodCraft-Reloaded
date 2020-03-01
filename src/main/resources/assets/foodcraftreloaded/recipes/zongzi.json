@@ -1,0 +1,23 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "item": "foodcraftreloaded:zongye"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "string"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropStickyrice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllmeatcooked"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:zongzi"
+    }
+}

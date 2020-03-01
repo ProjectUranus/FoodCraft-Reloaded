@@ -1,0 +1,24 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodFloursticky"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodFloursticky"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropStickyrice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllwater"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:sticky_rice_dough"
+    }
+}

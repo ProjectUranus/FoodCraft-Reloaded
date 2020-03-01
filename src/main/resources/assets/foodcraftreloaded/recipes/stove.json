@@ -1,0 +1,35 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AGA",
+        "D#D",
+        "ECE"
+    ],
+    "key": {
+        "#": {
+            "item": "foodcraftreloaded:machine_casing"
+        },
+        "A": {
+            "item": "minecraft:flint_and_steel"
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "circuitBasic"
+        },
+        "G": {
+            "type": "forge:ore_dict",
+            "ore": "blockGlass"
+        },
+        "D": {
+            "type": "forge:ore_dict",
+            "ore": "dyeBrown"
+        },
+        "E": {
+            "type": "forge:ore_dict",
+            "ore": "redstone"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:stove"
+    }
+}

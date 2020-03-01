@@ -9,15 +9,11 @@
         "url": "https://github.com/NanamiArihara/FoodCraft-Reloaded",
         "updateUrl": "https://lasmgratel.github.io/FoodCraft-Reloaded/update.json",
         "authors": [
-            "Darost",
-            "Lasm_Gratel",
-            "ustc_zzzz",
-            "EntropyIncreaser"
+            "Lasm_Gratel"
         ],
         "parent": "",
         "screenshots": [],
         "dependencies": [
-            "mod_MinecraftForge"
         ]
     }
 ]

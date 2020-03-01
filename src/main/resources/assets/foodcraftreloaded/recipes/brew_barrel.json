@@ -1,0 +1,28 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "ABA",
+        "C#C",
+        "ABA"
+    ],
+    "key": {
+        "#": {
+            "item": "foodcraftreloaded:machine_casing"
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "plankWood"
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "circuitBasic"
+        },
+        "C": {
+            "type": "forge:ore_dict",
+            "ore": "dyeBrown"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:brew_barrel"
+    }
+}
