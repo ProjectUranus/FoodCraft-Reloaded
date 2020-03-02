@@ -1,3 +1,3 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-class TileEntityFryingPan : TileEntityMachine()
+class TileEntityFryingPan : TileEntityMachine(4)

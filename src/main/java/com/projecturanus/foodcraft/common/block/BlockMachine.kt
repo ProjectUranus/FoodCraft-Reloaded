@@ -10,6 +10,7 @@ import net.minecraft.block.state.BlockStateContainer
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.ItemStack
+import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.BlockRenderLayer
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.Mirror
@@ -71,6 +72,8 @@ abstract class BlockMachine : BlockHorizontal(Material.IRON), ITileEntityProvide
     override fun withMirror(state: IBlockState, mirrorIn: Mirror): IBlockState? {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)))
     }
+
+    fun <T : TileEntity> getTileEntity(world: World, pos: BlockPos) = world.getTileEntity(pos) as T
 
 
     override fun isOpaqueCube(state: IBlockState) = false

@@ -1,3 +1,3 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-class TileEntityPot : TileEntityMachine()
+class TileEntityPot : TileEntityMachine(14)

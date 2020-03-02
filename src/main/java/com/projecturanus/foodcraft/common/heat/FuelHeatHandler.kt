@@ -2,10 +2,13 @@ package com.projecturanus.foodcraft.common.heat
 
 import com.projecturanus.foodcraft.common.capability.ITemperature
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntityFurnace
 import net.minecraft.util.math.MathHelper
+import net.minecraftforge.common.util.INBTSerializable
+import org.cyclops.commoncapabilities.api.capability.work.IWorker
 
-class FuelHeatHandler : HeatHandler, FuelHandler {
+class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompound>, IWorker {
     data class FuelInfo(val level: Int, val heat: Int)
 
     private var encouragement = 0.0
@@ -15,6 +18,8 @@ class FuelHeatHandler : HeatHandler, FuelHandler {
     private var maxHeat: Double
     private var heatPower: Double
     var radiation: Double
+
+    var depleteListener: (() -> Unit)? = null
 
     constructor() {
         minHeat = 0.0
@@ -36,13 +41,15 @@ class FuelHeatHandler : HeatHandler, FuelHandler {
             encouragement = (encouragement - 0.01).coerceAtLeast(0.0)
             burnTime = MathHelper.clamp(burnTime, 0.0, maxBurnTime)
             heat += getHeatPower()
+        } else {
+            depleteListener?.invoke()
         }
         heat -= radiation
         heat = MathHelper.clamp(heat, minHeat, maximumTemperature)
     }
 
     override fun getHeatPower(): Double {
-        return if (getBurnTime() > 0) maxHeatPower else 0.0
+        return if (burnTime > 0) maxHeatPower else 0.0
     }
 
     override fun getMaxHeatPower(): Double {
@@ -109,16 +116,30 @@ class FuelHeatHandler : HeatHandler, FuelHandler {
         burnTime = MathHelper.clamp(burnTime + delta, 0.0, maxBurnTime)
     }
 
-    fun addFuel(stack: ItemStack): ItemStack {
-        var stack = stack
-        stack = stack.copy()
+    fun addFuel(stack: ItemStack): Int {
         val fuel = TileEntityFurnace.getItemBurnTime(stack)
         if (fuel > 0) {
             if (temperature + 20 < maximumTemperature) {
                 burnTime = MathHelper.clamp(burnTime + fuel, 0.0, maxBurnTime)
                 stack.shrink(1)
+                return fuel
             }
         }
-        return stack
+        return 0
     }
+
+    override fun deserializeNBT(nbt: NBTTagCompound) {
+        heat = nbt.getDouble("heat")
+        burnTime = nbt.getDouble("burnTime")
+    }
+
+    override fun serializeNBT(): NBTTagCompound {
+        val compound = NBTTagCompound()
+        compound.setDouble("heat", heat)
+        compound.setDouble("burnTime", burnTime)
+        return compound
+    }
+
+    override fun hasWork(): Boolean = heat <= maxHeat
+    override fun canWork(): Boolean = burnTime > 0
 }

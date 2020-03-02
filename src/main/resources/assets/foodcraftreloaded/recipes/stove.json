@@ -12,7 +12,7 @@
         "A": {
             "item": "minecraft:flint_and_steel"
         },
-        "B": {
+        "C": {
             "type": "forge:ore_dict",
             "ore": "circuitBasic"
         },

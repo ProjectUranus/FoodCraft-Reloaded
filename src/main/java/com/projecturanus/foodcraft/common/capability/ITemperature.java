@@ -33,4 +33,7 @@ public interface ITemperature extends org.cyclops.commoncapabilities.api.capabil
      */
     double getDefaultTemperature();
 
+    static double fromMinecraftTemperature(double mcTemp) {
+        return (13.6484805403*mcTemp)+7.0879687222 + ZERO_CELCIUS;
+    }
 }

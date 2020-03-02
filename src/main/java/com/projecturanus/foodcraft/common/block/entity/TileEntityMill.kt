@@ -1,3 +1,3 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-class TileEntityMill : TileEntityMachine()
+class TileEntityMill : TileEntityMachine(3)

@@ -35,6 +35,7 @@ group= mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions
 archivesBaseName = mod_id
 
 repositories {
+	jcenter()
 	maven {
 		// location of the maven that hosts JEI files
 		name = "Progwml6 maven"
@@ -54,6 +55,11 @@ repositories {
 	}
 }
 
+configurations {
+	shade
+	compile.extendsFrom shade
+}
+
 minecraft {
     version = minecraft_version + "-" + forge_version
     runDir = "run"
@@ -70,6 +76,15 @@ dependencies {
 
 	compileOnly "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.28-17:api"
     testCompile "junit:junit:4.12"
+}
+
+sourceSets {
+    main {
+        java {
+			srcDir 'src/main/java'
+            srcDir 'src/api/java'
+        }
+    }
 }
 
 processResources

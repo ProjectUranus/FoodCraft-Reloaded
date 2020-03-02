@@ -1,4 +1,65 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-class TileEntityStove : TileEntityMachine() {
+import com.projecturanus.foodcraft.common.capability.ITemperature
+import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
+import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
+import com.projecturanus.foodcraft.common.inventory.ObservableItemHandler
+import com.projecturanus.foodcraft.common.util.get
+import net.minecraft.nbt.NBTTagCompound
+import net.minecraft.tileentity.TileEntity
+import net.minecraft.tileentity.TileEntityFurnace
+import net.minecraft.util.EnumFacing
+import net.minecraft.util.ITickable
+import net.minecraftforge.common.capabilities.Capability
+import net.minecraftforge.items.CapabilityItemHandler
+
+class TileEntityStove : TileEntity(), ITickable {
+    val inventory: ObservableItemHandler = ObservableItemHandler(1)
+    val heatHandler: FuelHeatHandler = FuelHeatHandler()
+    var currentItemBurnTime: Int = 0
+
+    override fun onLoad() {
+        super.onLoad()
+        inventory.validation = { _, stack ->
+            TileEntityFurnace.isItemFuel(stack)
+        }
+        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
+        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 1000)
+        heatHandler.radiation = 0.2
+        heatHandler.heatPower = 0.3
+        heatHandler.depleteListener = {
+            if (!inventory[0].isEmpty)
+                currentItemBurnTime = heatHandler.addFuel(inventory[0])
+        }
+        inventory.contentChangedListener += {
+            if (!inventory[0].isEmpty && heatHandler.burnTime == 0.0)
+                currentItemBurnTime = heatHandler.addFuel(inventory[0])
+        }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : Any?> getCapability(capability: Capability<T>, facing: EnumFacing?): T? {
+        return when (capability) {
+            CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, InjectedCapabilities.INVENTORY_STATE -> inventory as T
+            InjectedCapabilities.TEMPERATURE -> heatHandler as T
+            InjectedCapabilities.WORKER -> heatHandler as T
+            else -> null
+        }
+    }
+
+    override fun readFromNBT(compound: NBTTagCompound) {
+        super.readFromNBT(compound)
+        inventory.deserializeNBT(compound.getCompoundTag("inventory"))
+        heatHandler.deserializeNBT(compound.getCompoundTag("heatHandler"))
+    }
+
+    override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
+        compound.setTag("inventory", inventory.serializeNBT())
+        compound.setTag("heatHandler", heatHandler.serializeNBT())
+        return super.writeToNBT(compound)
+    }
+
+    override fun update() {
+        heatHandler.update(0.0)
+    }
 }
