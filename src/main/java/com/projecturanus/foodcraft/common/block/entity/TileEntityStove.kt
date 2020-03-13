@@ -1,6 +1,5 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-import com.projecturanus.foodcraft.common.capability.ITemperature
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import com.projecturanus.foodcraft.common.inventory.ObservableItemHandler
@@ -12,6 +11,7 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.items.CapabilityItemHandler
+import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 class TileEntityStove : TileEntity(), ITickable {
     val inventory: ObservableItemHandler = ObservableItemHandler(1)
@@ -26,13 +26,13 @@ class TileEntityStove : TileEntity(), ITickable {
         heatHandler.minHeat = ITemperature.ZERO_CELCIUS
         heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 1000)
         heatHandler.radiation = 0.2
-        heatHandler.heatPower = 0.3
+        heatHandler.heatPower = 0.5
         heatHandler.depleteListener = {
             if (!inventory[0].isEmpty)
                 currentItemBurnTime = heatHandler.addFuel(inventory[0])
         }
         inventory.contentChangedListener += {
-            if (!inventory[0].isEmpty && heatHandler.burnTime == 0.0)
+            if (!inventory[0].isEmpty && heatHandler.burnTime <= 0.0)
                 currentItemBurnTime = heatHandler.addFuel(inventory[0])
         }
     }
@@ -45,6 +45,14 @@ class TileEntityStove : TileEntity(), ITickable {
             InjectedCapabilities.WORKER -> heatHandler as T
             else -> null
         }
+    }
+
+    override fun hasCapability(capability: Capability<*>, facing: EnumFacing?): Boolean {
+        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ||
+            capability == InjectedCapabilities.INVENTORY_STATE ||
+            capability == InjectedCapabilities.TEMPERATURE ||
+            capability == InjectedCapabilities.WORKER ||
+            super.hasCapability(capability, facing)
     }
 
     override fun readFromNBT(compound: NBTTagCompound) {

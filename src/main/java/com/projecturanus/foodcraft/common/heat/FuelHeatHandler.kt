@@ -1,11 +1,11 @@
 package com.projecturanus.foodcraft.common.heat
 
-import com.projecturanus.foodcraft.common.capability.ITemperature
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntityFurnace
 import net.minecraft.util.math.MathHelper
 import net.minecraftforge.common.util.INBTSerializable
+import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 import org.cyclops.commoncapabilities.api.capability.work.IWorker
 
 class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompound>, IWorker {
@@ -20,6 +20,8 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
     var radiation: Double
 
     var depleteListener: (() -> Unit)? = null
+    val temperatureSources = arrayListOf<ITemperature>()
+    val boundHandlers = arrayListOf<HeatHandler>()
 
     constructor() {
         minHeat = 0.0
@@ -36,14 +38,49 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
     }
 
     override fun update(bonusRate: Double) {
+        // Heating with source
+        for (source in temperatureSources) {
+            heat += MathHelper.clamp(source.temperature - temperature, -maxHeatPower, maxHeatPower)
+        }
+
+        // Heating with bound
+        var totalDelta = 0.0
+        for (source in boundHandlers) {
+            var delta = if (source.heatPower > heatPower) MathHelper.clamp(source.temperature - temperature, -source.heatPower / 2.0, heatPower / 2.0)
+            else MathHelper.clamp(source.temperature - temperature, -heatPower / 2.0, source.heatPower / 2.0)
+            delta = MathHelper.clamp(delta, -maxHeatPower / 2.0, maxHeatPower / 2.0)
+            if (delta == maxHeatPower || totalDelta == maxHeatPower) {
+                // Heat up (heat power fixed)
+                heat += maxHeatPower
+                source.addHeat(-maxHeatPower)
+                heat -= radiation
+                heat = MathHelper.clamp(heat, minHeat, maximumTemperature)
+                return
+            } else {
+                val temp = totalDelta
+                totalDelta = MathHelper.clamp(totalDelta + delta, -maxHeatPower / 2.0, maxHeatPower / 2.0)
+                source.addHeat(-(totalDelta - temp))
+            }
+        }
+        heat += totalDelta
+
+        // Heating with fuel
         if (burnTime > 0.0) {
+            // Decrease burn time
             burnTime -= (1.0 + bonusRate) * (1.0 + encouragement)
+
+            // Decrease encouragement
             encouragement = (encouragement - 0.01).coerceAtLeast(0.0)
+
+            // Restrict burn time not greater than max burn time
             burnTime = MathHelper.clamp(burnTime, 0.0, maxBurnTime)
+
+            // Heat up (heat power fixed)
             heat += getHeatPower()
-        } else {
+        } else if (heat != maxHeat) { // Depleted and as an only heat source
             depleteListener?.invoke()
         }
+        if (heat == minHeat) return
         heat -= radiation
         heat = MathHelper.clamp(heat, minHeat, maximumTemperature)
     }
@@ -52,8 +89,25 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
         return if (burnTime > 0) maxHeatPower else 0.0
     }
 
+    override fun bind(temperatureSource: ITemperature) {
+        temperatureSources += temperatureSource
+    }
+
+    override fun bind(heatHandler: HeatHandler) {
+        heatHandler.unbind(this)
+        boundHandlers += heatHandler
+    }
+
     override fun getMaxHeatPower(): Double {
         return heatPower
+    }
+
+    override fun unbind(temperatureSource: ITemperature) {
+        temperatureSources -= temperatureSource
+    }
+
+    override fun unbind(heatHandler: HeatHandler) {
+        boundHandlers -= heatHandler
     }
 
     fun setHeatPower(heatPower: Double) {

@@ -2,6 +2,7 @@ package com.projecturanus.foodcraft.common.recipe
 
 import com.google.gson.JsonObject
 import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.IRecipe
 import net.minecraft.util.JsonUtils
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.crafting.CraftingHelper
@@ -11,7 +12,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 class BlastingRecipeFactory : IRecipeFactory {
-    override fun parse(context: JsonContext, json: JsonObject): BlastingRecipe {
+    override fun parse(context: JsonContext, json: JsonObject): IRecipe? {
         val ingredient = CraftingHelper.getIngredient(json["ingredient"], context)
 
         val result = ItemStack(ForgeRegistries.ITEMS.getValue(ResourceLocation(JsonUtils.getString(json, "result"))))
@@ -19,6 +20,6 @@ class BlastingRecipeFactory : IRecipeFactory {
         ingredient.matchingStacks.forEach {
             GameRegistry.addSmelting(it, result, exp)
         }
-        return BlastingRecipe()
+        return DummyRecipe.RecipeWrapper<Void>(null)
     }
 }

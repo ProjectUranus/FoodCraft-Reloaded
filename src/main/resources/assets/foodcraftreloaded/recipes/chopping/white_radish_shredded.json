@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "cropWhiteradish"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:white_radish_shredded",
+        "count": 3
+    }
+}

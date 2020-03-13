@@ -1,38 +1,37 @@
-package com.projecturanus.foodcraft.client
+package com.projecturanus.foodcraft.client.gui
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.client.gui.widget.WidgetHeat
 import com.projecturanus.foodcraft.common.block.container.ContainerMachine
 import com.projecturanus.foodcraft.common.block.entity.TileEntityStove
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
-import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.util.ResourceLocation
 
-val TEXTURES = ResourceLocation(MODID, "textures/gui/container/stove.png")
+val STOVE_TEXTURES = ResourceLocation(MODID, "textures/gui/container/stove.png")
 
-class GuiContainerStove(container: ContainerMachine) : GuiContainerMachine(container) {
+class GuiContainerStove(container: ContainerMachine) : GuiContainerMachine(container, STOVE_TEXTURES) {
     val fuelHandler by lazy { container.tileEntity.getCapability(InjectedCapabilities.TEMPERATURE, null) as FuelHeatHandler }
     val currentBurnTime = (container.tileEntity as TileEntityStove)::currentItemBurnTime
 
-    override fun drawGuiContainerBackgroundLayer(partialTicks: Float, mouseX: Int, mouseY: Int) {
-        GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f)
-        mc.textureManager.bindTexture(TEXTURES)
-        val i = (width - xSize) / 2
-        val j = (height - ySize) / 2
-        this.drawTexturedModalRect(i, j, 0, 0, xSize, ySize)
+    val widgetHeat = WidgetHeat()
 
-        if (fuelHandler.canWork()) {
-            val k = getBurnLeftScaled(13)
-            this.drawTexturedModalRect(i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1)
-        }
+    override fun initGui() {
+        super.initGui()
+        widgetHeat.temperature = fuelHandler
+        widgetHeat.setWorldAndResolution(mc, width, height)
     }
 
-    private fun getBurnLeftScaled(pixels: Int): Int {
-        var i: Int = fuelHandler.burnTime.toInt()
-        if (i == 0) {
-            i = 200
+    override fun drawGuiContainerBackgroundLayer(partialTicks: Float, mouseX: Int, mouseY: Int) {
+        super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY)
+        val i = (width - xSize) / 2
+        val j = (height - ySize) / 2
+
+        widgetHeat.draw(i + 81, j + 48, mouseX, mouseY, partialTicks)
+
+        if (fuelHandler.hasWork()) {
+            this.drawTexturedModalRect(i + 83, j + 22, 176, 14, 9, 9)
         }
-        return currentBurnTime.get() * pixels / i
     }
 
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {

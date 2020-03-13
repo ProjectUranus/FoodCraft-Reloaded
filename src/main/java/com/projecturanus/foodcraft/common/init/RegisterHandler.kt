@@ -7,6 +7,8 @@ import com.projecturanus.foodcraft.common.VegetableTypes.*
 import com.projecturanus.foodcraft.common.block.*
 import com.projecturanus.foodcraft.common.item.*
 import com.projecturanus.foodcraft.common.util.Colorable
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import net.minecraft.block.Block
 import net.minecraft.block.BlockCrops
 import net.minecraft.block.material.Material
@@ -118,73 +120,81 @@ object RegisterHandler {
     }
 
     fun registerPlants() {
-        plantVegetables.forEach {
-            val capitalized = it.toString().replace("_", "").capitalize()
-            val blockCrop = BlockCrop().apply {
-                setRegistryName(MODID, it.toString())
+        runBlocking {
+            plantVegetables.forEach {
+                launch {
+                    val capitalized = it.toString().replace("_", "").capitalize()
+                    val blockCrop = BlockCrop().apply {
+                        setRegistryName(MODID, it.toString())
+                    }
+                    PLANTS += blockCrop
+                    blockQueue += blockCrop
+                    itemQueue += crop(null, blockCrop) {
+                        setRegistryName(MODID, it.toString())
+                        creativeTab = FcTabPlant
+                        translationKey = "$MODID.$it"
+                        CROPS += this@crop
+                        blockCrop.cropItem = this
+                        MinecraftForge.addGrassSeed(ItemStack(this), 2)
+                    } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllveggie")
+                }
             }
-            PLANTS += blockCrop
-            blockQueue += blockCrop
-            itemQueue += crop(null, blockCrop) {
-                setRegistryName(MODID, it.toString())
-                creativeTab = FcTabPlant
-                translationKey = "$MODID.$it"
-                CROPS += this@crop
-                blockCrop.cropItem = this
-                MinecraftForge.addGrassSeed(ItemStack(this), 2)
-            } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllveggie")
-        }
-        plantFruits.forEach {
-            val capitalized = it.toString().replace("_", "").capitalize()
-            val blockCrop = BlockCrop().apply {
-                setRegistryName(MODID, it.toString())
+            plantFruits.forEach {
+                launch {
+                    val capitalized = it.toString().replace("_", "").capitalize()
+                    val blockCrop = BlockCrop().apply {
+                        setRegistryName(MODID, it.toString())
+                    }
+                    PLANTS += blockCrop
+                    blockQueue += blockCrop
+                    itemQueue += crop(null, blockCrop) {
+                        setRegistryName(MODID, it.toString())
+                        creativeTab = FcTabPlant
+                        translationKey = "$MODID.$it"
+                        CROPS += this@crop
+                        blockCrop.cropItem = this
+                        MinecraftForge.addGrassSeed(ItemStack(this), 2)
+                    } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllfruit")
+                }
             }
-            PLANTS += blockCrop
-            blockQueue += blockCrop
-            itemQueue += crop(null, blockCrop) {
-                setRegistryName(MODID, it.toString())
-                creativeTab = FcTabPlant
-                translationKey = "$MODID.$it"
-                CROPS += this@crop
-                blockCrop.cropItem = this
-                MinecraftForge.addGrassSeed(ItemStack(this), 2)
-            } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllfruit")
-        }
-        saplingFruits.forEach {
-            val fruit = food(name = it.toString(), healAmount = 1, saturation = 0.6f) {}
-            val blockLeaves = BlockFruitLeaves(fruit).apply {
-                setRegistryName(MODID, "${it}_leaves")
-                baseTranslationKey = "item.$MODID.leaves.name"
-                realTranslationKey = "item.$MODID.$it.name"
+            saplingFruits.forEach {
+                launch {
+                    val fruit = food(name = it.toString(), healAmount = 1, saturation = 0.6f) {}
+                    val blockLeaves = BlockFruitLeaves(fruit).apply {
+                        setRegistryName(MODID, "${it}_leaves")
+                        baseTranslationKey = "item.$MODID.leaves.name"
+                        realTranslationKey = "item.$MODID.$it.name"
+                    }
+                    val blockSapling = BlockFruitSapling(blockLeaves.defaultState).apply {
+                        setRegistryName(MODID, "${it}_sapling")
+                        baseTranslationKey = "item.$MODID.sapling.name"
+                        realTranslationKey = "item.$MODID.$it.name"
+                    }
+                    itemQueue += fruit to arrayOf("crop${it.toString().capitalize()}", "listAllfruit")
+                    DEFAULT_MODEL_ITEMS += fruit
+                    blockQueue += blockLeaves
+                    LEAVES += blockLeaves
+                    blockQueue += blockSapling
+                    SAPLINGS += blockSapling
+                    itemQueue += ItemBlock(blockLeaves).apply {
+                        setRegistryName(MODID, "${it}_leaves")
+                    } to arrayOf("treeLeaves")
+                    itemQueue += ItemBlock(blockSapling).apply {
+                        setRegistryName(MODID, "${it}_sapling")
+                    } to arrayOf("treeSapling")
+                }
             }
-            val blockSapling = BlockFruitSapling(blockLeaves.defaultState).apply {
-                setRegistryName(MODID, "${it}_sapling")
-                baseTranslationKey = "item.$MODID.sapling.name"
-                realTranslationKey = "item.$MODID.$it.name"
-            }
-            itemQueue += fruit to arrayOf("crop${it.toString().capitalize()}", "listAllfruit")
-            DEFAULT_MODEL_ITEMS += fruit
-            blockQueue += blockLeaves
-            LEAVES += blockLeaves
-            blockQueue += blockSapling
-            SAPLINGS += blockSapling
-            itemQueue += ItemBlock(blockLeaves).apply {
-                setRegistryName(MODID, "${it}_leaves")
-            } to arrayOf("treeLeaves")
-            itemQueue += ItemBlock(blockSapling).apply {
-                setRegistryName(MODID, "${it}_sapling")
-            } to arrayOf("treeSapling")
-        }
 
-        val greenOnion = BlockSugarLike().apply {
-            setRegistryName(MODID, "green_onion")
-            translationKey = "$MODID.green_onion"
+            val greenOnion = BlockSugarLike().apply {
+                setRegistryName(MODID, "green_onion")
+                translationKey = "$MODID.green_onion"
+            }
+            blockQueue += greenOnion
+            itemQueue += ItemSugarLike(greenOnion).apply {
+                setRegistryName(MODID, "green_onion")
+                translationKey = "$MODID.green_onion"
+            } to arrayOf("foodGreenonion", "listAllgreenveggie")
         }
-        blockQueue += greenOnion
-        itemQueue += ItemSugarLike(greenOnion).apply {
-            setRegistryName(MODID, "green_onion")
-            translationKey = "$MODID.green_onion"
-        } to arrayOf("foodGreenonion", "listAllgreenveggie")
 
         DEFAULT_MODEL_ITEMS.addAll(itemQueue.map(Pair<Item, Array<String>>::first))
     }
@@ -525,11 +535,11 @@ object RegisterHandler {
         // 汉堡
         snack("hamburger", 12)
         // 鱿鱼肉
-        snack("squid_meat", 8, "listAllmeatraw")
+        snack("squid_meat", 4, "listAllmeatraw", "foodCalamariraw")
         // 烤鱿鱼肉
-        snack("cooked_squid_meat", 10, "listAllmeatcooked")
+        snack("cooked_squid_meat", 6, "listAllmeatcooked", "foodCalamaricooked")
         // 鱿鱼丝
-        snack("squid_slice", 3)
+        snack("squid_slice", 1)
         // 烤红薯
         snack("cooked_sweet_potato", 8)
         // 烤玉米
@@ -560,7 +570,7 @@ object RegisterHandler {
         drink("milk_tea", 7, Color(0xc29833), -1, "foodMilktea")
         drink("coffee", 7, Color(0x50462d), -1, "foodCoffee")
         drinkColorables.forEach {
-            drink("${it}_juice", 7, it.color, -1, "listAlljuice", "food" + it.toString().capitalize()).apply {
+            drink("${it}_juice", 7, it.color, -1, "listAlljuice", "food${it.toString().capitalize()}juice").apply {
                 realTranslationKey = "item.$MODID.$it.name"
                 hasSuffix = true
                 baseTranslationKey = "item.$MODID.juice.name"

@@ -1,0 +1,13 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "item": "foodcraftreloaded:potato_sliced"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:potato_shredded",
+        "count": 2
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "cropCarrot"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:carrot_shredded",
+        "count": 3
+    }
+}

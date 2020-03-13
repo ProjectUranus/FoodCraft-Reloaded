@@ -11,7 +11,7 @@ fun IItemHandler.iterator() = object : ListIterator<ItemStack> {
 
     override fun hasNext(): Boolean = slots > index
 
-    override fun next(): ItemStack = this@iterator[++index]
+    override fun next(): ItemStack = this@iterator[index++]
 
     override fun hasPrevious(): Boolean = index > 0
 
@@ -28,7 +28,7 @@ fun IItemHandlerModifiable.iterator() = object : MutableListIterator<ItemStack> 
 
     override fun hasNext(): Boolean = slots > index
 
-    override fun next(): ItemStack = this@iterator[++index]
+    override fun next(): ItemStack = this@iterator[index++]
 
     override fun hasPrevious(): Boolean = index > 0
 

@@ -1,6 +1,8 @@
 package com.projecturanus.foodcraft.common.heat;
 
-import com.projecturanus.foodcraft.common.capability.ITemperature;
+import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature;
+
+import javax.annotation.Nonnull;
 
 public interface HeatHandler extends ITemperature
 {
@@ -13,4 +15,10 @@ public interface HeatHandler extends ITemperature
     double getHeatPower();
 
     double getMaxHeatPower();
+
+    void bind(@Nonnull ITemperature temperatureSource);
+    void unbind(@Nonnull ITemperature temperatureSource);
+
+    void bind(@Nonnull HeatHandler heatHandler);
+    void unbind(@Nonnull HeatHandler heatHandler);
 }

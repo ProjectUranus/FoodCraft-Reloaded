@@ -1,0 +1,13 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "item": "minecraft:potato"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:potato_sliced",
+        "count": 3
+    }
+}

@@ -37,15 +37,15 @@ class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) :
                 slot.onSlotChange(slot.stack, stack)
             }
             in 1..27 -> { // Player inventory (exclude hotbar)
-                if (!mergeItemStack(slot.stack, 0, 1, false))
+                if (mergeItemStack(slot.stack, 0, 1, false))
                     return ItemStack.EMPTY
-                else if (!mergeItemStack(slot.stack, 28, 37, false))
+                else if (mergeItemStack(slot.stack, 28, 37, false))
                     return ItemStack.EMPTY
             }
             in 28..36 -> { // Hotbar
-                if (!mergeItemStack(slot.stack, 0, 1, false))
+                if (mergeItemStack(slot.stack, 0, 1, false))
                     return ItemStack.EMPTY
-                else if (!mergeItemStack(slot.stack, 1, 28, false))
+                else if (mergeItemStack(slot.stack, 1, 28, false))
                     return ItemStack.EMPTY
             }
         }

@@ -1,0 +1,13 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": "XX ",
+    "key": {
+        "X": {
+            "item": "minecraft:cooked_chicken"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:chicken_large",
+        "count": 3
+    }
+}

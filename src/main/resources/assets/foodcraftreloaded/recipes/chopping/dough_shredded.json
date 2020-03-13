@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "foodDough"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:dough_shredded",
+        "count": 3
+    }
+}

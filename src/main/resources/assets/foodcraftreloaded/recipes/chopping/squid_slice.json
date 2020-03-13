@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "foodCalamariraw"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:squid_slice",
+        "count": 2
+    }
+}

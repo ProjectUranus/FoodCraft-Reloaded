@@ -3,7 +3,7 @@ package com.projecturanus.foodcraft.common.block
 import com.projecturanus.foodcraft.FoodCraftReloaded
 import com.projecturanus.foodcraft.common.STOVE
 import com.projecturanus.foodcraft.common.block.entity.TileEntityStove
-import com.projecturanus.foodcraft.common.capability.ITemperature
+import com.projecturanus.foodcraft.common.capability.fromMinecraftTemperature
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.player.EntityPlayer
@@ -20,8 +20,7 @@ class BlockStove : BlockMachine() {
 
     override fun onBlockPlacedBy(worldIn: World, pos: BlockPos, state: IBlockState, placer: EntityLivingBase, stack: ItemStack) {
         super.onBlockPlacedBy(worldIn, pos, state, placer, stack)
-
-        getTileEntity<TileEntityStove>(worldIn, pos).heatHandler.minHeat = ITemperature.fromMinecraftTemperature(worldIn.getBiome(pos).getTemperature(pos).toDouble())
+        getTileEntity<TileEntityStove>(worldIn, pos).heatHandler.minHeat = fromMinecraftTemperature(worldIn.getBiome(pos).getTemperature(pos).toDouble())
     }
 
     override fun onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {

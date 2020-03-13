@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": " X ",
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "foodSilkentofu"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:tofu_shredded",
+        "count": 3
+    }
+}

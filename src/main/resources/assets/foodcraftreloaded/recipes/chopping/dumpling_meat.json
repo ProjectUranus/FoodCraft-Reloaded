@@ -1,0 +1,18 @@
+{
+    "type": "foodcraftreloaded:chopping",
+    "pattern": "XY ",
+    "key": {
+        "X": {
+            "type": "forge:ore_dict",
+            "ore": "listAllporkcooked"
+        },
+        "Y": {
+            "type": "forge:ore_dict",
+            "ore": "foodCabbage"
+        }
+    },
+    "result": {
+        "item": "foodcraftreloaded:dumpling_meat",
+        "count": 2
+    }
+}

@@ -1,7 +1,6 @@
 package com.projecturanus.foodcraft.common.integration.theoneprobe
 
 import com.projecturanus.foodcraft.MODID
-import com.projecturanus.foodcraft.common.capability.ITemperature
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import mcjty.theoneprobe.api.IProbeHitData
@@ -11,6 +10,7 @@ import mcjty.theoneprobe.api.ProbeMode
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.world.World
+import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 object HeatInfoProvider : IProbeInfoProvider {
     override fun addProbeInfo(mode: ProbeMode, probeInfo: IProbeInfo, player: EntityPlayer, world: World, blockState: IBlockState, data: IProbeHitData) {
