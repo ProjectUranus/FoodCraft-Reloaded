@@ -7,6 +7,7 @@ import com.projecturanus.foodcraft.common.VegetableTypes.*
 import com.projecturanus.foodcraft.common.block.*
 import com.projecturanus.foodcraft.common.item.*
 import com.projecturanus.foodcraft.common.util.Colorable
+import com.projecturanus.foodcraft.fluid.FluidMilk
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import net.minecraft.block.Block
@@ -21,6 +22,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.potion.PotionEffect
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.RegistryEvent
+import net.minecraftforge.fluids.BlockFluidClassic
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.oredict.OreDictionary
@@ -235,7 +237,8 @@ object RegisterHandler {
             BlockPot().setRegistryName(MODID, "pot").setTranslationKey("$MODID.pot").itemBlock(),
             BlockPressureCooker().setRegistryName(MODID, "pressure_cooker").setTranslationKey("$MODID.pressure_cooker").itemBlock(),
             BlockStove().setRegistryName(MODID, "stove").setTranslationKey("$MODID.stove").itemBlock(),
-            Block(Material.ROCK).setRegistryName(MODID, "machine_casing").setTranslationKey("$MODID.machine_casing").itemBlock()
+            Block(Material.ROCK).setRegistryName(MODID, "machine_casing").setTranslationKey("$MODID.machine_casing").itemBlock(),
+            BlockFluidClassic(FluidMilk, Material.WATER).setRegistryName(MODID, "milk").setTranslationKey("$MODID.milk")
         )
     }
 

@@ -1,5 +1,8 @@
 package com.projecturanus.foodcraft.common.heat
 
+import net.minecraft.init.Blocks
+import net.minecraft.init.Items
+import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntityFurnace
@@ -13,15 +16,26 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
 
     private var encouragement = 0.0
     private var burnTimeInternal = 0.0
+    var coolTime = 0.0
     private var heat = 0.0
     var minHeat: Double
     private var maxHeat: Double
     private var heatPower: Double
     var radiation: Double
+    var cool = false
 
     var depleteListener: (() -> Unit)? = null
     val temperatureSources = arrayListOf<ITemperature>()
     val boundHandlers = arrayListOf<HeatHandler>()
+
+    companion object {
+        val COOLANTS = mutableMapOf(
+            Item.getItemFromBlock(Blocks.ICE) to 400,
+            Item.getItemFromBlock(Blocks.FROSTED_ICE) to 800,
+            Item.getItemFromBlock(Blocks.PACKED_ICE) to 900,
+            Items.SNOWBALL to 100
+        )
+    }
 
     constructor() {
         minHeat = 0.0
@@ -75,13 +89,21 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
             // Restrict burn time not greater than max burn time
             burnTime = MathHelper.clamp(burnTime, 0.0, maxBurnTime)
 
-            // Heat up (heat power fixed)
-            heat += getHeatPower()
+            if (cool)
+                // Cool down
+                heat -= getHeatPower()
+            else
+                // Heat up (heat power fixed)
+                heat += getHeatPower()
         } else if (heat != maxHeat) { // Depleted and as an only heat source
             depleteListener?.invoke()
         }
-        if (heat == minHeat) return
-        heat -= radiation
+        if (heat <= minHeat && !cool) return
+        if (heat >= maxHeat && cool) return
+        if (cool)
+            heat += radiation
+        else
+            heat -= radiation
         heat = MathHelper.clamp(heat, minHeat, maximumTemperature)
     }
 
@@ -131,7 +153,7 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
     }
 
     override fun getMinimumTemperature(): Double {
-        return ITemperature.ZERO_CELCIUS
+        return minHeat
     }
 
     override fun getDefaultTemperature(): Double {
@@ -170,6 +192,17 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
         burnTime = MathHelper.clamp(burnTime + delta, 0.0, maxBurnTime)
     }
 
+    fun addCoolant(stack: ItemStack): Int {
+        val item = stack.item
+        if (COOLANTS.containsKey(item)) {
+            stack.shrink(1)
+            val coolTime = COOLANTS[item] ?: 0
+            addBurnTime(coolTime.toDouble())
+            return coolTime
+        }
+        return 0
+    }
+
     fun addFuel(stack: ItemStack): Int {
         val fuel = TileEntityFurnace.getItemBurnTime(stack)
         if (fuel > 0) {
@@ -194,6 +227,6 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
         return compound
     }
 
-    override fun hasWork(): Boolean = heat <= maxHeat
+    override fun hasWork(): Boolean = if (cool) heat >= minHeat else heat <= maxHeat
     override fun canWork(): Boolean = burnTime > 0
 }

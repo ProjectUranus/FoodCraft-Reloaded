@@ -5,7 +5,7 @@ import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.util.ResourceLocation
 
-abstract class GuiContainerMachine(val container: ContainerMachine, val textures: ResourceLocation) : GuiContainer(container) {
+abstract class GuiContainerMachine(open val container: ContainerMachine, val textures: ResourceLocation) : GuiContainer(container) {
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
         drawDefaultBackground()
         super.drawScreen(mouseX, mouseY, partialTicks)

@@ -1,0 +1,1 @@
+{"type":"foodcraftreloaded:beverage_making","ingredient":{"type":"forge:ore_dict","ore":"cropCucumber"},"cool":true,"fluidInput":{"fluid":"water","amount":1000},"result":{"item":"foodcraftreloaded:cucumber_juice"}}

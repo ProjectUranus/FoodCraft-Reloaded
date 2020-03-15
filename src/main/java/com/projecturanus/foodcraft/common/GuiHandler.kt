@@ -23,7 +23,7 @@ object GuiHandler : IGuiHandler {
     @SideOnly(Side.CLIENT)
     override fun getClientGuiElement(ID: Int, player: EntityPlayer, world: World, x: Int, y: Int, z: Int): Any? =
         when (ID) {
-            STOVE -> GuiContainerStove(getServerGuiElement(ID, player, world, x, y, z) as ContainerMachine)
+            STOVE -> GuiContainerStove(getServerGuiElement(ID, player, world, x, y, z) as ContainerStove)
             BEVERAGE_MAKING -> GuiContainerBeverageMaking(getServerGuiElement(ID, player, world, x, y, z) as ContainerBeverageMaking)
             BREW_BARREL -> GuiContainerBrewBarrel(getServerGuiElement(ID, player, world, x, y, z) as ContainerBrewBarrel)
             CHOPPING_BOARD -> GuiContainerChoppingBoard(getServerGuiElement(ID, player, world, x, y, z) as ContainerChoppingBoard)

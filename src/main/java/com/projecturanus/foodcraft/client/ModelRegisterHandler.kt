@@ -6,15 +6,19 @@ import com.projecturanus.foodcraft.common.util.Colorable
 import com.projecturanus.foodcraft.common.util.Maskable
 import net.minecraft.block.BlockLeaves
 import net.minecraft.block.BlockSapling
+import net.minecraft.block.state.IBlockState
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
+import net.minecraft.client.renderer.block.statemap.StateMapperBase
 import net.minecraft.client.renderer.color.IItemColor
 import net.minecraft.item.Item
 import net.minecraftforge.client.event.ColorHandlerEvent
 import net.minecraftforge.client.event.ModelRegistryEvent
 import net.minecraftforge.client.model.ModelLoader
+import net.minecraftforge.fluids.BlockFluidBase
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.relauncher.Side
+import net.minecraftforge.fml.relauncher.SideOnly
 
 
 @Mod.EventBusSubscriber(value = [Side.CLIENT], modid = MODID)
@@ -38,6 +42,21 @@ object ModelRegisterHandler {
             ModelLoader.setCustomStateMapper(block) { BlockSapling.STAGE.allowedValues.asSequence().map { value -> it.defaultState.withProperty(BlockSapling.STAGE, value) to ModelResourceLocation(it.registryName, "normal") }.toMap() }
             registerDefault(Item.getItemFromBlock(block))
         }
+
+        registerFluidRender(FCRBlocks.MILK!!, "fluid_milk")
+    }
+
+
+    @SideOnly(Side.CLIENT)
+    fun registerFluidRender(blockFluid: BlockFluidBase, blockStateName: String) {
+        val location: String = "$MODID:$blockStateName"
+        val itemFluid = Item.getItemFromBlock(blockFluid)
+        ModelLoader.setCustomMeshDefinition(itemFluid) { ModelResourceLocation(location, "fluid") }
+        ModelLoader.setCustomStateMapper(blockFluid, object : StateMapperBase() {
+            override fun getModelResourceLocation(state: IBlockState): ModelResourceLocation {
+                return ModelResourceLocation(location, "fluid")
+            }
+        })
     }
 
     @JvmStatic

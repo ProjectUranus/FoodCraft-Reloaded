@@ -1,0 +1,15 @@
+{
+    "type": "foodcraftreloaded:beverage_making",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "treeLeaves"
+    },
+    "cool": false,
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:tea"
+    }
+}

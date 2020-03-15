@@ -9,6 +9,8 @@ import net.minecraft.util.text.ITextComponent
 import net.minecraft.util.text.TextComponentString
 import net.minecraft.util.text.TextComponentTranslation
 import net.minecraft.world.IWorldNameable
+import net.minecraftforge.fml.relauncher.Side
+import net.minecraftforge.fml.relauncher.SideOnly
 
 open class ContainerMachine(val playerInventory: InventoryPlayer, val tileEntity: TileEntity) : Container(), IWorldNameable {
     override fun canInteractWith(playerIn: EntityPlayer): Boolean = true
@@ -21,4 +23,12 @@ open class ContainerMachine(val playerInventory: InventoryPlayer, val tileEntity
 
     override fun getDisplayName(): ITextComponent =
         if (hasCustomName()) TextComponentString(this.name) else TextComponentTranslation(this.name)
+
+    override fun detectAndSendChanges() {
+        super.detectAndSendChanges()
+    }
+
+    @SideOnly(Side.CLIENT)
+    override fun updateProgressBar(id: Int, data: Int) {
+    }
 }

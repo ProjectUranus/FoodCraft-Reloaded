@@ -1,0 +1,15 @@
+{
+    "type": "foodcraftreloaded:beverage_making",
+    "ingredient": {
+        "item": "minecraft:apple"
+    },
+    "cool": true,
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:apple_juice",
+        "count": 1
+    }
+}

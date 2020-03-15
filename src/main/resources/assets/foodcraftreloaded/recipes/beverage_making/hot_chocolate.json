@@ -1,0 +1,11 @@
+{
+    "type": "foodcraftreloaded:beverage_making",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "foodChocolatebar"
+    },
+    "cool": false,
+    "result": {
+        "item": "foodcraftreloaded:hot_chocolate"
+    }
+}

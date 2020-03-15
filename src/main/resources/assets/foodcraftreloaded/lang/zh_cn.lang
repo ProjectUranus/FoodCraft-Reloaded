@@ -285,3 +285,6 @@ item.foodcraftreloaded.cyl18.lore=变幻出随机的冰激凌效果~
 # Shp241
 item.foodcraftreloaded.shp241.name=Shp烤鱿鱼
 item.foodcraftreloaded.shp241.lore=鱿鱼先生, 我们以shp241的名义起誓
+
+# Fluid
+fluid.milk=牛奶

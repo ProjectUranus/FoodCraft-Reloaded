@@ -1,0 +1,1 @@
+{"type":"foodcraftreloaded:beverage_making","ingredient":{"type":"forge:ore_dict","ore":"cropPersimmon"},"cool":true,"fluidInput":{"fluid":"water","amount":1000},"result":{"item":"foodcraftreloaded:persimmon_juice"}}

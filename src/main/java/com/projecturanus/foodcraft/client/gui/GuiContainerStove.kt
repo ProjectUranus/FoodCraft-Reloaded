@@ -2,7 +2,7 @@ package com.projecturanus.foodcraft.client.gui
 
 import com.projecturanus.foodcraft.MODID
 import com.projecturanus.foodcraft.client.gui.widget.WidgetHeat
-import com.projecturanus.foodcraft.common.block.container.ContainerMachine
+import com.projecturanus.foodcraft.common.block.container.ContainerStove
 import com.projecturanus.foodcraft.common.block.entity.TileEntityStove
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
@@ -10,11 +10,11 @@ import net.minecraft.util.ResourceLocation
 
 val STOVE_TEXTURES = ResourceLocation(MODID, "textures/gui/container/stove.png")
 
-class GuiContainerStove(container: ContainerMachine) : GuiContainerMachine(container, STOVE_TEXTURES) {
+class GuiContainerStove(override val container: ContainerStove) : GuiContainerMachine(container, STOVE_TEXTURES) {
     val fuelHandler by lazy { container.tileEntity.getCapability(InjectedCapabilities.TEMPERATURE, null) as FuelHeatHandler }
     val currentBurnTime = (container.tileEntity as TileEntityStove)::currentItemBurnTime
 
-    val widgetHeat = WidgetHeat()
+    val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
 
     override fun initGui() {
         super.initGui()

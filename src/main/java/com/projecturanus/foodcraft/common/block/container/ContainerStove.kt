@@ -1,7 +1,11 @@
 package com.projecturanus.foodcraft.common.block.container
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.block.entity.TileEntityStove
+import com.projecturanus.foodcraft.common.network.CHANNAL
+import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
 import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.entity.player.EntityPlayerMP
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.Slot
 import net.minecraft.item.ItemStack
@@ -9,7 +13,9 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
-class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerMachine(playerInventory, tileEntity) {
+class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerMachine(playerInventory, tileEntity), HeatContainer {
+    override var heat = 0.0
+
     init {
         val itemHandler = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)
         addSlotToContainer(SlotItemHandler(itemHandler, 0, 80, 54))
@@ -51,6 +57,13 @@ class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) :
         }
         if (stack.isEmpty) slot.putStack(ItemStack.EMPTY)
         return stack
+    }
+
+    override fun detectAndSendChanges() {
+        super.detectAndSendChanges()
+        listeners.asSequence().filter { it is EntityPlayerMP }.forEach {
+            CHANNAL.sendTo(S2CContainerHeatUpdate((tileEntity as TileEntityStove).heatHandler.temperature), it as EntityPlayerMP)
+        }
     }
 
     override fun getName(): String = "tile.$MODID.stove.name"

@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(FoodCraftReloadedKt.MODID)
 public class FCRItems {
     public static final Item CHOPPING_BOARD = null;
+    public static final Item BEVERAGE_MAKING = null;
     public static final ItemDrink GRAPE_JUICE = null;
     public static final Item GLASS_CUP = null;
     public static final Item ORIGINAL_ICE_CREAM = null;

@@ -4,7 +4,7 @@ import com.projecturanus.foodcraft.MODID
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fluids.Fluid
 
-class FluidMilk : Fluid("milk", ResourceLocation(MODID, "milk_still"), ResourceLocation(MODID, "milk_flow")) {
+object FluidMilk : Fluid("milk", ResourceLocation(MODID, "fluid/milk_still"), ResourceLocation(MODID, "fluid/milk_flow")) {
     init {
         color = 0xffffff
         this.setDensity(13600)

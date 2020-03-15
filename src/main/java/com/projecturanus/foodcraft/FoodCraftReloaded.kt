@@ -3,7 +3,10 @@ package com.projecturanus.foodcraft
 import com.projecturanus.foodcraft.common.GuiHandler
 import com.projecturanus.foodcraft.common.block.entity.*
 import com.projecturanus.foodcraft.common.init.RegisterHandler
+import com.projecturanus.foodcraft.common.network.registerMessages
+import com.projecturanus.foodcraft.fluid.FluidMilk
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fml.common.Loader
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLConstructionEvent
@@ -32,6 +35,9 @@ object FoodCraftReloaded {
             if (FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "com.projecturanus.foodcraft.common.integration.theoneprobe.TOPIntegration"))
                 logger.info("The One Probe Integration Initialized")
         }
+        FluidRegistry.registerFluid(FluidMilk)
+        FluidRegistry.addBucketForFluid(FluidMilk)
+        registerMessages()
     }
 
     fun registerTileEntities() {

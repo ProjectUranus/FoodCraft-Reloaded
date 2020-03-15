@@ -1,0 +1,1 @@
+{"type":"foodcraftreloaded:beverage_making","ingredient":{"type":"forge:ore_dict","ore":"cropGrape"},"cool":true,"fluidInput":{"fluid":"water","amount":1000},"result":{"item":"foodcraftreloaded:grape_juice"}}

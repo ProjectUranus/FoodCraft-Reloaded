@@ -264,3 +264,6 @@ tooltip.fcrfood.liqueur.type.cocktail=Cocktail
 
 # Energy
 tooltip.fcr.energy=Energy: %sJ
+
+# Fluid
+fluid.milk=Milk

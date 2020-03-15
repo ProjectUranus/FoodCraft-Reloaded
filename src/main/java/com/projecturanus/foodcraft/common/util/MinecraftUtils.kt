@@ -1,10 +1,30 @@
 package com.projecturanus.foodcraft.common.util
 
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
 import net.minecraftforge.items.IItemHandler
 import net.minecraftforge.items.IItemHandlerModifiable
 
 operator fun IItemHandler.get(slot: Int) = getStackInSlot(slot)
+operator fun IItemHandlerModifiable.set(slot: Int, stack: ItemStack) {
+    setStackInSlot(slot, stack)
+}
+
+// Safe operation for shrinking
+fun IItemHandlerModifiable.shrink(slot: Int, amount: Int = 1) {
+    if (get(slot).item.hasContainerItem(get(slot)) && get(slot).count == 1) {
+        set(slot, get(slot).item.getContainerItem(get(slot)))
+    } else {
+        get(slot).shrink(amount)
+    }
+}
+
+fun IItemHandlerModifiable.shrinkWithInv(slot: Int, player: EntityPlayer, amount: Int = 1) {
+    if (get(slot).item.hasContainerItem(get(slot))) {
+        player.addItemStackToInventory(get(slot).item.getContainerItem(get(slot)).also { it.count = amount })
+    }
+    get(slot).shrink(amount)
+}
 
 fun IItemHandler.iterator() = object : ListIterator<ItemStack> {
     var index = 0

@@ -2,8 +2,9 @@ package com.projecturanus.foodcraft.client.gui.widget
 
 import org.cyclops.commoncapabilities.api.capability.temperature.DefaultTemperature
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
+import kotlin.reflect.KProperty0
 
-class WidgetHeat : Widget() {
+class WidgetHeat(val x: Int, val y: Int, val trueTemperature: KProperty0.Getter<Double>) : Widget() {
     var temperature: ITemperature = DefaultTemperature()
 
     companion object {
@@ -16,10 +17,10 @@ class WidgetHeat : Widget() {
     }
 
     override fun draw(x: Int, y: Int, mouseX: Int, mouseY: Int, partialTicks: Float) {
-        val progress = ((temperature.temperature / temperature.maximumTemperature) * 12).toInt()
-        drawTexturedModalRect(x, y - progress, 176, 12 - progress, 14, progress + 2)
+        val progress = (((trueTemperature.invoke() - temperature.minimumTemperature) / (temperature.maximumTemperature  - temperature.minimumTemperature)) * 14).toInt()
+        drawTexturedModalRect(x, y - progress + HEIGHT, this.x, this.y + HEIGHT - progress, WIDTH, progress)
         if (isMouseIn(x, y, mouseX, mouseY)) {
-            this.drawHoveringText(listOf("Heat: ${temperature.temperature} / ${temperature.maximumTemperature}"), x, y, fontRenderer)
+            this.drawHoveringText(listOf("Heat: ${trueTemperature.invoke()} / ${temperature.maximumTemperature}"), x, y, fontRenderer)
         }
     }
 }
