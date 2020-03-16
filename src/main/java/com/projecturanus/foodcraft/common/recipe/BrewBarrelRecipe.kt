@@ -1,7 +1,6 @@
 package com.projecturanus.foodcraft.common.recipe
 
 import com.google.gson.JsonObject
-import com.projecturanus.foodcraft.common.util.get
 import com.projecturanus.foodcraft.common.util.getValue
 import com.projecturanus.foodcraft.common.util.once
 import net.minecraft.item.ItemStack
@@ -13,38 +12,35 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.items.IItemHandler
 
-class BeverageMakingRecipe(context: JsonContext, json: JsonObject) : DummyRecipe<BeverageMakingRecipe>(context, json), FluidRecipe<BeverageMakingRecipe> {
-    lateinit var inputIngredient: Ingredient
+class BrewBarrelRecipe(context: JsonContext, json: JsonObject) : DummyRecipe<BrewBarrelRecipe>(context, json), FluidRecipe<BrewBarrelRecipe> {
+    override lateinit var ingredients: List<Ingredient>
     lateinit var output: ItemStack
-
-    override val ingredients: List<Ingredient>
-        by lazy { listOf(inputIngredient) }
 
     /**
      * If sets to false, this recipe will require heating
      * If sets to true, this recipe will require cooldown
      * If sets to null, this recipe will have no requirement of temperature
      */
-    var cool: Boolean? = null
     override var fluidInput: FluidStack? = null
 
-    val register by once { BEVERAGE_MAKING_RECIPES.register(this) }
+    val register by once { BREW_BARREL_RECIPES.register(this) }
 
     override fun init() {
-        inputIngredient = CraftingHelper.getIngredient(JsonUtils.getJsonObject(json, "ingredient"), context)
+        ingredients = JsonUtils.getJsonArray(json, "ingredients").map {
+            CraftingHelper.getIngredient(it, context)
+        }
         output = CraftingHelper.getItemStack(JsonUtils.getJsonObject(json, "result"), context)
         if (JsonUtils.hasField(json, "fluidInput")) {
             val fluidInputObj = JsonUtils.getJsonObject(json, "fluidInput")
             fluidInput = FluidRegistry.getFluidStack(JsonUtils.getString(fluidInputObj, "fluid"), JsonUtils.getInt(fluidInputObj, "amount"))!!
         }
-        cool = json["cool"]?.asBoolean
         register
     }
 
-    override fun matches(inv: IItemHandler): Boolean = inputIngredient.apply(inv[0])
+    override fun matches(inv: IItemHandler): Boolean = false
 
     override fun getRecipeOutput(): ItemStack = output.copy()
 
-    override fun getRegistryType(): Class<BeverageMakingRecipe> = BeverageMakingRecipe::class.java
+    override fun getRegistryType(): Class<BrewBarrelRecipe> = BrewBarrelRecipe::class.java
 
 }

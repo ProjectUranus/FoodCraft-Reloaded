@@ -12,7 +12,9 @@ import net.minecraft.world.IWorldNameable
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
-open class ContainerMachine(val playerInventory: InventoryPlayer, val tileEntity: TileEntity) : Container(), IWorldNameable {
+const val PLAYER_INV_SIZE = 27
+
+open class ContainerMachine(val playerInventory: InventoryPlayer, open val tileEntity: TileEntity) : Container(), IWorldNameable {
     override fun canInteractWith(playerIn: EntityPlayer): Boolean = true
 
     override fun hasCustomName(): Boolean {

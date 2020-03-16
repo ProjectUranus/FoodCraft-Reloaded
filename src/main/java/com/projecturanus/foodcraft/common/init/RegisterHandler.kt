@@ -87,6 +87,7 @@ object RegisterHandler {
         registerOre("cropWheat", Items.WHEAT)
         registerOre("cropBeet",  Items.BEETROOT)
         registerOre("cropCarrot", Items.CARROT)
+        registerOre("cropApple", Items.APPLE);
 
         registerOre("listAllgrain", Items.WHEAT)
 
@@ -366,7 +367,7 @@ object RegisterHandler {
             }
             KITCHEN_KNIFES += knife
             event.registry.register(knife)
-            registerOre("kitchenKnife", knife)
+            registerOre("kitchenKnife", ItemStack(knife, 1, OreDictionary.WILDCARD_VALUE))
         }
 
         // Plants

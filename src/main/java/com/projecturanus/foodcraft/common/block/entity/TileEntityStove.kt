@@ -2,8 +2,8 @@ package com.projecturanus.foodcraft.common.block.entity
 
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
-import com.projecturanus.foodcraft.common.inventory.ObservableItemHandler
 import com.projecturanus.foodcraft.common.util.get
+import com.projecturanus.foodcraft.common.util.observable.ObservableItemHandler
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.tileentity.TileEntityFurnace

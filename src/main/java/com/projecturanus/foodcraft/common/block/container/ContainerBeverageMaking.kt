@@ -5,19 +5,16 @@ import com.projecturanus.foodcraft.common.block.entity.TileEntityBeverageMaking
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CBeverageHeatUpdate
 import com.projecturanus.foodcraft.common.network.S2CFluidUpdate
-import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.entity.player.EntityPlayerMP
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.Slot
-import net.minecraft.item.ItemStack
 import net.minecraft.tileentity.TileEntity
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
 
-class ContainerBeverageMaking(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerMachine(playerInventory, tileEntity), FluidContainer {
-    var progress = 0
+class ContainerBeverageMaking(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityBeverageMaking>(playerInventory, tileEntity as TileEntityBeverageMaking), FluidContainer {
     var heatTemperature = 0.0
     var coolTemperature = 0.0
     override var fluidStack: FluidStack? = null
@@ -43,24 +40,12 @@ class ContainerBeverageMaking(playerInventory: InventoryPlayer, tileEntity: Tile
 
     override fun detectAndSendChanges() {
         super.detectAndSendChanges()
-        val tile = tileEntity as TileEntityBeverageMaking
         listeners.forEach {
-            it.sendWindowProperty(this, 0, tile.progress)
             if (it is EntityPlayerMP) {
                 CHANNAL.sendTo(S2CBeverageHeatUpdate(tileEntity.heatHandler.temperature, tileEntity.coolHandler.temperature), it)
-                CHANNAL.sendTo(S2CFluidUpdate(tileEntity.tank.fluid), it)
+                CHANNAL.sendTo(S2CFluidUpdate(tileEntity.fluidTank.fluid), it)
             }
         }
-    }
-
-    override fun updateProgressBar(id: Int, data: Int) {
-        when (id) {
-            0 -> progress = data
-        }
-    }
-
-    override fun transferStackInSlot(playerIn: EntityPlayer, index: Int): ItemStack {
-        return super.transferStackInSlot(playerIn, index)
     }
 
     override fun getName(): String = "tile.$MODID.beverage_making.name"

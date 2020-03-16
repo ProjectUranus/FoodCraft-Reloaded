@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPeach"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPeach"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPeach"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:peach_liqueur",
+        "count": 3
+    }
+}

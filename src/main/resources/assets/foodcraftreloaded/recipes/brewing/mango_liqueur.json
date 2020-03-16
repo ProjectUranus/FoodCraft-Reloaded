@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropMango"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropMango"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropMango"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:mango_liqueur",
+        "count": 3
+    }
+}

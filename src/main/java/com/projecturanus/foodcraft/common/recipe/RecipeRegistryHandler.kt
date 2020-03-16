@@ -17,6 +17,13 @@ val BEVERAGE_MAKING_RECIPES: IForgeRegistry<BeverageMakingRecipe> by lazy {
         .create()
 }
 
+val BREW_BARREL_RECIPES: IForgeRegistry<BrewBarrelRecipe> by lazy {
+    RegistryBuilder<BrewBarrelRecipe>()
+        .setType(BrewBarrelRecipe::class.java)
+        .setName(ResourceLocation(MODID, "brew_barrel_recipes"))
+        .create()
+}
+
 val CHOPPING_BOARD_RECIPES: IForgeRegistry<ChoppingBoardRecipe> by lazy {
     RegistryBuilder<ChoppingBoardRecipe>()
         .setType(ChoppingBoardRecipe::class.java)
@@ -32,6 +39,7 @@ object RecipeRegistryHandler {
     @SubscribeEvent
     fun registerRegistries(event: RegistryEvent.NewRegistry) {
         BEVERAGE_MAKING_RECIPES
+        BREW_BARREL_RECIPES
         CHOPPING_BOARD_RECIPES
     }
 

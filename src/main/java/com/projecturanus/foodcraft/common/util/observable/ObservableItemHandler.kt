@@ -1,4 +1,4 @@
-package com.projecturanus.foodcraft.common.inventory
+package com.projecturanus.foodcraft.common.util.observable
 
 import net.minecraft.item.ItemStack
 import net.minecraft.util.NonNullList

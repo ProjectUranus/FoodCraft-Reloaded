@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPomegranate"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPomegranate"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPomegranate"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:pomegranate_liqueur",
+        "count": 3
+    }
+}

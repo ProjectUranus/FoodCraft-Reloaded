@@ -1,7 +1,7 @@
 package com.projecturanus.foodcraft.common.block.entity
 
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
-import com.projecturanus.foodcraft.common.inventory.ObservableItemHandler
+import com.projecturanus.foodcraft.common.util.observable.ObservableItemHandler
 import net.minecraft.block.state.IBlockState
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity

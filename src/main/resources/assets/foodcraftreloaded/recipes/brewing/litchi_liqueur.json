@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropLitchi"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropLitchi"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropLitchi"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:litchi_liqueur",
+        "count": 3
+    }
+}

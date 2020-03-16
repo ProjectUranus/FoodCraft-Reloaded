@@ -14,7 +14,7 @@ import net.minecraftforge.items.IItemHandler
 
 class ChoppingBoardRecipe(context: JsonContext, json: JsonObject): DummyRecipe<ChoppingBoardRecipe>(context, json) {
     private lateinit var recipeOutput: ItemStack
-    val ingredients = ArrayList<Ingredient>(3)
+    override val ingredients = ArrayList<Ingredient>(3)
 
     /**
      * Ensure it is registered only once
@@ -24,9 +24,11 @@ class ChoppingBoardRecipe(context: JsonContext, json: JsonObject): DummyRecipe<C
     override fun init() {
         val pattern = JsonUtils.getString(json, "pattern")
         val keys = JsonUtils.getJsonObject(json, "key")
-        if (pattern.length != 3) throw JsonSyntaxException("Invalid pattern: length must be 4")
+        if (pattern.length != 3) throw JsonSyntaxException("Invalid pattern: length must be 3")
         if (pattern.isBlank()) throw JsonSyntaxException("Invalid pattern: empty pattern not allowed")
         pattern.forEach {
+            if (ingredients.size >= 3) return@forEach
+
             ingredients += if (it == ' ')
                 Ingredient.EMPTY
             else

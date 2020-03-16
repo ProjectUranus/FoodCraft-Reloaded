@@ -14,6 +14,7 @@ class TOPIntegration : Function<ITheOneProbe, Void?> {
         Companion.theOneProbe = theOneProbe
         theOneProbe.registerProvider(HeatInfoProvider)
         theOneProbe.registerProvider(MachineProvider)
+        theOneProbe.registerProvider(BeverageMakingProvider)
         return null
     }
 }

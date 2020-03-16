@@ -1,7 +1,8 @@
 {
     "type": "foodcraftreloaded:beverage_making",
     "ingredient": {
-        "item": "minecraft:golden_apple"
+        "item": "minecraft:golden_apple",
+        "data": 0
     },
     "cool": true,
     "fluidInput": {
@@ -9,7 +10,6 @@
         "amount": 1000
     },
     "result": {
-        "item": "foodcraftreloaded:golden_apple_juice",
-        "data": 0
+        "item": "foodcraftreloaded:golden_apple_juice"
     }
 }

@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropApple"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropApple"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropApple"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:apple_liqueur",
+        "count": 3
+    }
+}

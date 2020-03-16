@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropRice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropRice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropRice"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:spirit",
+        "count": 3
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:brewing",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropSoybean"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodFlour"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:soy_sauce",
+        "count": 16
+    }
+}

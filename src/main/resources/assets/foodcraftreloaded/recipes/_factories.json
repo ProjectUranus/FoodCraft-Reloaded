@@ -2,6 +2,7 @@
     "recipes": {
         "blasting": "com.projecturanus.foodcraft.common.recipe.BlastingRecipeFactory",
         "chopping": "com.projecturanus.foodcraft.common.recipe.ChoppingBoardRecipeFactory",
-        "beverage_making": "com.projecturanus.foodcraft.common.recipe.BeverageMakingRecipeFactory"
+        "beverage_making": "com.projecturanus.foodcraft.common.recipe.BeverageMakingRecipeFactory",
+        "brewing": "com.projecturanus.foodcraft.common.recipe.BrewBarrelRecipeFactory"
     }
 }

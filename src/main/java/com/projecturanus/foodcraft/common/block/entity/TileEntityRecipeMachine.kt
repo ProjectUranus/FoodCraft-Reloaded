@@ -1,0 +1,110 @@
+package com.projecturanus.foodcraft.common.block.entity
+
+import com.projecturanus.foodcraft.common.recipe.FcRecipe
+import com.projecturanus.foodcraft.common.util.get
+import com.projecturanus.foodcraft.common.util.shrink
+import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.Ingredient
+import net.minecraft.nbt.NBTTagCompound
+import net.minecraftforge.registries.IForgeRegistry
+
+abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>, val inputSlots: IntRange, val outputSlots: IntRange, slots: Int) : TileEntityMachine(slots) where T : FcRecipe<T> {
+    var recipe: T? = null
+    var progress = 0
+
+    val inputSlotsList = inputSlots.toList()
+    val outputSlotsList = outputSlots.toList()
+
+    override fun onLoad() {
+        inventory.contentChangedListener += {
+            if (it in inputSlots || it in outputSlots) recipe = findRecipe()
+        }
+    }
+
+    override fun update() {
+        super.update()
+
+        // Don't run tick on client
+        if (world.isRemote) return
+
+        beforeProgress()
+
+        if (recipe != null) {
+            // Finish
+            if (canFinish()) {
+                // Reset
+                progress = 0
+
+                consumeInput()
+                reset()
+                var stack = recipe?.getRecipeOutput()?.copy()?: ItemStack.EMPTY
+                outputSlots.forEach { slot ->
+                    stack = inventory.insertItem(slot, stack, false)
+                }
+
+                recipe = findRecipe()
+            } else {
+                if (canProgress())
+                    progress++
+            }
+        } else if (progress > 0) {
+            progress = 0
+        }
+    }
+
+    /**
+     * Consume input stacks after progression
+     */
+    open fun consumeInput() {
+        if (recipe == null) return
+        recipe?.ingredients?.forEachIndexed { index, ingredient ->
+            if (ingredient == Ingredient.EMPTY) return@forEachIndexed
+
+            inventory.shrink(inputSlotsList[index], 1)
+        }
+    }
+
+    open fun findRecipe(): T? {
+        val validRecipes = recipeRegistry.valuesCollection.asSequence().filter { recipe ->
+            var valid = true
+            for (i in recipe.ingredients.indices) {
+                if (!valid) break
+                if (!recipe.ingredients[i].apply(inventory[inputSlotsList[i]]))
+                    valid = false
+            }
+            valid
+        }
+        // Any slot available to insert
+        if (!validRecipes.any {
+            val stack = it.getRecipeOutput().copy()
+            outputSlots.any { slot ->
+                inventory.insertItem(slot, stack, true).isEmpty
+            }
+        })
+            return null
+        return validRecipes.firstOrNull()
+    }
+
+    override fun readFromNBT(nbt: NBTTagCompound) {
+        super.readFromNBT(nbt)
+        progress = nbt.getInteger("progress")
+        inventory.deserializeNBT(nbt.getCompoundTag("inventory"))
+        findRecipe()
+    }
+
+    override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
+        val compound = super.writeToNBT(compound)
+        compound.setTag("inventory", inventory.serializeNBT())
+        compound.setInteger("progress", progress)
+        return compound
+    }
+
+    /**
+     * Reset your custom stuff here
+     * Take item
+     */
+    abstract fun reset()
+    abstract fun beforeProgress()
+    abstract fun canProgress(): Boolean
+    abstract fun canFinish(): Boolean
+}

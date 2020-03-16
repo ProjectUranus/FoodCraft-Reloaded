@@ -7,23 +7,11 @@ import net.minecraft.item.crafting.IRecipe
 import net.minecraft.util.ResourceLocation
 import net.minecraft.world.World
 import net.minecraftforge.common.crafting.JsonContext
-import net.minecraftforge.items.IItemHandler
-import net.minecraftforge.registries.IForgeRegistryEntry
 
-abstract class DummyRecipe<T>(val context: JsonContext, val json: JsonObject): IForgeRegistryEntry<T> {
+abstract class DummyRecipe<T>(val context: JsonContext, val json: JsonObject): FcRecipe<T> {
     private lateinit var registryName: ResourceLocation
 
     val wrapper get() = RecipeWrapper(this)
-
-    /**
-     * Init the real recipe for the given context and json.
-     * Also register this recipe in the real registry
-     */
-    abstract fun init()
-
-    abstract fun matches(inv: IItemHandler): Boolean
-
-    abstract fun getRecipeOutput(): ItemStack
 
     override fun getRegistryName(): ResourceLocation = registryName
 
