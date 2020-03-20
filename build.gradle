@@ -30,6 +30,9 @@ apply plugin: 'co.riiid.gradle'
 apply plugin: "com.matthewprenger.cursegradle"
 apply plugin: 'kotlin'
 
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
 sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
 compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
@@ -63,6 +66,12 @@ repositories {
 configurations {
 	shade
 	compile.extendsFrom shade
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = 1.8
+    }
 }
 
 minecraft {

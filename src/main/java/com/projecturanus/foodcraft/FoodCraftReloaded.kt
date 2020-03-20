@@ -73,10 +73,4 @@ object FoodCraftReloaded {
         logger.info("Caching Allowed Fluid for Machines")
         RecipeRegistryHandler.reloadRecipeFluids()
     }
-
-    @Mod.EventHandler
-    fun loadComplete(event: FMLLoadCompleteEvent) {
-        logger.info("Caching Allowed Fluid for Machines")
-        RecipeRegistryHandler.reloadRecipeFluids()
-    }
 }
