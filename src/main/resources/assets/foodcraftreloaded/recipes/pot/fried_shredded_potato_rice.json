@@ -1,0 +1,36 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 450,
+    "maxTime": 500,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "shredPotato"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenonion"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:fried_shredded_potato_rice",
+        "count": 1
+    }
+}

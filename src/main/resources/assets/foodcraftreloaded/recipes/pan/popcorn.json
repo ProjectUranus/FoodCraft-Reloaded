@@ -1,0 +1,12 @@
+{
+    "type": "foodcraftreloaded:pan",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "cropCorn"
+    },
+    "result": {
+        "item": "foodcraftreloaded:popcorn"
+    },
+    "minTime": 250,
+    "maxTime": 330
+}

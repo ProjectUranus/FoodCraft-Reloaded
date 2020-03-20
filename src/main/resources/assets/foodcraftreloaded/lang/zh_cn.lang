@@ -15,6 +15,7 @@ tile.foodcraftreloaded.beverage_making.name=饮料制作机
 
 # Items
 item.foodcraftreloaded.glass_cup.name=玻璃杯
+item.foodcraftreloaded.wrench.name=扳手
 # Vegetables
 # Beans
 item.foodcraftreloaded.soybean.name=黄豆
@@ -31,6 +32,7 @@ item.foodcraftreloaded.soyBeanSprouts=黄豆芽
 item.foodcraftreloaded.rice_porridge.name=大米粥 (稀饭)
 item.foodcraftreloaded.egg_custard.name=鸡蛋羹
 item.foodcraftreloaded.mushroom_egg_soup.name=蘑菇鸡蛋汤
+item.foodcraftreloaded.mushroom_chicken_soup.name=蘑菇炖鸡汤
 item.foodcraftreloaded.noodles.name=面条
 item.foodcraftreloaded.crossing_bridge_noodles.name=过桥米线
 item.foodcraftreloaded.pork_fried_pasta.name=猪肉炒意面

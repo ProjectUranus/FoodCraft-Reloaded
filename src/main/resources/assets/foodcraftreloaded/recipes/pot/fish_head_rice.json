@@ -1,0 +1,36 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 350,
+    "maxTime": 450,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropFacingheavenpepper"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllfishcooked"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:fish_head_rice",
+        "count": 1
+    }
+}

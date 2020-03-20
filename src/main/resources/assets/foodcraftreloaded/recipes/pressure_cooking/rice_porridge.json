@@ -1,0 +1,22 @@
+{
+    "type": "foodcraftreloaded:pressure_cooking",
+    "ingredients": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:rice_porridge",
+        "count": 3
+    }
+}

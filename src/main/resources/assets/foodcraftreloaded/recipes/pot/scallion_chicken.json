@@ -1,0 +1,37 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 400,
+    "maxTime": 500,
+    "staples": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenpepper"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenonion"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllchickencooked"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:scallion_chicken",
+        "count": 1
+    }
+}

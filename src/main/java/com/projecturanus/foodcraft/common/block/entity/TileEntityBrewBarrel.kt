@@ -1,3 +1,16 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-class TileEntityBrewBarrel : TileEntityMachine(6)
+import com.projecturanus.foodcraft.common.recipe.BREW_BARREL_RECIPES
+import com.projecturanus.foodcraft.common.recipe.BrewBarrelRecipe
+
+class TileEntityBrewBarrel : TileEntityFluidRecipeMachine<BrewBarrelRecipe>(BREW_BARREL_RECIPES, 8000, 5, 0..2, 3..4, 6) {
+    override fun reset() {
+    }
+
+    override fun beforeProgress() {
+    }
+
+    override fun canProgress(): Boolean = true
+
+    override fun canFinish(): Boolean = progress >= 3600
+}

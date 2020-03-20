@@ -1,0 +1,44 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 400,
+    "maxTime": 500,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPeanut"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropFacingheavenpepper"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllchickencooked"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllsugar"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodVinegar"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:kung_pao_chicken_rice",
+        "count": 1
+    }
+}

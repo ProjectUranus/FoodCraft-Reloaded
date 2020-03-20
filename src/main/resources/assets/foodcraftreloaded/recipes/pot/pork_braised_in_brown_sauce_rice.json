@@ -1,0 +1,40 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 450,
+    "maxTime": 500,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllporkcooked"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllsugar"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodVinegar"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:pork_braised_in_brown_sauce_rice",
+        "count": 1
+    }
+}

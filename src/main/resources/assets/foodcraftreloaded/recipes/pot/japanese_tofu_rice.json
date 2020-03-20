@@ -1,0 +1,43 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 350,
+    "maxTime": 450,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllegg"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenonion"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropFacingheavenpepper"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        },
+        {
+            "item": "foodcraftreloaded:starches"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:japanese_tofu_rice",
+        "count": 1
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 450,
+    "maxTime": 500,
+    "staples": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropFacingheavenpepper"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenonion"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllfishcooked"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCabbage"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        },
+        {
+            "item": "foodcraftreloaded:starches"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:boiled_fish_with_pickled_cabbage",
+        "count": 1
+    }
+}

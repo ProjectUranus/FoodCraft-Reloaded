@@ -5,7 +5,6 @@ import com.projecturanus.foodcraft.client.gui.widget.WidgetCool
 import com.projecturanus.foodcraft.client.gui.widget.WidgetHeat
 import com.projecturanus.foodcraft.client.gui.widget.WidgetProgressBar
 import com.projecturanus.foodcraft.common.block.container.ContainerBeverageMaking
-import com.projecturanus.foodcraft.common.block.entity.TileEntityBeverageMaking
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.util.ITooltipFlag
@@ -18,7 +17,7 @@ import org.lwjgl.util.Rectangle
 val BEVERAGE_MAKING_TEXTURES = ResourceLocation(MODID, "textures/gui/container/beverage_making.png")
 
 class GuiContainerBeverageMaking(override val container: ContainerBeverageMaking) : GuiContainerMachine(container, BEVERAGE_MAKING_TEXTURES) {
-    val tileEntity by lazy { (container.tileEntity as TileEntityBeverageMaking) }
+    val tileEntity by lazy { container.tileEntity }
     val heatHandler by lazy { tileEntity.heatHandler }
     val coolHandler by lazy { tileEntity.coolHandler }
     val progress get() = container.progress / 200.0

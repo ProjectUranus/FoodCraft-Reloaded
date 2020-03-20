@@ -20,6 +20,6 @@ class BlastingRecipeFactory : IRecipeFactory {
         ingredient.matchingStacks.forEach {
             GameRegistry.addSmelting(it, result, exp)
         }
-        return DummyRecipe.RecipeWrapper<Void>(null)
+        return NoRecipe
     }
 }

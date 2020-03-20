@@ -1,5 +1,6 @@
 # Items
 item.foodcraftreloaded.glass_cup.name=Glass Cup
+item.foodcraftreloaded.wrench.name=Wrench
 # Vegetables
 # Beans
 item.foodcraftreloaded.soybean.name=Soybean
@@ -16,6 +17,7 @@ item.foodcraftreloaded.soyBeanSprouts=Soy Bean Sprouts
 item.foodcraftreloaded.rice_porridge.name=Rice Porridge
 item.foodcraftreloaded.egg_custard.name=Egg Custard
 item.foodcraftreloaded.mushroom_egg_soup.name=Mushrooms with Egg Soup
+item.foodcraftreloaded.mushroom_chicken_soup.name=Mushrooms with Chicken Soup
 item.foodcraftreloaded.noodles.name=Noodles
 item.foodcraftreloaded.crossing_bridge_noodles.name=Crossing Bridge Noodles
 item.foodcraftreloaded.pasta.name=Pasta

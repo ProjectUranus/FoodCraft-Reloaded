@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 450,
+    "maxTime": 500,
+    "staples": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllchickencooked"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenonion"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllsugar"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:sliced_cold_chicken",
+        "count": 1
+    }
+}

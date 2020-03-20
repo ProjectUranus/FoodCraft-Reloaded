@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:frying",
+    "ingredient": {
+        "item": "foodcraftreloaded:chicken_leg"
+    },
+    "fluidInput": {
+        "fluid": "cooking_oil",
+        "amount": 333
+    },
+    "result": {
+        "item": "foodcraftreloaded:fried_chicken_leg",
+        "count": 1
+    }
+}

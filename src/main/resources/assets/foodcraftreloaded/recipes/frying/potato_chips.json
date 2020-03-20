@@ -1,0 +1,15 @@
+{
+    "type": "foodcraftreloaded:frying",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "slicePotato"
+    },
+    "fluidInput": {
+        "fluid": "cooking_oil",
+        "amount": 333
+    },
+    "result": {
+        "item": "foodcraftreloaded:potato_chips",
+        "count": 1
+    }
+}

@@ -44,6 +44,7 @@ object ModelRegisterHandler {
         }
 
         registerFluidRender(FCRBlocks.MILK!!, "fluid_milk")
+        registerFluidRender(FCRBlocks.COOKING_OIL!!, "fluid_cooking_oil")
     }
 
 

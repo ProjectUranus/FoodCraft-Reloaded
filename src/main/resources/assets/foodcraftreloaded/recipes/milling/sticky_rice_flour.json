@@ -1,0 +1,11 @@
+{
+    "type": "foodcraftreloaded:milling",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "cropStickyrice"
+    },
+    "result": {
+        "item": "foodcraftreloaded:sticky_rice_flour",
+        "count": 2
+    }
+}

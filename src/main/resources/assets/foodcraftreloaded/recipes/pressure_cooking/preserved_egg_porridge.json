@@ -1,0 +1,24 @@
+{
+    "type": "foodcraftreloaded:pressure_cooking",
+    "ingredients": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllegg"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllporkcooked"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:preserved_egg_porridge",
+        "count": 1
+    }
+}

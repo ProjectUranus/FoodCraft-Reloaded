@@ -1,0 +1,14 @@
+{
+    "type": "foodcraftreloaded:frying",
+    "ingredient": {
+        "item": "foodcraftreloaded:niangao"
+    },
+    "fluidInput": {
+        "fluid": "cooking_oil",
+        "amount": 333
+    },
+    "result": {
+        "item": "foodcraftreloaded:fried_niangao",
+        "count": 1
+    }
+}

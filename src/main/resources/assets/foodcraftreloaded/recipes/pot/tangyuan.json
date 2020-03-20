@@ -1,0 +1,21 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 400,
+    "maxTime": 500,
+    "staples": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlltangyuanstuffing"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodStickyricedough"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:tangyuan",
+        "count": 1
+    }
+}

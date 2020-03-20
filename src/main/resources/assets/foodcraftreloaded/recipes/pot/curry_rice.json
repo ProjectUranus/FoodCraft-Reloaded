@@ -1,0 +1,43 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 400,
+    "maxTime": 500,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodCurry"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropPotato"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllchickencooked"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "item": "foodcraftreloaded:starches"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:curry_rice",
+        "count": 1
+    }
+}

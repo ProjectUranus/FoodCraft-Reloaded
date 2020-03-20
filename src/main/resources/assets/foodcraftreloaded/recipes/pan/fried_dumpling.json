@@ -1,0 +1,11 @@
+{
+    "type": "foodcraftreloaded:pan",
+    "ingredient": {
+        "item": "foodcraftreloaded:dumpling"
+    },
+    "result": {
+        "item": "foodcraftreloaded:fried_dumpling"
+    },
+    "minTime": 250,
+    "maxTime": 350
+}

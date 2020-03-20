@@ -1,5 +1,7 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.block.WORKING
+import com.projecturanus.foodcraft.common.block.setBlockStateKeep
 import com.projecturanus.foodcraft.common.recipe.FcRecipe
 import com.projecturanus.foodcraft.common.util.get
 import com.projecturanus.foodcraft.common.util.shrink
@@ -7,10 +9,16 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.crafting.Ingredient
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraftforge.registries.IForgeRegistry
+import kotlin.properties.Delegates
 
 abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>, val inputSlots: IntRange, val outputSlots: IntRange, slots: Int) : TileEntityMachine(slots) where T : FcRecipe<T> {
     var recipe: T? = null
     var progress = 0
+    var working by Delegates.observable(false) { property, old, new ->
+        if (old != new) {
+            world.setBlockStateKeep(pos, world.getBlockState(pos).withProperty(WORKING, new))
+        }
+    }
 
     val inputSlotsList = inputSlots.toList()
     val outputSlotsList = outputSlots.toList()
@@ -37,18 +45,21 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
 
                 consumeInput()
                 reset()
+                working = false
                 var stack = recipe?.getRecipeOutput()?.copy()?: ItemStack.EMPTY
                 outputSlots.forEach { slot ->
                     stack = inventory.insertItem(slot, stack, false)
                 }
-
+                markDirty()
                 recipe = findRecipe()
             } else {
                 if (canProgress())
                     progress++
+                working = true
             }
         } else if (progress > 0) {
             progress = 0
+            working = false
         }
     }
 

@@ -11,6 +11,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class FCRItems {
     public static final Item CHOPPING_BOARD = null;
     public static final Item BEVERAGE_MAKING = null;
+    public static final Item BREW_BARREL = null;
+    public static final Item FRYING_PAN = null;
+    public static final Item MILL = null;
+    public static final Item PRESSURE_COOKER = null;
     public static final ItemDrink GRAPE_JUICE = null;
     public static final Item GLASS_CUP = null;
     public static final Item ORIGINAL_ICE_CREAM = null;

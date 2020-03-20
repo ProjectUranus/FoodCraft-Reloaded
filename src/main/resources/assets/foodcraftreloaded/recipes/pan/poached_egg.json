@@ -1,0 +1,12 @@
+{
+    "type": "foodcraftreloaded:pan",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "listAllegg"
+    },
+    "result": {
+        "item": "foodcraftreloaded:poached_egg"
+    },
+    "minTime": 250,
+    "maxTime": 400
+}

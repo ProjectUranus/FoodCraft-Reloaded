@@ -1,6 +1,5 @@
 package com.projecturanus.foodcraft.common.block.entity
 
-import com.projecturanus.foodcraft.common.recipe.BEVERAGE_MAKING_RECIPES
 import com.projecturanus.foodcraft.common.recipe.FluidRecipe
 import com.projecturanus.foodcraft.common.util.get
 import com.projecturanus.foodcraft.common.util.observable.ObservableFluidTank
@@ -10,25 +9,30 @@ import com.projecturanus.foodcraft.fluid.FluidMilk
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.EnumFacing
+import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.capabilities.Capability
+import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler
 import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper
 import net.minecraftforge.oredict.OreDictionary
 import net.minecraftforge.registries.IForgeRegistry
+import net.minecraftforge.registries.RegistryManager
+import java.util.concurrent.ConcurrentHashMap
 
 abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>, fluidCapacity: Int, val fluidHandlerSlot: Int,
                                                inputSlots: IntRange, outputSlots: IntRange, slots: Int)
     : TileEntityRecipeMachine<T>(recipeRegistry, inputSlots, outputSlots, slots)
     where T : FluidRecipe<T> {
     companion object {
-        val ALLOW_FLUIDS by lazy {
-            BEVERAGE_MAKING_RECIPES.valuesCollection.mapNotNull { it.fluidInput?.fluid }
-        }
+        val ALLOW_FLUIDS_MAP = ConcurrentHashMap<ResourceLocation, Set<Fluid>>()
+
         val MILK_ORE_ID by lazy { OreDictionary.getOreID("listAllmilk") }
         val WATER_ORE_ID by lazy { OreDictionary.getOreID("listAllwater") }
     }
+
+    val allowFluids by lazy { ALLOW_FLUIDS_MAP[RegistryManager.ACTIVE.getName(recipeRegistry)] ?: emptySet() }
 
     open val fluidTank = ObservableFluidTank(fluidCapacity)
 
@@ -38,23 +42,28 @@ abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>
             val fluidHandler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null)
             if (fluidHandler != null) {
                 val fluid = fluidHandler.drain(1, false)?.fluid ?: fluidHandler.drain(1000, false)?.fluid
-                if (fluid != null && ALLOW_FLUIDS.contains(fluid) && (fluidTank.fluidAmount == 0 || fluidTank.fluid?.fluid == fluid)) {
+                if (fluid != null && allowFluids.contains(fluid) && (fluidTank.fluidAmount == 0 || fluidTank.fluid?.fluid == fluid)) {
                     fluidTank.fill(fluidHandler.drain(4000, true), true)
-                    if (fluidHandler is FluidBucketWrapper)
+                    if (fluidHandler is FluidBucketWrapper) {
                         inventory[slot] = fluidHandler.container
+                        markDirty()
+                    }
                 }
             } else if (OreDictionary.getOreIDs(stack).contains(MILK_ORE_ID)) {
                 while (fluidTank.fluidAmount < fluidTank.capacity && !stack.isEmpty) {
                     val result = fluidTank.fill(FluidStack(FluidMilk, 1000), true)
                     if (result > 0) {
                         inventory.shrink(slot)
+                        markDirty()
                     }
                 }
             } else if (OreDictionary.getOreIDs(stack).contains(WATER_ORE_ID)) {
                 while (fluidTank.fluidAmount < fluidTank.capacity && !stack.isEmpty) {
                     val result = fluidTank.fill(FluidStack(FluidRegistry.WATER, 1000), true)
-                    if (result > 0)
+                    if (result > 0) {
                         inventory.shrink(slot)
+                        markDirty()
+                    }
                 }
             }
         }

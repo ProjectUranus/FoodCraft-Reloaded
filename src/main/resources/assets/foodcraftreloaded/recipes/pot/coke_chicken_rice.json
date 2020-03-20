@@ -1,0 +1,35 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 450,
+    "maxTime": 500,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodCola"
+        },
+        {
+            "item": "foodcraftreloaded:chicken_wing"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:coke_chicken_rice",
+        "count": 1
+    }
+}

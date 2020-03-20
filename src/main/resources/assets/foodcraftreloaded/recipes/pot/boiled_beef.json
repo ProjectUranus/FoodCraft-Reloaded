@@ -1,0 +1,36 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 350,
+    "maxTime": 400,
+    "staples": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropFacingheavenpepper"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCabbage"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllbeefcooked"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "item": "foodcraftreloaded:starches"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:boiled_beef",
+        "count": 1
+    }
+}

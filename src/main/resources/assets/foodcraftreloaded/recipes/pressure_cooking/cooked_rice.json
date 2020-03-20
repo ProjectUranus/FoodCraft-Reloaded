@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:pressure_cooking",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodMilledrice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodMilledrice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodMilledrice"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:cooked_rice",
+        "count": 1
+    }
+}

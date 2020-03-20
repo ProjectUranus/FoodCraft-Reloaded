@@ -1,0 +1,15 @@
+{
+    "type": "foodcraftreloaded:frying",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "foodFlour"
+    },
+    "fluidInput": {
+        "fluid": "cooking_oil",
+        "amount": 333
+    },
+    "result": {
+        "item": "foodcraftreloaded:youtiao",
+        "count": 1
+    }
+}

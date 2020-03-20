@@ -1,0 +1,11 @@
+{
+    "type": "foodcraftreloaded:milling",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "cropRedbean"
+    },
+    "result": {
+        "item": "foodcraftreloaded:red_bean_paste",
+        "count": 2
+    }
+}

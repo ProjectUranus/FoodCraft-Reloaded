@@ -1,0 +1,44 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 350,
+    "maxTime": 450,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllporkcooked"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropGreenpepper"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "cropCarrot"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllsugar"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodVinegar"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:shredded_pork_rice",
+        "count": 1
+    }
+}

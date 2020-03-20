@@ -5,7 +5,7 @@ import net.minecraft.item.crafting.Ingredient
 import net.minecraftforge.items.IItemHandler
 import net.minecraftforge.registries.IForgeRegistryEntry
 
-interface FcRecipe<T> : IForgeRegistryEntry<T> {
+interface FcRecipe<T> : IForgeRegistryEntry<T> where T: IForgeRegistryEntry<T> {
     val ingredients: List<Ingredient>
 
     /**

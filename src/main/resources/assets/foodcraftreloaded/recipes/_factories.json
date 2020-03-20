@@ -3,6 +3,11 @@
         "blasting": "com.projecturanus.foodcraft.common.recipe.BlastingRecipeFactory",
         "chopping": "com.projecturanus.foodcraft.common.recipe.ChoppingBoardRecipeFactory",
         "beverage_making": "com.projecturanus.foodcraft.common.recipe.BeverageMakingRecipeFactory",
-        "brewing": "com.projecturanus.foodcraft.common.recipe.BrewBarrelRecipeFactory"
+        "brewing": "com.projecturanus.foodcraft.common.recipe.BrewBarrelRecipeFactory",
+        "frying": "com.projecturanus.foodcraft.common.recipe.FryingPanRecipeFactory",
+        "milling": "com.projecturanus.foodcraft.common.recipe.MillRecipeFactory",
+        "pan": "com.projecturanus.foodcraft.common.recipe.PanRecipeFactory",
+        "pot": "com.projecturanus.foodcraft.common.recipe.PotRecipeFactory",
+        "pressure_cooking": "com.projecturanus.foodcraft.common.recipe.PressureCookerRecipeFactory"
     }
 }

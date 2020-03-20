@@ -1,0 +1,11 @@
+{
+    "type": "foodcraftreloaded:milling",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "cropPotato"
+    },
+    "result": {
+        "item": "foodcraftreloaded:starches",
+        "count": 8
+    }
+}

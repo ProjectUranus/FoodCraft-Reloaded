@@ -1,0 +1,24 @@
+{
+    "type": "foodcraftreloaded:pressure_cooking",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllmushroom"
+        },
+        {
+            "item": "foodcraftreloaded:chicken_leg"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:mushroom_chicken_soup",
+        "count": 1
+    }
+}

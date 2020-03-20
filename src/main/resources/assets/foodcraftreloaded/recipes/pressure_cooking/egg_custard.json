@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:pressure_cooking",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllegg"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSoysauce"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodGreenonion"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:egg_custard",
+        "count": 1
+    }
+}

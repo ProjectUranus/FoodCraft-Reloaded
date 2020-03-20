@@ -1,0 +1,15 @@
+{
+    "type": "foodcraftreloaded:frying",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "shredPotato"
+    },
+    "fluidInput": {
+        "fluid": "cooking_oil",
+        "amount": 333
+    },
+    "result": {
+        "item": "foodcraftreloaded:french_fries",
+        "count": 1
+    }
+}

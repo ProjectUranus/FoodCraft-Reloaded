@@ -1,0 +1,34 @@
+{
+    "type": "foodcraftreloaded:pot",
+    "minTime": 350,
+    "maxTime": 450,
+    "staples": [
+        {
+            "item": "foodcraftreloaded:cooked_rice"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodSilkentofu"
+        },
+        {
+            "item": "foodcraftreloaded:pixian_watercress"
+        }
+    ],
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAlloil"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        },
+        {
+            "item": "foodcraftreloaded:starches"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:mapo_tofu_rice",
+        "count": 1
+    }
+}
