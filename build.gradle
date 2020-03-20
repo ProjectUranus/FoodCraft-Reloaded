@@ -15,6 +15,7 @@ buildscript {
         }
     }
     dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.70"
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
         classpath 'co.riiid:gradle-github-plugin:0.4.2'
         classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
@@ -24,6 +25,7 @@ buildscript {
 apply plugin: "net.minecraftforge.gradle.forge"
 apply plugin: 'co.riiid.gradle'
 apply plugin: "com.matthewprenger.cursegradle"
+apply plugin: 'kotlin'
 
 sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
 compileJava {
