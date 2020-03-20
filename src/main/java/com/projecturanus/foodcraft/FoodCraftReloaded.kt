@@ -2,6 +2,7 @@ package com.projecturanus.foodcraft
 
 import com.projecturanus.foodcraft.common.GuiHandler
 import com.projecturanus.foodcraft.common.block.entity.*
+import com.projecturanus.foodcraft.common.capability.DefaultCapabilities
 import com.projecturanus.foodcraft.common.init.RegisterHandler
 import com.projecturanus.foodcraft.common.network.registerMessages
 import com.projecturanus.foodcraft.common.recipe.RecipeRegistryHandler
@@ -61,6 +62,16 @@ object FoodCraftReloaded {
             RegisterHandler.mirrorOres("listAlloil", "foodSesameoil")
             RegisterHandler.mirrorOres("listAlloil", "foodOliveoil")
         }
+
+        if (!Loader.isModLoaded("commoncapabilities")) {
+            DefaultCapabilities.registerDefaultCapabilities()
+        }
+    }
+
+    @Mod.EventHandler
+    fun loadComplete(event: FMLLoadCompleteEvent) {
+        logger.info("Caching Allowed Fluid for Machines")
+        RecipeRegistryHandler.reloadRecipeFluids()
     }
 
     @Mod.EventHandler

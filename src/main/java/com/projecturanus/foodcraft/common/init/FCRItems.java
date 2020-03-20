@@ -14,6 +14,8 @@ public class FCRItems {
     public static final Item BREW_BARREL = null;
     public static final Item FRYING_PAN = null;
     public static final Item MILL = null;
+    public static final Item PAN = null;
+    public static final Item POT = null;
     public static final Item PRESSURE_COOKER = null;
     public static final ItemDrink GRAPE_JUICE = null;
     public static final Item GLASS_CUP = null;

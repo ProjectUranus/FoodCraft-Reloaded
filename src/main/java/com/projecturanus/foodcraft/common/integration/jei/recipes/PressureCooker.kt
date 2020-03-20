@@ -35,7 +35,7 @@ class PressureCookerCategory(val helper: IJeiHelpers): IRecipeCategory<PressureC
 
     init {
         arrow = helper.guiHelper.drawableBuilder(TEXTURES, 176, 14, 24, 17)
-            .buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false)
+            .buildAnimated(400, IDrawableAnimated.StartDirection.LEFT, false)
     }
 
     override fun getUid(): String = FcRecipeUids.PRESSURE_COOKER

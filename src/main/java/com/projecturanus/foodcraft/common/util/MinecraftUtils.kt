@@ -2,8 +2,17 @@ package com.projecturanus.foodcraft.common.util
 
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
+import net.minecraft.item.crafting.Ingredient
 import net.minecraftforge.items.IItemHandler
 import net.minecraftforge.items.IItemHandlerModifiable
+
+fun Iterable<ItemStack>.containIngredients(ingredients: List<Ingredient>) : Boolean {
+    return ingredients.filter { it != Ingredient.EMPTY }.all { ingredient ->
+        this.any { ingredient.apply(it) }
+    }
+}
+
+operator fun IItemHandler.get(range: IntRange) = range.map { get(it) }
 
 operator fun IItemHandler.get(slot: Int) = getStackInSlot(slot)
 operator fun IItemHandlerModifiable.set(slot: Int, stack: ItemStack) {
@@ -17,6 +26,8 @@ fun IItemHandlerModifiable.shrink(slot: Int, amount: Int = 1) {
     } else {
         get(slot).shrink(amount)
     }
+    if (get(slot).isEmpty && get(slot) != ItemStack.EMPTY)
+        set(slot, ItemStack.EMPTY)
 }
 
 fun IItemHandlerModifiable.shrinkWithInv(slot: Int, player: EntityPlayer, amount: Int = 1) {

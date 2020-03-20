@@ -23,12 +23,12 @@ class PanRecipe(context: JsonContext, json: JsonObject): DummyRecipe<PanRecipe>(
      */
     val register by once { PAN_RECIPES.register(this) }
 
-    var minTime = 0f
-    var maxTime = 0f
+    var minTime = 0
+    var maxTime = 0
 
     override fun init() {
-        minTime = JsonUtils.getFloat(json, "minTime", 0f)
-        maxTime = JsonUtils.getFloat(json, "maxTime", Float.MAX_VALUE)
+        minTime = JsonUtils.getInt(json, "minTime", 0)
+        maxTime = JsonUtils.getInt(json, "maxTime", Int.MAX_VALUE)
         inputIngredient = CraftingHelper.getIngredient(JsonUtils.getJsonObject(json, "ingredient"), context)
         output = CraftingHelper.getItemStack(JsonUtils.getJsonObject(json, "result"), context)
 

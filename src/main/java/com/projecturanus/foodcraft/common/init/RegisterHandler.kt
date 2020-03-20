@@ -191,7 +191,7 @@ object RegisterHandler {
         itemQueue += ItemSugarLike(greenOnion).apply {
             setRegistryName(MODID, "green_onion")
             translationKey = "$MODID.green_onion"
-        } to arrayOf("foodGreenonion", "listAllgreenveggie")
+        } to arrayOf("foodGreenonion", "cropGreenonion", "listAllgreenveggie")
 
         DEFAULT_MODEL_ITEMS.addAll(itemQueue.map(Pair<Item, Array<String>>::first))
     }

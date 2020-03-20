@@ -21,12 +21,12 @@ class PotRecipe(context: JsonContext, json: JsonObject): DummyRecipe<PotRecipe>(
      */
     val register by once { POT_RECIPES.register(this) }
 
-    var minTime = 0f
-    var maxTime = 0f
+    var minTime = 0
+    var maxTime = 0
 
     override fun init() {
-        minTime = JsonUtils.getFloat(json, "minTime", 0f)
-        maxTime = JsonUtils.getFloat(json, "maxTime", Float.MAX_VALUE)
+        minTime = JsonUtils.getInt(json, "minTime", 0)
+        maxTime = JsonUtils.getInt(json, "maxTime", Int.MAX_VALUE)
         ingredients = JsonUtils.getJsonArray(json, "ingredients").map {
             CraftingHelper.getIngredient(it, context)
         }
@@ -49,7 +49,7 @@ class PotRecipe(context: JsonContext, json: JsonObject): DummyRecipe<PotRecipe>(
         return ret
     }
 
-    override fun getRecipeOutput(): ItemStack = recipeOutput
+    override fun getRecipeOutput(): ItemStack = recipeOutput.copy()
     override fun getRegistryType(): Class<PotRecipe> = PotRecipe::class.java
 
 }

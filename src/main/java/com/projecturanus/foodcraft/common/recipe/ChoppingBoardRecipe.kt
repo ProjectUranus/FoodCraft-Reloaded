@@ -50,7 +50,7 @@ class ChoppingBoardRecipe(context: JsonContext, json: JsonObject): DummyRecipe<C
         return ret
     }
 
-    override fun getRecipeOutput(): ItemStack = recipeOutput
+    override fun getRecipeOutput(): ItemStack = recipeOutput.copy()
     override fun getRegistryType(): Class<ChoppingBoardRecipe> = ChoppingBoardRecipe::class.java
 
 }
