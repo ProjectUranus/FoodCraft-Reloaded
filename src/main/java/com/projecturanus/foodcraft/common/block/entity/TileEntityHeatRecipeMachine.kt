@@ -7,9 +7,15 @@ import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.EnumFacing
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.registries.IForgeRegistry
+import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
-abstract class TileEntityHeatRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>, inputSlots: IntRange, outputSlots: IntRange, slots: Int) : TileEntityRecipeMachine<T>(recipeRegistry, inputSlots, outputSlots, slots) where T: FcRecipe<T> {
+abstract class TileEntityHeatRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>, inputSlots: IntRange, outputSlots: IntRange, slots: Int) : ITemperature, TileEntityRecipeMachine<T>(recipeRegistry, inputSlots, outputSlots, slots) where T: FcRecipe<T> {
     open val heatHandler = this.createFuelHandler()
+
+    override fun getTemperature(): Double = heatHandler.temperature
+    override fun getMaximumTemperature(): Double = heatHandler.maximumTemperature
+    override fun getMinimumTemperature(): Double = heatHandler.minimumTemperature
+    override fun getDefaultTemperature(): Double = heatHandler.defaultTemperature
 
     abstract fun createFuelHandler(): FuelHeatHandler
 

@@ -1,6 +1,7 @@
 package com.projecturanus.foodcraft.common.block.container
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.block.container.slot.SlotOutput
 import com.projecturanus.foodcraft.common.block.entity.TileEntityPot
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate

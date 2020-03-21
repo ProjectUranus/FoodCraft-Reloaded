@@ -40,8 +40,8 @@ class PanCategory(val helper: IJeiHelpers): IRecipeCategory<PanWrapper> {
 
     override fun setRecipe(recipeLayout: IRecipeLayout, recipeWrapper: PanWrapper, ingredients: IIngredients) {
         val stackGroup = recipeLayout.itemStacks
-        stackGroup.init(0, true, 41 - 12, 35 - 12)
-        stackGroup.init(1, false, 104 - 12, 35 - 12)
+        stackGroup.init(0, true, 41 - 12, 34 - 12)
+        stackGroup.init(1, false, 104 - 12, 34 - 12)
         stackGroup.set(ingredients)
     }
 

@@ -81,7 +81,7 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
         // Heating with fuel
         if (burnTime > 0.0) {
             // Decrease burn time
-            burnTime -= (1.0 + bonusRate) * (1.0 + encouragement)
+            burnTime -= (1.0 + bonusRate * 1.5) * (1.0 + encouragement)
 
             // Decrease encouragement
             encouragement = (encouragement - 0.01).coerceAtLeast(0.0)
@@ -98,8 +98,10 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
         } else if (heat != maxHeat) { // Depleted and as an only heat source
             depleteListener?.invoke()
         }
-        if (heat <= minHeat && !cool) return
-        if (heat >= maxHeat && cool) return
+        // Heating: no radiation
+        if (heat <= minHeat && !cool) { heat = minHeat; return }
+        // Cooling: no radiation
+        if (heat >= maxHeat && cool) { heat = maxHeat; return }
         if (cool)
             heat += radiation
         else

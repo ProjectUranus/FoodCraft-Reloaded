@@ -8,7 +8,9 @@ import com.projecturanus.foodcraft.common.network.registerMessages
 import com.projecturanus.foodcraft.common.recipe.RecipeRegistryHandler
 import com.projecturanus.foodcraft.fluid.FluidCookingOil
 import com.projecturanus.foodcraft.fluid.FluidMilk
+import com.projecturanus.foodcraft.worldgen.FruitTreeWorldGen
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fml.common.Loader
 import net.minecraftforge.fml.common.Mod
@@ -40,6 +42,8 @@ object FoodCraftReloaded {
         FluidRegistry.registerFluid(FluidCookingOil)
         FluidRegistry.addBucketForFluid(FluidCookingOil)
         registerMessages()
+
+        MinecraftForge.TERRAIN_GEN_BUS.register(FruitTreeWorldGen)
     }
 
     fun registerTileEntities() {

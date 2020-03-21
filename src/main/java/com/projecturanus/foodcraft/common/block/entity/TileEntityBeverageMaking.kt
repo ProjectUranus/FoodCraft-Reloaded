@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import com.projecturanus.foodcraft.common.recipe.BEVERAGE_MAKING_RECIPES
 import com.projecturanus.foodcraft.common.recipe.BeverageMakingRecipe
@@ -15,11 +16,9 @@ class TileEntityBeverageMaking : TileEntityFluidRecipeMachine<BeverageMakingReci
 
     override fun onLoad() {
         super.onLoad()
-        heatHandler.radiation = 0.15
-        heatHandler.heatPower = 0.4
-        heatHandler.temperature = ITemperature.ZERO_CELCIUS
-        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
-        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 100)
+        heatHandler.radiation = FcConfig.machineConfig.beverageMakingRadiation
+        heatHandler.heatPower = FcConfig.machineConfig.beverageMakingPower
+        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.beverageMakingHeat + 20)
 
         heatHandler.depleteListener = {
             if (!inventory[3].isEmpty)
@@ -28,12 +27,10 @@ class TileEntityBeverageMaking : TileEntityFluidRecipeMachine<BeverageMakingReci
                 inventory[3] = ItemStack.EMPTY
         }
 
-        coolHandler.radiation = 0.05
-        coolHandler.heatPower = 0.13
+        coolHandler.radiation = FcConfig.machineConfig.beverageMakingCoolingRadiation
+        coolHandler.heatPower = FcConfig.machineConfig.beverageMakingCoolingPower
         coolHandler.cool = true
-        coolHandler.minHeat = ITemperature.ZERO_CELCIUS - 80
-        coolHandler.temperature = ITemperature.ZERO_CELCIUS
-        coolHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 30)
+        coolHandler.minHeat = ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.beverageMakingCool - 10
 
         coolHandler.depleteListener = {
             if (!inventory[4].isEmpty)
@@ -80,10 +77,10 @@ class TileEntityBeverageMaking : TileEntityFluidRecipeMachine<BeverageMakingReci
 
     override fun canProgress(): Boolean {
         if (recipe?.cool == true) {
-            if (coolHandler.temperature < ITemperature.ZERO_CELCIUS - 10)
+            if (coolHandler.temperature <= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.beverageMakingCool)
                 return true
         } else if (recipe?.cool == false) {
-            if (heatHandler.temperature > ITemperature.ZERO_CELCIUS + 60)
+            if (heatHandler.temperature >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.beverageMakingHeat)
                 return true
         } else {
             return true
@@ -91,5 +88,5 @@ class TileEntityBeverageMaking : TileEntityFluidRecipeMachine<BeverageMakingReci
         return false
     }
 
-    override fun canFinish(): Boolean = progress >= 200
+    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.beverageMakingProgress
 }

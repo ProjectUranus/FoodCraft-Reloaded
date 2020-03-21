@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import com.projecturanus.foodcraft.common.recipe.PRESSURE_COOKER_RECIPES
 import com.projecturanus.foodcraft.common.recipe.PressureCookerRecipe
@@ -14,11 +15,9 @@ class TileEntityPressureCooker : TileEntityFluidRecipeMachine<PressureCookerReci
 
     override fun onLoad() {
         super.onLoad()
-        heatHandler.radiation = 0.15
-        heatHandler.heatPower = 0.65
-        heatHandler.temperature = ITemperature.ZERO_CELCIUS
-        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
-        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 300)
+        heatHandler.radiation = FcConfig.machineConfig.pressureCookerRadiation
+        heatHandler.heatPower = FcConfig.machineConfig.pressureCookerPower
+        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.pressureCookerHeat + 20)
 
         heatHandler.depleteListener = {
             if (!inventory[5].isEmpty)
@@ -46,10 +45,10 @@ class TileEntityPressureCooker : TileEntityFluidRecipeMachine<PressureCookerReci
     }
 
     override fun canProgress(): Boolean {
-        return heatHandler.temperature > ITemperature.ZERO_CELCIUS + 100
+        return heatHandler.temperature >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.pressureCookerHeat
     }
 
-    override fun canFinish(): Boolean = progress >= 400
+    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.pressureCookerProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

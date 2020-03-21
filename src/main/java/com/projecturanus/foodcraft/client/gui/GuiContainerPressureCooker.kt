@@ -4,6 +4,7 @@ import com.projecturanus.foodcraft.MODID
 import com.projecturanus.foodcraft.client.gui.widget.WidgetHeat
 import com.projecturanus.foodcraft.client.gui.widget.WidgetProgressBar
 import com.projecturanus.foodcraft.common.block.container.ContainerPressureCooker
+import com.projecturanus.foodcraft.common.config.FcConfig
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.util.ITooltipFlag
@@ -17,7 +18,7 @@ val PRESSURE_COOKER_TEXTURES = ResourceLocation(MODID, "textures/gui/container/p
 class GuiContainerPressureCooker(override val container: ContainerPressureCooker) : GuiContainerMachine(container, PRESSURE_COOKER_TEXTURES) {
     val tileEntity by lazy { container.tileEntity }
     val heatHandler by lazy { tileEntity.heatHandler }
-    val progress get() = container.progress / 400.0
+    val progress get() = container.progress / FcConfig.machineConfig.pressureCookerProgress.toDouble()
 
     val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
     val widgetProgress by lazy { WidgetProgressBar(176, 14, this::progress.getter) }

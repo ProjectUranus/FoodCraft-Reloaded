@@ -5,6 +5,7 @@ import com.projecturanus.foodcraft.common.util.get
 import com.projecturanus.foodcraft.common.util.observable.ObservableFluidTank
 import com.projecturanus.foodcraft.common.util.set
 import com.projecturanus.foodcraft.common.util.shrink
+import com.projecturanus.foodcraft.fluid.FluidCookingOil
 import com.projecturanus.foodcraft.fluid.FluidMilk
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
@@ -30,6 +31,7 @@ abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>
 
         val MILK_ORE_ID by lazy { OreDictionary.getOreID("listAllmilk") }
         val WATER_ORE_ID by lazy { OreDictionary.getOreID("listAllwater") }
+        val OIL_ORE_ID by lazy { OreDictionary.getOreID("listAlloil") }
     }
 
     val allowFluids by lazy { ALLOW_FLUIDS_MAP[RegistryManager.ACTIVE.getName(recipeRegistry)] ?: emptySet() }
@@ -49,7 +51,7 @@ abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>
                         markDirty()
                     }
                 }
-            } else if (OreDictionary.getOreIDs(stack).contains(MILK_ORE_ID)) {
+            } else if (OreDictionary.getOreIDs(stack).contains(MILK_ORE_ID) && allowFluids.contains(FluidMilk)) {
                 while (fluidTank.fluidAmount < fluidTank.capacity && !stack.isEmpty) {
                     val result = fluidTank.fill(FluidStack(FluidMilk, 1000), true)
                     if (result > 0) {
@@ -57,9 +59,17 @@ abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>
                         markDirty()
                     }
                 }
-            } else if (OreDictionary.getOreIDs(stack).contains(WATER_ORE_ID)) {
+            } else if (OreDictionary.getOreIDs(stack).contains(WATER_ORE_ID) && allowFluids.contains(FluidRegistry.WATER)) {
                 while (fluidTank.fluidAmount < fluidTank.capacity && !stack.isEmpty) {
                     val result = fluidTank.fill(FluidStack(FluidRegistry.WATER, 1000), true)
+                    if (result > 0) {
+                        inventory.shrink(slot)
+                        markDirty()
+                    }
+                }
+            } else if (OreDictionary.getOreIDs(stack).contains(OIL_ORE_ID) && allowFluids.contains(FluidCookingOil)) {
+                while (fluidTank.fluidAmount < fluidTank.capacity && !stack.isEmpty) {
+                    val result = fluidTank.fill(FluidStack(FluidCookingOil, 1000), true)
                     if (result > 0) {
                         inventory.shrink(slot)
                         markDirty()
@@ -118,6 +128,17 @@ abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>
         inventory.contentChangedListener += {
             if (it == fluidHandlerSlot) {
                 loadFluid(it)
+            }
+        }
+        inventory.validation = { slot, stack ->
+            when (slot) {
+                in outputSlots -> false
+                fluidHandlerSlot ->
+                    stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null) ||
+                        OreDictionary.getOreIDs(stack).contains(MILK_ORE_ID) ||
+                        OreDictionary.getOreIDs(stack).contains(OIL_ORE_ID) ||
+                        OreDictionary.getOreIDs(stack).contains(WATER_ORE_ID)
+                else -> true
             }
         }
     }

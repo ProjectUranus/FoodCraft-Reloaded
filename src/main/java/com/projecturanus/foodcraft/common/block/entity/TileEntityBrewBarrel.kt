@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.recipe.BREW_BARREL_RECIPES
 import com.projecturanus.foodcraft.common.recipe.BrewBarrelRecipe
 
@@ -12,5 +13,5 @@ class TileEntityBrewBarrel : TileEntityFluidRecipeMachine<BrewBarrelRecipe>(BREW
 
     override fun canProgress(): Boolean = true
 
-    override fun canFinish(): Boolean = progress >= 3600
+    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.brewBarrelProgress
 }

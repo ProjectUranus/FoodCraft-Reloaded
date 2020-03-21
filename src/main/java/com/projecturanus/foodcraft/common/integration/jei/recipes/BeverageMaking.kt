@@ -1,6 +1,7 @@
 package com.projecturanus.foodcraft.common.integration.jei.recipes
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.block.container.ContainerBeverageMaking
 import com.projecturanus.foodcraft.common.integration.jei.FcRecipeUids
 import com.projecturanus.foodcraft.common.recipe.BeverageMakingRecipe
 import mezz.jei.api.IJeiHelpers
@@ -12,8 +13,11 @@ import mezz.jei.api.ingredients.IIngredients
 import mezz.jei.api.ingredients.VanillaTypes
 import mezz.jei.api.recipe.IRecipeCategory
 import mezz.jei.api.recipe.IRecipeWrapper
+import mezz.jei.api.recipe.transfer.IRecipeTransferError
+import mezz.jei.api.recipe.transfer.IRecipeTransferHandler
 import net.minecraft.client.Minecraft
 import net.minecraft.client.resources.I18n
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly

@@ -1,13 +1,18 @@
 package com.projecturanus.foodcraft.common.integration.jei
 
 import com.projecturanus.foodcraft.client.gui.*
+import com.projecturanus.foodcraft.common.block.container.*
 import com.projecturanus.foodcraft.common.init.FCRItems
 import com.projecturanus.foodcraft.common.integration.jei.recipes.*
 import com.projecturanus.foodcraft.common.recipe.*
 import mezz.jei.api.IModPlugin
 import mezz.jei.api.IModRegistry
 import mezz.jei.api.JEIPlugin
+import mezz.jei.api.gui.IRecipeLayout
 import mezz.jei.api.recipe.IRecipeCategoryRegistration
+import mezz.jei.api.recipe.transfer.IRecipeTransferError
+import mezz.jei.api.recipe.transfer.IRecipeTransferHandler
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
 
 @JEIPlugin
@@ -48,6 +53,15 @@ class JEIIntegration : IModPlugin {
         registry.addRecipeCatalyst(ItemStack(FCRItems.PAN), FcRecipeUids.PAN)
         registry.addRecipeCatalyst(ItemStack(FCRItems.POT), FcRecipeUids.POT)
         registry.addRecipeCatalyst(ItemStack(FCRItems.PRESSURE_COOKER), FcRecipeUids.PRESSURE_COOKER)
+
+        val recipeTransferRegistry = registry.recipeTransferRegistry
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerBeverageMaking::class.java, FcRecipeUids.BEVERAGE_MAKING, 0, 1, 5, 36)
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerBrewBarrel::class.java, FcRecipeUids.BREW_BARREL, 0, 3, 6, 36)
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerChoppingBoard::class.java, FcRecipeUids.CHOPPING, 0, 3, 5, 36)
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerFryingPan::class.java, FcRecipeUids.FRYING, 0, 3, 4, 36)
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerMill::class.java, FcRecipeUids.MILLING, 0, 1, 3, 36)
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerPan::class.java, FcRecipeUids.PAN, 0, 1, 3, 36)
+        recipeTransferRegistry.addRecipeTransferHandler(ContainerPressureCooker::class.java, FcRecipeUids.PRESSURE_COOKER, 0, 3, 6, 36)
     }
 
     override fun registerCategories(registry: IRecipeCategoryRegistration) {
@@ -61,4 +75,13 @@ class JEIIntegration : IModPlugin {
             PressureCookerCategory(registry.jeiHelpers)
         )
     }
+}
+
+class PotRecipeTransferHandler<C>(val containerClassInternal: Class<C>) : IRecipeTransferHandler<C> where C : ContainerMachine {
+    override fun getContainerClass(): Class<C> = containerClassInternal
+
+    override fun transferRecipe(container: C, recipeLayout: IRecipeLayout, player: EntityPlayer, maxTransfer: Boolean, doTransfer: Boolean): IRecipeTransferError {
+        TODO("not implemented")
+    }
+
 }

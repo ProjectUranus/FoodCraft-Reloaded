@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.client.gui.widget
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import kotlin.reflect.KProperty0
 
 class WidgetProgressBar(val x: Int, val y: Int, val progress: KProperty0.Getter<Double>) : Widget() {
@@ -16,7 +17,7 @@ class WidgetProgressBar(val x: Int, val y: Int, val progress: KProperty0.Getter<
     override fun draw(x: Int, y: Int, mouseX: Int, mouseY: Int, partialTicks: Float) {
         val l: Int = (progress.invoke() * WIDTH).toInt()
         this.drawTexturedModalRect(x, y, this.x, this.y, l, 16)
-        if (isMouseIn(x, y, mouseX, mouseY)) {
+        if (isMouseIn(x, y, mouseX, mouseY) && FcConfig.clientConfig.enableHoverInfo) {
             this.drawHoveringText(listOf("Progress: ${progress.invoke()}"), x, y, fontRenderer)
         }
     }

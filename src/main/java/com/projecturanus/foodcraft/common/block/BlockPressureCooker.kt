@@ -14,6 +14,10 @@ import net.minecraft.world.World
 class BlockPressureCooker : BlockMachine() {
     override fun createNewTileEntity(worldIn: World, meta: Int): TileEntity = TileEntityPressureCooker()
 
+    override fun setDefaultTemperature(worldIn: World, pos: BlockPos, temperature: Double) {
+        getTileEntity<TileEntityPressureCooker>(worldIn, pos).heatHandler.minHeat = temperature
+    }
+
     override fun onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {
         val stack = playerIn.getHeldItem(hand)
         if (!playerIn.isSneaking) {

@@ -1,7 +1,6 @@
 package com.projecturanus.foodcraft.common.block
 
 import com.projecturanus.foodcraft.FoodCraftReloaded
-import com.projecturanus.foodcraft.common.BEVERAGE_MAKING
 import com.projecturanus.foodcraft.common.FRYING_PAN
 import com.projecturanus.foodcraft.common.block.entity.TileEntityFryingPan
 import net.minecraft.block.state.IBlockState
@@ -14,6 +13,10 @@ import net.minecraft.world.World
 
 class BlockFryingPan : BlockMachine() {
     override fun createNewTileEntity(worldIn: World, meta: Int): TileEntity = TileEntityFryingPan()
+
+    override fun setDefaultTemperature(worldIn: World, pos: BlockPos, temperature: Double) {
+        getTileEntity<TileEntityFryingPan>(worldIn, pos).heatHandler.minHeat = temperature
+    }
 
     override fun onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {
         val stack = playerIn.getHeldItem(hand)

@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.container
 
+import com.projecturanus.foodcraft.common.block.entity.TileEntityFluidRecipeMachine
 import com.projecturanus.foodcraft.common.block.entity.TileEntityRecipeMachine
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.entity.player.InventoryPlayer
@@ -22,22 +23,26 @@ abstract class ContainerRecipeMachine<T>(playerInventory: InventoryPlayer, overr
         if (slot == null || !slot.hasStack) return stack
         stack = slot.stack.copy()
         when (index) {
-            in tileEntity.inputSlots -> {
-                if (!mergeItemStack(slot.stack, tileEntity.slots, tileEntity.slots + PLAYER_INV_SIZE, false))
-                    return ItemStack.EMPTY
-                slot.onSlotChange(slot.stack, stack)
-            }
-            in tileEntity.outputSlots -> {
+            in (0 until tileEntity.slots) -> {
                 if (!mergeItemStack(slot.stack, tileEntity.slots, tileEntity.slots + PLAYER_INV_SIZE, false))
                     return ItemStack.EMPTY
                 slot.onSlotChange(slot.stack, stack)
             }
             in (tileEntity.slots) until (tileEntity.slots + PLAYER_INV_SIZE) -> {
-                if (mergeItemStack(slot.stack, tileEntity.inputSlots.first, tileEntity.inputSlots.last, false))
+                if (tileEntity is TileEntityFluidRecipeMachine<*>) {
+                    val fluidRecipeMachine = tileEntity as TileEntityFluidRecipeMachine<*>
+                    if (mergeItemStack(slot.stack, fluidRecipeMachine.fluidHandlerSlot, fluidRecipeMachine.fluidHandlerSlot + 1, false)) {
+                        slot.onSlotChange(slot.stack, stack)
+                        return ItemStack.EMPTY
+                    }
+                }
+
+                if (!mergeItemStack(slot.stack, tileEntity.inputSlots.first, tileEntity.inputSlots.last + 1, false))
                     return ItemStack.EMPTY
+                slot.onSlotChange(slot.stack, stack)
             }
         }
-        return stack
+        return ItemStack.EMPTY
     }
 
     override fun updateProgressBar(id: Int, data: Int) {

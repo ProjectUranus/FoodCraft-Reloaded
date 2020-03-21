@@ -617,5 +617,11 @@ object RegisterHandler {
 
 
         DEFAULT_MODEL_ITEMS.addAll(INGREDIENTS + CROPS + SNACKS + STAPLES)
+        registerSeeds()
+    }
+
+    fun registerSeeds() {
+        // TODO 1.13+ Loot Tables
+        CROPS.forEach { MinecraftForge.addGrassSeed(ItemStack(it), 4) }
     }
 }

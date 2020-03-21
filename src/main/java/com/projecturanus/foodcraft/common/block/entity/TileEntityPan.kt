@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import com.projecturanus.foodcraft.common.init.FCRItems
 import com.projecturanus.foodcraft.common.recipe.PAN_RECIPES
@@ -61,16 +62,15 @@ class TileEntityPan : TileEntityHeatRecipeMachine<PanRecipe>(PAN_RECIPES, 0..0, 
         heatHandler.update(0.0)
     }
 
-    override fun canProgress(): Boolean = heatHandler.temperature > ITemperature.ZERO_CELCIUS + 80
+    override fun canProgress(): Boolean = heatHandler.temperature > ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.panHeat
 
     override fun canFinish(): Boolean = progress > recipe?.minTime ?: Int.MAX_VALUE && progress < recipe?.maxTime ?: -1 && !waitingExtract
 
     override fun createFuelHandler(): FuelHeatHandler {
         val heatHandler = FuelHeatHandler()
-        heatHandler.radiation = 0.02
-        heatHandler.heatPower = 1.0
-        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
-        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 160)
+        heatHandler.radiation = FcConfig.machineConfig.panRadiation
+        heatHandler.heatPower = FcConfig.machineConfig.panPower
+        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.panHeat + 100)
         return heatHandler
     }
 }

@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import com.projecturanus.foodcraft.common.recipe.FRYING_PAN_RECIPES
 import com.projecturanus.foodcraft.common.recipe.FryingPanRecipe
@@ -14,11 +15,9 @@ class TileEntityFryingPan : TileEntityFluidRecipeMachine<FryingPanRecipe>(FRYING
 
     override fun onLoad() {
         super.onLoad()
-        heatHandler.radiation = 0.15
-        heatHandler.heatPower = 0.6
-        heatHandler.temperature = ITemperature.ZERO_CELCIUS
-        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
-        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 140)
+        heatHandler.radiation = FcConfig.machineConfig.fryingPanRadiation
+        heatHandler.heatPower = FcConfig.machineConfig.fryingPanPower
+        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.fryingPanHeat + 20)
 
         heatHandler.depleteListener = {
             if (!inventory[3].isEmpty)
@@ -46,10 +45,10 @@ class TileEntityFryingPan : TileEntityFluidRecipeMachine<FryingPanRecipe>(FRYING
     }
 
     override fun canProgress(): Boolean {
-        return heatHandler.temperature > ITemperature.ZERO_CELCIUS + 90
+        return heatHandler.temperature >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.fryingPanHeat
     }
 
-    override fun canFinish(): Boolean = progress >= 200
+    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.fryingPanProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

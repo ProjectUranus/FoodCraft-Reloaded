@@ -27,6 +27,12 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
         inventory.contentChangedListener += {
             if (it in inputSlots || it in outputSlots) recipe = findRecipe()
         }
+        inventory.validation = { slot, stack ->
+            when (slot) {
+                in outputSlots -> false
+                else -> true
+            }
+        }
     }
 
     override fun update() {
@@ -100,7 +106,7 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
         super.readFromNBT(nbt)
         progress = nbt.getInteger("progress")
         inventory.deserializeNBT(nbt.getCompoundTag("inventory"))
-        findRecipe()
+        recipe = findRecipe()
     }
 
     override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {

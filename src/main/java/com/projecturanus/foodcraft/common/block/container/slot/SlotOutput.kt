@@ -1,4 +1,4 @@
-package com.projecturanus.foodcraft.common.block.container
+package com.projecturanus.foodcraft.common.block.container.slot
 
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack

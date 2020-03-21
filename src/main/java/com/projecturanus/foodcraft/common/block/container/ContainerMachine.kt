@@ -12,7 +12,7 @@ import net.minecraft.world.IWorldNameable
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
-const val PLAYER_INV_SIZE = 27
+const val PLAYER_INV_SIZE = 36
 
 open class ContainerMachine(val playerInventory: InventoryPlayer, open val tileEntity: TileEntity) : Container(), IWorldNameable {
     override fun canInteractWith(playerIn: EntityPlayer): Boolean = true

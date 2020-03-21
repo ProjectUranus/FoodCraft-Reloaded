@@ -3,11 +3,8 @@ package com.projecturanus.foodcraft.common.block
 import com.projecturanus.foodcraft.FoodCraftReloaded
 import com.projecturanus.foodcraft.common.STOVE
 import com.projecturanus.foodcraft.common.block.entity.TileEntityStove
-import com.projecturanus.foodcraft.common.capability.fromMinecraftTemperature
 import net.minecraft.block.state.IBlockState
-import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.player.EntityPlayer
-import net.minecraft.item.ItemStack
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.tileentity.TileEntityFurnace
 import net.minecraft.util.EnumFacing
@@ -18,9 +15,8 @@ import net.minecraft.world.World
 class BlockStove : BlockMachine() {
     override fun createNewTileEntity(worldIn: World, meta: Int): TileEntity = TileEntityStove()
 
-    override fun onBlockPlacedBy(worldIn: World, pos: BlockPos, state: IBlockState, placer: EntityLivingBase, stack: ItemStack) {
-        super.onBlockPlacedBy(worldIn, pos, state, placer, stack)
-        getTileEntity<TileEntityStove>(worldIn, pos).heatHandler.minHeat = fromMinecraftTemperature(worldIn.getBiome(pos).getTemperature(pos).toDouble())
+    override fun setDefaultTemperature(worldIn: World, pos: BlockPos, temperature: Double) {
+        getTileEntity<TileEntityStove>(worldIn, pos).heatHandler.minHeat = temperature
     }
 
     override fun onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {

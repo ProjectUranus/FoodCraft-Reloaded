@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.heat.FuelHeatHandler
 import com.projecturanus.foodcraft.common.recipe.MILL_RECIPES
 import com.projecturanus.foodcraft.common.recipe.MillRecipe
@@ -14,11 +15,9 @@ class TileEntityMill : TileEntityRecipeMachine<MillRecipe>(MILL_RECIPES, 0..0, 1
 
     override fun onLoad() {
         super.onLoad()
-        heatHandler.radiation = 0.15
-        heatHandler.heatPower = 0.6
-        heatHandler.temperature = ITemperature.ZERO_CELCIUS
-        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
-        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 140)
+        heatHandler.radiation = FcConfig.machineConfig.millRadiation
+        heatHandler.heatPower = FcConfig.machineConfig.millPower
+        heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.millHeat + 20)
 
         heatHandler.depleteListener = {
             if (!inventory[2].isEmpty)
@@ -46,10 +45,10 @@ class TileEntityMill : TileEntityRecipeMachine<MillRecipe>(MILL_RECIPES, 0..0, 1
     }
 
     override fun canProgress(): Boolean {
-        return heatHandler.temperature > ITemperature.ZERO_CELCIUS + 90
+        return heatHandler.temperature > FcConfig.machineConfig.millHeat
     }
 
-    override fun canFinish(): Boolean = progress >= 200
+    override fun canFinish(): Boolean = progress >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.millProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

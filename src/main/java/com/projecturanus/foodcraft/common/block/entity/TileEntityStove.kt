@@ -23,7 +23,6 @@ class TileEntityStove : TileEntity(), ITickable {
         inventory.validation = { _, stack ->
             TileEntityFurnace.isItemFuel(stack)
         }
-        heatHandler.minHeat = ITemperature.ZERO_CELCIUS
         heatHandler.setMaxHeat(ITemperature.ZERO_CELCIUS + 1000)
         heatHandler.radiation = 0.2
         heatHandler.heatPower = 0.5

@@ -5,6 +5,7 @@ import com.projecturanus.foodcraft.client.gui.widget.WidgetCool
 import com.projecturanus.foodcraft.client.gui.widget.WidgetHeat
 import com.projecturanus.foodcraft.client.gui.widget.WidgetProgressBar
 import com.projecturanus.foodcraft.common.block.container.ContainerBeverageMaking
+import com.projecturanus.foodcraft.common.config.FcConfig
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.util.ITooltipFlag
@@ -20,7 +21,7 @@ class GuiContainerBeverageMaking(override val container: ContainerBeverageMaking
     val tileEntity by lazy { container.tileEntity }
     val heatHandler by lazy { tileEntity.heatHandler }
     val coolHandler by lazy { tileEntity.coolHandler }
-    val progress get() = container.progress / 200.0
+    val progress get() = container.progress / FcConfig.machineConfig.beverageMakingProgress.toDouble()
 
     val widgetHeat = WidgetHeat(176, 0, container::heatTemperature.getter)
     val widgetCool = WidgetCool(190, 0, container::coolTemperature.getter)

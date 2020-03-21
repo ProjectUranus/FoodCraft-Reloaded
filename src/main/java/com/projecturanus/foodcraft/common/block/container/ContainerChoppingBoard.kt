@@ -1,6 +1,7 @@
 package com.projecturanus.foodcraft.common.block.container
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.block.container.slot.SlotOutput
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.Slot
 import net.minecraft.item.ItemStack

@@ -1,6 +1,7 @@
 package com.projecturanus.foodcraft.common.block.container
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.block.container.slot.SlotOutput
 import com.projecturanus.foodcraft.common.block.entity.TileEntityFryingPan
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
@@ -24,7 +25,7 @@ class ContainerFryingPan(playerInventory: InventoryPlayer, tileEntity: TileEntit
         addSlotToContainer(SlotOutput(playerInventory.player, itemHandler, 1, 130, 31))
 
         addSlotToContainer(SlotItemHandler(itemHandler, 2, 37, 59))
-        addSlotToContainer(SlotItemHandler(itemHandler, 3, 95, 60))
+        addSlotToContainer(SlotItemHandler(itemHandler, 3, 95, 59))
 
         for (x in 0 until 3) {
             for (y in 0 until 9) {

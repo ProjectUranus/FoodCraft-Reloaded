@@ -14,6 +14,11 @@ import net.minecraft.world.World
 class BlockBeverageMaking : BlockMachine() {
     override fun createNewTileEntity(worldIn: World, meta: Int): TileEntity = TileEntityBeverageMaking()
 
+    override fun setDefaultTemperature(worldIn: World, pos: BlockPos, temperature: Double) {
+        getTileEntity<TileEntityBeverageMaking>(worldIn, pos).heatHandler.minHeat = temperature
+        getTileEntity<TileEntityBeverageMaking>(worldIn, pos).coolHandler.setMaxHeat(temperature)
+    }
+
     override fun onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean {
         val stack = playerIn.getHeldItem(hand)
         if (!playerIn.isSneaking) {

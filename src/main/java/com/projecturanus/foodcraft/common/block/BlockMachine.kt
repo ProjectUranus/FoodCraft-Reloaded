@@ -1,6 +1,7 @@
 package com.projecturanus.foodcraft.common.block
 
 import com.projecturanus.foodcraft.common.capability.InjectedCapabilities
+import com.projecturanus.foodcraft.common.capability.fromMinecraftTemperature
 import com.projecturanus.foodcraft.common.heat.HeatHandler
 import com.projecturanus.foodcraft.common.init.FcTabMachine
 import com.projecturanus.foodcraft.common.util.iterator
@@ -96,6 +97,12 @@ abstract class BlockMachine : BlockHorizontal(Material.IRON), ITileEntityProvide
                 }
             }
         }
+
+        if (!worldIn.isRemote)
+            setDefaultTemperature(worldIn, pos, fromMinecraftTemperature(worldIn.getBiome(pos).getTemperature(pos).toDouble()))
+    }
+
+    open fun setDefaultTemperature(worldIn: World, pos: BlockPos, temperature: Double) {
     }
 
     override fun withRotation(state: IBlockState, rot: Rotation): IBlockState? {

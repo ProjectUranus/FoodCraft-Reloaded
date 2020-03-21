@@ -63,7 +63,7 @@ class BlockFruitSapling(val leavesState: IBlockState) : BlockBush(), IGrowable {
         if ((state.getValue(STAGE) as Int).toInt() == 0) {
             worldIn.setBlockState(pos, state.cycleProperty(STAGE), 4)
         } else {
-            generateTree(worldIn, pos!!, state, rand!!)
+            generateTree(worldIn, pos!!, state, rand!!, leavesState)
         }
     }
 
@@ -86,19 +86,19 @@ class BlockFruitSapling(val leavesState: IBlockState) : BlockBush(), IGrowable {
 
     override fun getMetaFromState(state: IBlockState): Int = state.getValue(STAGE)
 
-    fun generateTree(worldIn: World, pos: BlockPos, state: IBlockState, rand: Random) {
-        if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return
-        val logState = Blocks.LOG.defaultState.withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.JUNGLE)
-        val air = Blocks.AIR.defaultState
-
-        worldIn.setBlockState(pos, air, 4)
-        val genTrees = WorldGenTrees(true, 4 + rand.nextInt(7), logState, leavesState, false)
-        if (!genTrees.generate(worldIn, rand, pos)) {
-            worldIn.setBlockState(pos, state, 4)
-        }
-
-    }
-
     @SideOnly(Side.CLIENT)
     override fun getLocalizedName(): String = I18n.format(baseTranslationKey, I18n.format(realTranslationKey))
+}
+
+fun generateTree(worldIn: World, pos: BlockPos, state: IBlockState, rand: Random, leavesState: IBlockState, isSapling: Boolean = true) {
+    if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return
+    val logState = Blocks.LOG.defaultState.withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.JUNGLE)
+    val air = Blocks.AIR.defaultState
+
+    worldIn.setBlockState(pos, air, 4)
+    val genTrees = WorldGenTrees(true, 4 + rand.nextInt(7), logState, leavesState, false)
+    if (!genTrees.generate(worldIn, rand, pos) && isSapling) {
+        worldIn.setBlockState(pos, state, 4)
+    }
+
 }

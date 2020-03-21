@@ -12,9 +12,8 @@ class TOPIntegration : Function<ITheOneProbe, Void?> {
     @Optional.Method(modid = "theoneprobe")
     override fun apply(theOneProbe: ITheOneProbe): Void? {
         Companion.theOneProbe = theOneProbe
-        theOneProbe.registerProvider(HeatInfoProvider)
+        theOneProbe.registerProvider(StoveProvider)
         theOneProbe.registerProvider(MachineProvider)
-        theOneProbe.registerProvider(BeverageMakingProvider)
         return null
     }
 }

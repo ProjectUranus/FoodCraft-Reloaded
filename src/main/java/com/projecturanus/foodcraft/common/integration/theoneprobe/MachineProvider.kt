@@ -1,6 +1,8 @@
 package com.projecturanus.foodcraft.common.integration.theoneprobe
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.block.entity.TileEntityRecipeMachine
+import com.projecturanus.foodcraft.common.util.get
 import mcjty.theoneprobe.api.IProbeHitData
 import mcjty.theoneprobe.api.IProbeInfo
 import mcjty.theoneprobe.api.IProbeInfoProvider
@@ -12,8 +14,13 @@ import net.minecraft.world.World
 object MachineProvider : IProbeInfoProvider {
     override fun addProbeInfo(mode: ProbeMode, probeInfo: IProbeInfo, player: EntityPlayer, world: World, blockState: IBlockState, data: IProbeHitData) {
         val tileEntity = world.getTileEntity(data.pos)
-        if (blockState.block.registryName?.namespace != MODID || tileEntity == null)
-            return
+        if (tileEntity !is TileEntityRecipeMachine<*>) return
+        val column = probeInfo.vertical()
+
+        val row = column.horizontal()
+        tileEntity.inventory[tileEntity.inputSlots].asSequence().filter { !it.isEmpty }.forEach { probeInfo.item(it) }
+        tileEntity.inventory[tileEntity.outputSlots].asSequence().filter { !it.isEmpty }.forEach { probeInfo.item(it) }
+
     }
 
     override fun getID(): String = "$MODID:machine_info"
