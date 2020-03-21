@@ -45,10 +45,10 @@ class TileEntityMill : TileEntityRecipeMachine<MillRecipe>(MILL_RECIPES, 0..0, 1
     }
 
     override fun canProgress(): Boolean {
-        return heatHandler.temperature > FcConfig.machineConfig.millHeat
+        return heatHandler.temperature > ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.millHeat
     }
 
-    override fun canFinish(): Boolean = progress >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.millProgress
+    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.millProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

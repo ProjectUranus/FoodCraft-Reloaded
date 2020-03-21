@@ -78,7 +78,7 @@ class TileEntityPot : TileEntityHeatRecipeMachine<PotRecipe>(POT_RECIPES, 0..11,
         heatHandler.update(0.0)
     }
 
-    override fun canProgress(): Boolean = heatHandler.temperature > ITemperature.ZERO_CELCIUS + 80
+    override fun canProgress(): Boolean = heatHandler.temperature > ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.potHeat
 
     override fun canFinish(): Boolean = progress > recipe?.minTime ?: Int.MAX_VALUE && progress < recipe?.maxTime ?: -1 && !waitingExtract
 
