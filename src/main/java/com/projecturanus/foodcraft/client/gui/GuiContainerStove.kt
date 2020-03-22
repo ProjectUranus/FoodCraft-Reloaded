@@ -27,7 +27,7 @@ class GuiContainerStove(override val container: ContainerStove) : GuiContainerMa
         val i = (width - xSize) / 2
         val j = (height - ySize) / 2
 
-        widgetHeat.draw(i + 81, j + 48, mouseX, mouseY, partialTicks)
+        widgetHeat.draw(i + 81, j + 36, mouseX, mouseY, partialTicks)
 
         if (fuelHandler.hasWork()) {
             this.drawTexturedModalRect(i + 83, j + 22, 176, 14, 9, 9)

@@ -18,9 +18,9 @@ object MachineProvider : IProbeInfoProvider {
         val column = probeInfo.vertical()
 
         val row = column.horizontal()
-        tileEntity.inventory[tileEntity.inputSlots].asSequence().filter { !it.isEmpty }.forEach { probeInfo.item(it) }
-        tileEntity.inventory[tileEntity.outputSlots].asSequence().filter { !it.isEmpty }.forEach { probeInfo.item(it) }
-
+        tileEntity.inventory[tileEntity.inputSlots].asSequence().filter { !it.isEmpty }.forEach { row.item(it) }
+        row.progress(tileEntity.progress, tileEntity.minProgress)
+        tileEntity.inventory[tileEntity.outputSlots].asSequence().filter { !it.isEmpty }.forEach { row.item(it) }
     }
 
     override fun getID(): String = "$MODID:machine_info"

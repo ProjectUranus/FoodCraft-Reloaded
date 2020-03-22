@@ -47,6 +47,10 @@ public class FcConfig {
         @Config.RangeInt(min = 1)
         public int brewBarrelProgress = 3600;
 
+        @Config.Comment("Ticks to progress Chopping Board Recipes")
+        @Config.RangeInt(min = 1)
+        public int choppingBoardProgress = 20;
+
         @Config.Comment("Minimum temperature (in celsius degrees) to start a recipe for Frying Pan Recipes")
         public double fryingPanHeat = 90;
 

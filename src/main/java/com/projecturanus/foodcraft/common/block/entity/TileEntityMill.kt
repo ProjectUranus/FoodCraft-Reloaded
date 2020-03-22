@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 class TileEntityMill : TileEntityRecipeMachine<MillRecipe>(MILL_RECIPES, 0..0, 1..1, 3) {
+    override val minProgress = FcConfig.machineConfig.millProgress
+
     val heatHandler = FuelHeatHandler()
 
     override fun onLoad() {
@@ -47,8 +49,6 @@ class TileEntityMill : TileEntityRecipeMachine<MillRecipe>(MILL_RECIPES, 0..0, 1
     override fun canProgress(): Boolean {
         return heatHandler.temperature > ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.millHeat
     }
-
-    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.millProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

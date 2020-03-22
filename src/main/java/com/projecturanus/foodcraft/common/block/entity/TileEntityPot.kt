@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 class TileEntityPot : TileEntityHeatRecipeMachine<PotRecipe>(POT_RECIPES, 0..11, 12..12, 14) {
+    override var minProgress = recipe?.minTime ?: 10000
+
     var waitingExtract = false
 
     init {
@@ -28,6 +30,12 @@ class TileEntityPot : TileEntityHeatRecipeMachine<PotRecipe>(POT_RECIPES, 0..11,
 
         beforeProgress()
 
+        if (waitingExtract && progress > recipe?.maxTime ?: Int.MAX_VALUE) { // Overcooked
+            inventory.shrink(12)
+            inventory.insertItem(13, ItemStack(FCRItems.OVERCOOKED_FOOD), false)
+            reset()
+        }
+
         if (recipe != null) {
             // Finish
             if (canFinish()) {
@@ -37,15 +45,13 @@ class TileEntityPot : TileEntityHeatRecipeMachine<PotRecipe>(POT_RECIPES, 0..11,
                 inventory.insertItem(12, stack, false)
                 waitingExtract = true
                 markDirty()
-            } else if (waitingExtract && progress > recipe!!.maxTime) { // Overcooked
-                inventory.shrink(12)
-                inventory.insertItem(13, ItemStack(FCRItems.OVERCOOKED_FOOD), false)
-                reset()
             } else {
                 if (canProgress())
                     progress++
                 working = true
             }
+        } else if (waitingExtract) {
+            progress++
         } else if (!waitingExtract && progress > 0) {
             progress = 0
             working = false

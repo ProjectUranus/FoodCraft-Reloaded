@@ -12,6 +12,8 @@ import net.minecraftforge.registries.IForgeRegistry
 import kotlin.properties.Delegates
 
 abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>, val inputSlots: IntRange, val outputSlots: IntRange, slots: Int) : TileEntityMachine(slots) where T : FcRecipe<T> {
+    abstract val minProgress: Int
+
     var recipe: T? = null
     var progress = 0
     var working by Delegates.observable(false) { property, old, new ->
@@ -25,7 +27,10 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
 
     override fun onLoad() {
         inventory.contentChangedListener += {
-            if (it in inputSlots || it in outputSlots) recipe = findRecipe()
+            if (it in inputSlots || it in outputSlots) {
+                // When there is only one item left in machine, do not lookup recipes again
+                if (recipe == null) recipe = findRecipe()
+            }
         }
         inventory.validation = { slot, stack ->
             when (slot) {
@@ -123,5 +128,5 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
     abstract fun reset()
     abstract fun beforeProgress()
     abstract fun canProgress(): Boolean
-    abstract fun canFinish(): Boolean
+    open fun canFinish(): Boolean = progress >= minProgress
 }

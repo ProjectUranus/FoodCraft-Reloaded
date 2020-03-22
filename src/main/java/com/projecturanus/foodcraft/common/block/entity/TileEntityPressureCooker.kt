@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 class TileEntityPressureCooker : TileEntityFluidRecipeMachine<PressureCookerRecipe>(PRESSURE_COOKER_RECIPES, 4000, 4, 0..2, 3..3, 6) {
+    override val minProgress = FcConfig.machineConfig.pressureCookerProgress
+
     val heatHandler = FuelHeatHandler()
 
     override fun onLoad() {
@@ -47,8 +49,6 @@ class TileEntityPressureCooker : TileEntityFluidRecipeMachine<PressureCookerReci
     override fun canProgress(): Boolean {
         return heatHandler.temperature >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.pressureCookerHeat
     }
-
-    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.pressureCookerProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

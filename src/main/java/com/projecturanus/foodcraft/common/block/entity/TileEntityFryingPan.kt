@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 class TileEntityFryingPan : TileEntityFluidRecipeMachine<FryingPanRecipe>(FRYING_PAN_RECIPES, 4000, 2, 0..0, 1..1, 4) {
+    override val minProgress = FcConfig.machineConfig.fryingPanProgress
+
     val heatHandler = FuelHeatHandler()
 
     override fun onLoad() {
@@ -47,8 +49,6 @@ class TileEntityFryingPan : TileEntityFluidRecipeMachine<FryingPanRecipe>(FRYING
     override fun canProgress(): Boolean {
         return heatHandler.temperature >= ITemperature.ZERO_CELCIUS + FcConfig.machineConfig.fryingPanHeat
     }
-
-    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.fryingPanProgress
 
     override fun readFromNBT(nbt: NBTTagCompound) {
         super.readFromNBT(nbt)

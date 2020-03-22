@@ -1,5 +1,6 @@
 package com.projecturanus.foodcraft.common.block.entity
 
+import com.projecturanus.foodcraft.common.config.FcConfig
 import com.projecturanus.foodcraft.common.recipe.CHOPPING_BOARD_RECIPES
 import com.projecturanus.foodcraft.common.recipe.ChoppingBoardRecipe
 import com.projecturanus.foodcraft.common.util.get
@@ -7,6 +8,8 @@ import com.projecturanus.foodcraft.common.util.set
 import net.minecraft.item.ItemStack
 
 class TileEntityChoppingBoard : TileEntityRecipeMachine<ChoppingBoardRecipe>(CHOPPING_BOARD_RECIPES, 0..2, 3..3, 5) {
+    override val minProgress = FcConfig.machineConfig.choppingBoardProgress
+
     override fun onLoad() {
         super.onLoad()
     }
@@ -23,6 +26,4 @@ class TileEntityChoppingBoard : TileEntityRecipeMachine<ChoppingBoardRecipe>(CHO
     }
 
     override fun canProgress(): Boolean = !inventory[4].isEmpty
-
-    override fun canFinish(): Boolean = progress >= 20
 }

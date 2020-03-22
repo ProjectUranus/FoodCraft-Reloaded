@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 
 class TileEntityBeverageMaking : TileEntityFluidRecipeMachine<BeverageMakingRecipe>(BEVERAGE_MAKING_RECIPES, 8000, 2, 0..0, 1..1, 5) {
+    override val minProgress = FcConfig.machineConfig.beverageMakingProgress
+
     val heatHandler = FuelHeatHandler()
     val coolHandler = FuelHeatHandler()
 
@@ -87,6 +89,4 @@ class TileEntityBeverageMaking : TileEntityFluidRecipeMachine<BeverageMakingReci
         }
         return false
     }
-
-    override fun canFinish(): Boolean = progress >= FcConfig.machineConfig.beverageMakingProgress
 }
