@@ -15,14 +15,10 @@ import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 
 class BlockPot : BlockMachine() {
-    val collisionBox = AxisAlignedBB(0.0, 0.0, 2.5, 16.0, 0.8, 13.5)
+    val collisionBox = AxisAlignedBB(0.0, 0.0, 2.5 / 16, 16.0 / 16, 0.8 / 16, 13.5 / 16)
 
-    override fun getCollisionBoundingBox(blockState: IBlockState, worldIn: IBlockAccess, pos: BlockPos): AxisAlignedBB? {
+    override fun getSelectedBoundingBox(blockState: IBlockState, worldIn: World, pos: BlockPos): AxisAlignedBB? {
         return collisionBox
-    }
-
-    override fun addCollisionBoxToList(state: IBlockState, worldIn: World, pos: BlockPos, entityBox: AxisAlignedBB, collidingBoxes: MutableList<AxisAlignedBB>, entityIn: Entity?, isActualState: Boolean) {
-        collidingBoxes += collisionBox
     }
 
     override fun createNewTileEntity(worldIn: World, meta: Int): TileEntity = TileEntityPot()

@@ -1,0 +1,15 @@
+{
+    "name": "Pressure Cooker",
+    "icon": "foodcraftreloaded:pressure_cooker",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "Pressure Cooker can be used to make meals."
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:pressure_cooker"
+        }
+    ]
+}
