@@ -3,11 +3,12 @@
         "modid": "foodcraftreloaded",
         "name": "FoodCraft Reloaded",
         "description": "A China and foreign food Minecraft mod(Reloaded!)",
-        "version": "@version@",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
         "credits": "Lasm Gratel",
         "logoFile": "",
-        "url": "https://github.com/NanamiArihara/FoodCraft-Reloaded",
-        "updateUrl": "https://lasmgratel.github.io/FoodCraft-Reloaded/update.json",
+        "url": "https://github.com/ProjectUranus/FoodCraft-Reloaded",
+        "updateUrl": "https://www.projecturanus.com/foodcraft/update.json",
         "authors": [
             "Lasm_Gratel"
         ],

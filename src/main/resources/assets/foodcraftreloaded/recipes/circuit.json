@@ -16,7 +16,7 @@
         },
         "A": {
             "type": "forge:ore_dict",
-            "ore": "cropWheat"
+            "ore": "circuitIngredient"
         }
     },
     "result": {

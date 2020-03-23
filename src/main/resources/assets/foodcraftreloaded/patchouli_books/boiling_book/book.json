@@ -1,0 +1,6 @@
+{
+    "name": "item.foodcraftreloaded.boiling_book.name",
+    "landing_text": "item.foodcraftreloaded.boiling_book.landing",
+    "model": "patchouli:book_red",
+    "creative_tab": "food"
+}

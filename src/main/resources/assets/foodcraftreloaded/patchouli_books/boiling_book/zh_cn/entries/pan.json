@@ -1,0 +1,15 @@
+{
+    "name": "平底锅",
+    "icon": "foodcraftreloaded:pan",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "红太狼用来打灰太狼的平底锅.$(br)左边的瓶子格没啥用, 你可以完全忘掉它.$(br)你需要把平底锅放在灶炉上才能开始将食物烤至$(6)两面金黄.$(br)$(c)$(l)注意: 不要把它放在一旁置之不理, $()你需要随时观察下方的进度条, 在食物还未烧糊之前尽快取出!"
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:pan"
+        }
+    ]
+}

@@ -67,6 +67,11 @@ object FoodCraftReloaded {
             RegisterHandler.mirrorOres("listAlloil", "foodOliveoil")
         }
 
+        RegisterHandler.mirrorOres("circuitIngredient", "cropRice")
+        RegisterHandler.mirrorOres("circuitIngredient", "cropWheat")
+        RegisterHandler.mirrorOres("circuitIngredient", "cropSoybean")
+        RegisterHandler.mirrorOres("circuitIngredient", "cropPeanut")
+
         if (!Loader.isModLoaded("commoncapabilities")) {
             DefaultCapabilities.registerDefaultCapabilities()
         }

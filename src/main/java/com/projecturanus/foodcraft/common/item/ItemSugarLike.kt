@@ -2,9 +2,11 @@ package com.projecturanus.foodcraft.common.item
 
 import net.minecraft.advancements.CriteriaTriggers
 import net.minecraft.block.Block
+import net.minecraft.block.BlockSnow
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.entity.player.EntityPlayerMP
+import net.minecraft.init.Blocks
 import net.minecraft.item.ItemBlock
 import net.minecraft.util.EnumActionResult
 import net.minecraft.util.EnumFacing
@@ -24,8 +26,18 @@ class ItemSugarLike(val block: Block) : FCRItemFood(), IPlantable {
     /**
      * Called when a Block is right-clicked with this Item
      */
-    override fun onItemUse(player: EntityPlayer, worldIn: World, pos: BlockPos, hand: EnumHand?, facing: EnumFacing?, hitX: Float, hitY: Float, hitZ: Float): EnumActionResult? {
+    override fun onItemUse(player: EntityPlayer, worldIn: World, pos: BlockPos, hand: EnumHand, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): EnumActionResult? {
+        val iblockstate = worldIn.getBlockState(pos)
         val itemstack = player.getHeldItem(hand)
+
+        var facing = facing
+        var pos = pos
+
+        if (iblockstate.block === Blocks.SNOW_LAYER && (iblockstate.getValue(BlockSnow.LAYERS) as Int).toInt() < 1) {
+            facing = EnumFacing.UP
+        } else if (!iblockstate.block.isReplaceable(worldIn, pos)) {
+            pos = pos.offset(facing)
+        }
 
         return if (!itemstack.isEmpty && player.canPlayerEdit(pos, facing, itemstack) && worldIn.mayPlace(block, pos, false, facing, player)) {
             var state = block.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand)

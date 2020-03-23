@@ -1,0 +1,15 @@
+{
+    "name": "碾磨机",
+    "icon": "foodcraftreloaded:mill",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "碾磨机能把它碰到的食材都磨成粉, 需要放入燃料加热来工作."
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:mill"
+        }
+    ]
+}

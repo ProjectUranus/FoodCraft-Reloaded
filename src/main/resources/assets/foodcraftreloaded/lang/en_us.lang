@@ -1,3 +1,7 @@
+# Book
+item.foodcraftreloaded.boiling_book.name="Boiling" Cooking Book!
+item.foodcraftreloaded.boiling_book.landing=This guide can train as a FoodCraft master cook!
+
 # Items
 item.foodcraftreloaded.glass_cup.name=Glass Cup
 item.foodcraftreloaded.wrench.name=Wrench
@@ -59,6 +63,8 @@ item.foodcraftreloaded.dumpling.name=Chinese Dumpling
 item.foodcraftreloaded.fried_dumpling.name=Fried Dumpling
 item.foodcraftreloaded.chocolate_bar.name=Chocolate bar
 item.foodcraftreloaded.tofu.name=Tofu
+item.foodcraftreloaded.curry.name=Curry
+item.foodcraftreloaded.chocolate_dust.name=Chocolate Dust
 item.foodcraftreloaded.dehydrated_tofu.name=Dehydrated Tofu
 item.foodcraftreloaded.fried_potato_chips.name=Fried Potato Chips
 item.foodcraftreloaded.zongzi.name=Zongzi
@@ -231,10 +237,7 @@ item.foodcraftreloaded.liqueur.name=%s Liqueur
 item.foodcraftreloaded.yogurt.name=%s Yogurt
 
 # Blocks
-tile.rice.name=Rice Block
-tile.drinkMachine.name=Drink Machine
-tile.smeltingDrinkMachine.name=Smelting Drink Machine
-
+tile.foodcraftreloaded.machine_casing.name=Machine Casing
 tile.foodcraftreloaded.mill.name=Mill
 tile.foodcraftreloaded.pan.name=Pan
 tile.foodcraftreloaded.pressure_cooker.name=Pressure Cooker
@@ -244,6 +247,8 @@ tile.foodcraftreloaded.chopping_board.name=Chopping Board
 tile.foodcraftreloaded.brew_barrel.name=Brew Barrel
 tile.foodcraftreloaded.stove.name=Stove
 tile.foodcraftreloaded.beverage_making.name=Beverage Making Machine
+
+tile.foodcraftreloaded.green_onion.name=Green Onion
 
 # Gui
 container.drink_machine=Drink Machine

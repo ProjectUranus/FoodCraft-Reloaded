@@ -1,8 +1,10 @@
+# Book
+item.foodcraftreloaded.boiling_book.name=沸腾中的烹调书!
+item.foodcraftreloaded.boiling_book.landing=这本书可以指导你如何成为食物工艺的烹调大师!
+
 # Blocks
 # Machines
-tile.smeltingDrinkMachine.name=烧炼饮料制作机
-tile.drinkMachine.name=饮料制作机
-
+tile.foodcraftreloaded.machine_casing.name=食物机器外壳
 tile.foodcraftreloaded.mill.name=碾磨机
 tile.foodcraftreloaded.pan.name=平底锅
 tile.foodcraftreloaded.pressure_cooker.name=高压锅
@@ -12,6 +14,8 @@ tile.foodcraftreloaded.chopping_board.name=菜板
 tile.foodcraftreloaded.brew_barrel.name=酿桶
 tile.foodcraftreloaded.stove.name=灶炉
 tile.foodcraftreloaded.beverage_making.name=饮料制作机
+
+tile.foodcraftreloaded.green_onion.name=葱苗
 
 # Items
 item.foodcraftreloaded.glass_cup.name=玻璃杯
@@ -73,6 +77,8 @@ item.foodcraftreloaded.dumpling.name=饺子
 item.foodcraftreloaded.fried_dumpling.name=煎饺
 item.foodcraftreloaded.chocolate_bar.name=巧克力
 item.foodcraftreloaded.tofu.name=豆腐
+item.foodcraftreloaded.curry.name=咖喱块
+item.foodcraftreloaded.chocolate_dust.name=巧克力粉
 item.foodcraftreloaded.dehydrated_tofu.name=豆腐干
 item.foodcraftreloaded.fried_potato_chips.name=炒土豆片
 item.foodcraftreloaded.zongzi.name=粽子

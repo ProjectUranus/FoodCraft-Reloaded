@@ -33,7 +33,8 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
             Item.getItemFromBlock(Blocks.ICE) to 400,
             Item.getItemFromBlock(Blocks.FROSTED_ICE) to 800,
             Item.getItemFromBlock(Blocks.PACKED_ICE) to 900,
-            Items.SNOWBALL to 100
+            Items.SNOWBALL to 100,
+            Item.getItemFromBlock(Blocks.SNOW) to 400
         )
     }
 

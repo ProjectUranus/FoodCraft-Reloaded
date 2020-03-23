@@ -22,7 +22,7 @@
         },
         "D": {
             "type": "forge:ore_dict",
-            "ore": "dyeBrown"
+            "ore": "ingotBrick"
         },
         "E": {
             "type": "forge:ore_dict",

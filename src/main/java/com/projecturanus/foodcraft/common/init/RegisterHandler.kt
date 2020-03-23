@@ -138,7 +138,6 @@ object RegisterHandler {
                 translationKey = "$MODID.$it"
                 CROPS += this@crop
                 blockCrop.cropItem = this
-                MinecraftForge.addGrassSeed(ItemStack(this), 2)
             } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllveggie")
         }
         plantFruits.forEach {
@@ -154,7 +153,6 @@ object RegisterHandler {
                     translationKey = "$MODID.$it"
                     CROPS += this@crop
                     blockCrop.cropItem = this
-                    MinecraftForge.addGrassSeed(ItemStack(this), 2)
                 } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllfruit")
         }
         saplingFruits.forEach {
@@ -390,6 +388,7 @@ object RegisterHandler {
         item("pixian_watercress")
         item("starches")
         item("zongye")
+        item("curry", "foodCurry")
         item("sticky_rice_flour", "foodFloursticky", "foodFlour")
         item("sticky_rice_dough", "foodDough", "foodStickyricedough")
         item("peanut_tangyuan_stuffing", "listAlltangyuanstuffing")
@@ -622,6 +621,6 @@ object RegisterHandler {
 
     fun registerSeeds() {
         // TODO 1.13+ Loot Tables
-        CROPS.forEach { MinecraftForge.addGrassSeed(ItemStack(it), 4) }
+        CROPS.forEach { MinecraftForge.addGrassSeed(ItemStack(it), 3) }
     }
 }

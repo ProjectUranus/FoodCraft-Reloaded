@@ -1,0 +1,15 @@
+{
+    "name": "Pot",
+    "icon": "foodcraftreloaded:pot",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "Pan can be used to create meals. Needs external heater(Stove)."
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:pot"
+        }
+    ]
+}

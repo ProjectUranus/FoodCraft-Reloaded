@@ -1,10 +1,12 @@
 package com.projecturanus.foodcraft.common.config;
 
 import com.projecturanus.foodcraft.FoodCraftReloadedKt;
+import com.projecturanus.foodcraft.worldgen.FruitTreeWorldGen;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -12,10 +14,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod.EventBusSubscriber(modid = FoodCraftReloadedKt.MODID, value = Side.CLIENT)
 public class FcConfig {
     @Config.Name("Fruit Tree Generate Chance")
-    @Config.Comment({"Generate chance for fruit tree, default to 0.07(7%)", "This will replace vanilla tree generation by event"})
+    @Config.Comment({"Generate chance for fruit tree, default to 0.08 (lower to be more rare)", "This will replace vanilla tree generation by event"})
     @Config.RangeDouble(min = 0.0, max = 1.0)
     @Config.SlidingOption
-    public static double fruitTreeChance = 0.07;
+    public static double fruitTreeChance = 0.08;
+
+    @Config.Name("Fruit Tree Biomes Whitelist")
+    @Config.Comment("Use ; to split, requires full ResourceLocation name")
+    public static String fruitTreeBiomes = "minecraft:jungle;minecraft:forest;minecraft:forest_hills;minecraft:birch_forest;minecraft:birch_forest_hills;minecraft:mutated_jungle;minecraft:mutated_jungle_edge";
 
     @Config.Name("Machine Settings")
     public static MachineConfig machineConfig = new MachineConfig();
@@ -119,9 +125,11 @@ public class FcConfig {
     }
 
     @SideOnly(Side.CLIENT)
+    @SubscribeEvent
     public static void onReloadConfig(ConfigChangedEvent event) {
         if (event.getModID().equals(FoodCraftReloadedKt.MODID)) {
             ConfigManager.sync(FoodCraftReloadedKt.MODID, Config.Type.INSTANCE);
+            FruitTreeWorldGen.INSTANCE.setBiomeIds(fruitTreeBiomes);
         }
     }
 }

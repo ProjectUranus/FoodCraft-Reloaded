@@ -18,7 +18,7 @@ class WidgetCookBar(val x: Int, val y: Int, val progress: KProperty0.Getter<Doub
         val l: Int = (progress.invoke() * WIDTH).toInt()
         this.drawTexturedModalRect(x, y, this.x, this.y, l, HEIGHT)
         if (isMouseIn(x, y, mouseX, mouseY) && l >= 0 && FcConfig.clientConfig.enableHoverInfo) {
-            this.drawHoveringText(listOf("Overcooked progress: ${progress.invoke()}"), x, y, fontRenderer)
+            this.drawHoveringText(listOf(String.format("Overcooked progress: %.2f%%", progress.invoke() * 100.0)), x, y, fontRenderer)
         }
     }
 }

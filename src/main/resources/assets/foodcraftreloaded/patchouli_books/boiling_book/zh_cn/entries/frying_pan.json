@@ -1,0 +1,15 @@
+{
+    "name": "油炸机",
+    "icon": "foodcraftreloaded:frying_pan",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "油炸机可以用来炸东西. 所有油炸机合成都需要你放入食用油(listAlloil), 并且你还需要放入燃料.$(br)当机器开始工作之后, 你就可以在屏幕前想象食物的香味了!"
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:frying_pan"
+        }
+    ]
+}

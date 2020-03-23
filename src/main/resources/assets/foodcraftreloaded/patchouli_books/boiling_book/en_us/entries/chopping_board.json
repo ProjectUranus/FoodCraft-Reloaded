@@ -1,0 +1,15 @@
+{
+    "name": "Chopping Board",
+    "icon": "foodcraftreloaded:chopping_board",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "Chopping Board can be used to cut ingredients."
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:chopping_board"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "name": "灶炉",
+    "icon": "foodcraftreloaded:stove",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "老式燃烧灶炉, 放入燃料即可开始燃烧.$(br)但是, 如果你不把$(l:pot)锅$()放在上面的话, 它就只会浪费燃料."
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:stove"
+        }
+    ]
+}

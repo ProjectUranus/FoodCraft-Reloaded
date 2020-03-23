@@ -1,0 +1,15 @@
+{
+    "name": "锅",
+    "icon": "foodcraftreloaded:pot",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "食物工艺$(l)最重要$()的机器---它可以为你制作大餐.$(br)将主料和食材放到合适的地方, 配以灶炉在下方加热, 它就可以开始工作了.$(br)$(c)$(l)注意: 不要把它放在一旁置之不理, $()你需要随时观察下方的进度条, 否则你的大餐就会变成一团碳粉!"
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:pot"
+        }
+    ]
+}

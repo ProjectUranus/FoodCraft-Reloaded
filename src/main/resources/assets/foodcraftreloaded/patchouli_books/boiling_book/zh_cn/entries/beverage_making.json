@@ -1,0 +1,15 @@
+{
+    "name": "饮料制作机",
+    "icon": "foodcraftreloaded:beverage_making",
+    "category": "machines",
+    "pages": [
+        {
+            "type": "text",
+            "text": "饮料制作机, 顾名思义, 可以为你制作饮料.$(br)饮料都需要你加热或冷却, 你可以在 JEI 中查看饮料如何制作, 并在机器中放入水桶, 燃料以及冷却剂. $(br)冷却剂为所有的冰块以及雪球."
+        },
+        {
+            "type": "crafting",
+            "recipe": "foodcraftreloaded:beverage_making"
+        }
+    ]
+}

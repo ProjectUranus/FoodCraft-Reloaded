@@ -6,7 +6,7 @@ Add more foods to your Minecraft!
 
 You can read [a brief propuse of this Mod here](/docs/PURPOSE.md)
 
-> 一个过时的项目，一个过气的老玩家，一个永远无法完成的坑。
+> 一个过时的项目，一个过气的老玩家，一个~~永远无法~~**当然可以**完成的坑。
 >
 > 拿出一些时间看看吧，看看你身边的人，看看那些曾陪你欢笑，与你分享，与你争吵，一起聊天的人。
 >

@@ -7,15 +7,18 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.common.ForgeHooks
+import net.minecraftforge.fml.common.registry.ForgeRegistries
 import java.util.*
 
 class BlockSugarLike : BlockReed() {
+    val item by lazy { ForgeRegistries.ITEMS.getValue(this.registryName)!! }
+
     override fun getItem(worldIn: World, pos: BlockPos, state: IBlockState): ItemStack {
-        return ItemStack(this)
+        return ItemStack(item)
     }
 
     override fun getItemDropped(state: IBlockState?, rand: Random?, fortune: Int): Item? {
-        return Item.getItemFromBlock(this)
+        return item
     }
 
     override fun updateTick(worldIn: World, pos: BlockPos, state: IBlockState, rand: Random) {
