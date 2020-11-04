@@ -30,12 +30,6 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
             if (it in inputSlots || it in outputSlots) {
                 // When there is only one item left in machine, do not lookup recipes again
                 if (recipe == null) recipe = findRecipe()
-                if (recipe == null) {
-                    reset()
-                    working = false
-                    progress = 0
-                    markDirty()
-                }
             }
         }
         inventory.validation = { slot, stack ->
