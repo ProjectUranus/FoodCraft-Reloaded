@@ -5,7 +5,6 @@ import com.projecturanus.foodcraft.common.capability.fromMinecraftTemperature
 import com.projecturanus.foodcraft.common.heat.HeatHandler
 import com.projecturanus.foodcraft.common.init.FcTabMachine
 import com.projecturanus.foodcraft.common.util.iterator
-import com.projecturanus.foodcraft.logger
 import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.ITileEntityProvider
 import net.minecraft.block.material.MapColor
@@ -93,7 +92,6 @@ abstract class BlockMachine : BlockHorizontal(Material.IRON), ITileEntityProvide
             if (thisHandler is HeatHandler) {
                 if (handler is HeatHandler) {
                     thisHandler.bind(handler)
-                    logger.info("$movedPos is bound to $pos")
                 }
             }
         }
@@ -124,7 +122,6 @@ abstract class BlockMachine : BlockHorizontal(Material.IRON), ITileEntityProvide
                 heatHandler.bind(neighborHandler as HeatHandler)
             else
                 heatHandler.bind(neighborHandler)
-            logger.info("$neighbor is bound to $pos")
         }
     }
 

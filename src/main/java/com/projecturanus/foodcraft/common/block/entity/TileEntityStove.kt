@@ -34,6 +34,14 @@ class TileEntityStove : TileEntity(), ITickable {
             if (!inventory[0].isEmpty && heatHandler.burnTime <= 0.0)
                 currentItemBurnTime = heatHandler.addFuel(inventory[0])
         }
+
+        // Detect heat consumer on the top of this stove
+        // And auto bind them
+        val consumer = world.getTileEntity(pos.up())
+        if (consumer is TileEntityHeatRecipeMachine<*>) {
+            consumer.heatHandler.boundHandlers.clear()
+            consumer.heatHandler.bind(this.heatHandler)
+        }
     }
 
     @Suppress("UNCHECKED_CAST")

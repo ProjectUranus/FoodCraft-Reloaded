@@ -121,7 +121,7 @@ public class FcConfig {
     public static class ClientConfig {
         @Config.Name("Enable Hovering Info")
         @Config.Comment({"Hovering info for machine GUI, displays detailed data about widgets", "Disable this if you encountered performance decrease or exceptions"})
-        public boolean enableHoverInfo = true;
+        public boolean enableHoverInfo = false;
     }
 
     @SideOnly(Side.CLIENT)

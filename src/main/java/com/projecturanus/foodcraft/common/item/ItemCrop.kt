@@ -27,7 +27,7 @@ class ItemCrop(val plantBlock: BlockCrops) : FCRItemFood(), IPlantable {
         } else if (!playerIn.canPlayerEdit(pos.offset(side), side, stack)) {
             EnumActionResult.FAIL
         } else if (worldIn.getBlockState(pos).block.canSustainPlant(worldIn.getBlockState(pos), worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up())) {
-            worldIn.setBlockState(pos.up(), worldIn.getBlockState(pos).withProperty(BlockCrops.AGE, 0))
+            worldIn.setBlockState(pos.up(), plantBlock.defaultState.withProperty(BlockCrops.AGE, 0))
             stack.shrink(1)
             EnumActionResult.SUCCESS
         } else {
