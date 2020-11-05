@@ -13,4 +13,4 @@ cache:
 
 install: ./gradlew setupCiWorkspace
 script:
-  - ./gradlew setupCiWorkspace build
+  - ./gradlew build
