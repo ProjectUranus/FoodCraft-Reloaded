@@ -10,7 +10,6 @@ import com.projecturanus.foodcraft.common.util.Colorable
 import com.projecturanus.foodcraft.fluid.FluidCookingOil
 import com.projecturanus.foodcraft.fluid.FluidMilk
 import net.minecraft.block.Block
-import net.minecraft.block.BlockCrops
 import net.minecraft.block.material.Material
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
@@ -267,8 +266,9 @@ object RegisterHandler {
                 STAPLES += this
             }
         }
-        fun crop(name: String, blockCrops: BlockCrops, vararg oreDictNames: String) {
-            val crop = ItemCrop(blockCrops)
+        fun crop(name: String, blockCrop: BlockCrop, vararg oreDictNames: String) {
+            val crop = ItemCrop(blockCrop)
+            blockCrop.cropItem = crop
             crop.healAmount = 2
             crop.setRegistryName(MODID, name)
             crop.translationKey = "$MODID.$name"
