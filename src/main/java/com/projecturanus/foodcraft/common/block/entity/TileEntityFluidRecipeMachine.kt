@@ -124,6 +124,7 @@ abstract class TileEntityFluidRecipeMachine<T>(recipeRegistry: IForgeRegistry<T>
         fluidTank.setCanDrain(true)
         fluidTank.contentChangedListener += {
             loadFluid(fluidHandlerSlot)
+            if (recipe == null && progress == 0) recipe = findRecipe()
         }
         inventory.contentChangedListener += {
             if (it == fluidHandlerSlot) {

@@ -1,0 +1,1 @@
+{"type":"foodcraftreloaded:beverage_making","ingredient":{"item": "minecraft:snowball"},"cool":true,"fluidInput":{"fluid":"milk","amount":1000},"result":{"item":"foodcraftreloaded:original_ice_cream"}}

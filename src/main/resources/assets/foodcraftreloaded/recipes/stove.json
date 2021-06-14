@@ -26,7 +26,7 @@
         },
         "E": {
             "type": "forge:ore_dict",
-            "ore": "redstone"
+            "ore": "dustRedstone"
         }
     },
     "result": {

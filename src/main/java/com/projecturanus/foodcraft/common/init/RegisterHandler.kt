@@ -221,15 +221,15 @@ object RegisterHandler {
                 adzukiBeanBlock = this
             },
             BlockBeverageMaking().setRegistryName(MODID, "beverage_making").setTranslationKey("$MODID.beverage_making").itemBlock(),
-            BlockBrewBarrel().setRegistryName(MODID, "brew_barrel").setTranslationKey("$MODID.brew_barrel").itemBlock(),
-            BlockChoppingBoard().setRegistryName(MODID, "chopping_board").setTranslationKey("$MODID.chopping_board").itemBlock(),
+            BlockBrewBarrel().also { it.setHarvestLevel("axe", 0) }.setRegistryName(MODID, "brew_barrel").setTranslationKey("$MODID.brew_barrel").itemBlock(),
+            BlockChoppingBoard().also { it.setHarvestLevel("axe", 0) }.setRegistryName(MODID, "chopping_board").setTranslationKey("$MODID.chopping_board").itemBlock(),
             BlockFryingPan().setRegistryName(MODID, "frying_pan").setTranslationKey("$MODID.frying_pan").itemBlock(),
             BlockMill().setRegistryName(MODID, "mill").setTranslationKey("$MODID.mill").itemBlock(),
             BlockPan().setRegistryName(MODID, "pan").setTranslationKey("$MODID.pan").itemBlock(),
             BlockPot().setRegistryName(MODID, "pot").setTranslationKey("$MODID.pot").itemBlock(),
             BlockPressureCooker().setRegistryName(MODID, "pressure_cooker").setTranslationKey("$MODID.pressure_cooker").itemBlock(),
             BlockStove().setRegistryName(MODID, "stove").setTranslationKey("$MODID.stove").itemBlock(),
-            Block(Material.ROCK).setRegistryName(MODID, "machine_casing").setTranslationKey("$MODID.machine_casing").itemBlock(),
+            Block(Material.ROCK).also { it.setHarvestLevel("pickaxe", 1) }.setHardness(4.0f).setRegistryName(MODID, "machine_casing").setTranslationKey("$MODID.machine_casing").itemBlock(),
             BlockFluidClassic(FluidMilk, Material.WATER).setRegistryName(MODID, "milk").setTranslationKey("$MODID.milk"),
             BlockFluidClassic(FluidCookingOil, Material.WATER).setRegistryName(MODID, "cooking_oil").setTranslationKey("$MODID.cooking_oil")
         )
@@ -570,6 +570,7 @@ object RegisterHandler {
         drink("tea", 6, Color(0x98a285), -1, "foodTea")
         drink("milk_tea", 7, Color(0xc29833), -1, "foodMilktea")
         drink("coffee", 7, Color(0x50462d), -1, "foodCoffee")
+        drink("sugar_with_water", 2, Color(16777215), -1)
         drinkColorables.forEach {
             drink("${it}_juice", 7, it.color, -1, "listAlljuice", "food${it.toString().capitalize()}juice").apply {
                 realTranslationKey = "item.$MODID.$it.name"
@@ -582,7 +583,7 @@ object RegisterHandler {
         // Ice-creams
         food(event.registry, "original_ice_cream", 5, 3f) { creativeTab = FcTabDrink; DEFAULT_MODEL_ITEMS += this }
 
-        val iceCreamColorables = arrayOf<Colorable>(LITCHI, PEACH, ORANGE, MANGO, LEMON, PAPAYA, PERSIMMON, BANANA, COCONUT, STRAWBERRY)
+        val iceCreamColorables = arrayOf<Colorable>(LITCHI, PEACH, PEAR, ORANGE, MANGO, LEMON, PAPAYA, PERSIMMON, BANANA, COCONUT, STRAWBERRY)
         iceCreamColorables.forEach {
             iceCream("${it}_ice_cream", it.color, "food${it.toString().capitalize()}icecream").apply {
                 realTranslationKey = "item.$MODID.$it.name"
@@ -594,6 +595,22 @@ object RegisterHandler {
                 hasSuffix = true
                 baseTranslationKey = "item.$MODID.jam.name"
             }
+        }
+
+        iceCream("carrot_ice_cream", Color(0xf4872f), "foodCarroticecream", "listAllicecream").apply {
+            realTranslationKey = "item.carrot.name"
+            hasSuffix = true
+            baseTranslationKey = "item.$MODID.ice_cream.name"
+        }
+        iceCream("apple_ice_cream", Color(0xfa2059), "foodAppleicecream", "listAllicecream").apply {
+            realTranslationKey = "item.apple.name"
+            hasSuffix = true
+            baseTranslationKey = "item.$MODID.ice_cream.name"
+        }
+        iceCream("melon_ice_cream", Color(0xe848b9), "foodMelonicecream", "listAllicecream").apply {
+            realTranslationKey = "tile.melon_block.name"
+            hasSuffix = true
+            baseTranslationKey = "item.$MODID.ice_cream.name"
         }
 
         liqueur("wine", Color(0x722f37))

@@ -1,7 +1,6 @@
 package com.projecturanus.foodcraft.common.item
 
 import com.projecturanus.foodcraft.MODID
-import com.projecturanus.foodcraft.common.init.FCRItems
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.EnumAction
@@ -23,7 +22,7 @@ open class ItemDrink(color: Color) : ItemMasked(color, ModelResourceLocation(Res
                     player.addPotionEffect(PotionEffect(potions.value[world.rand.nextInt(potions.value.size)]))
                 }
             }
-            player.addItemStackToInventory(ItemStack(FCRItems.GLASS_CUP))
+            //player.addItemStackToInventory(ItemStack(FCRItems.GLASS_CUP))
         }
     }
 }

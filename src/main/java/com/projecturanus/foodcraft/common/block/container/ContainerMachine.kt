@@ -4,6 +4,7 @@ import com.projecturanus.foodcraft.MODID
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.Container
+import net.minecraft.item.ItemStack
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.text.ITextComponent
 import net.minecraft.util.text.TextComponentString
@@ -32,5 +33,9 @@ open class ContainerMachine(val playerInventory: InventoryPlayer, open val tileE
 
     @SideOnly(Side.CLIENT)
     override fun updateProgressBar(id: Int, data: Int) {
+    }
+
+    override fun transferStackInSlot(playerIn: EntityPlayer, index: Int): ItemStack {
+        return ItemStack.EMPTY
     }
 }

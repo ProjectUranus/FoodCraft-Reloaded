@@ -20,7 +20,6 @@ abstract class TileEntityMachine(val slots: Int) : TileEntity(), ITickable {
     }
 
     override fun update() {
-
     }
 
     @Suppress("UNCHECKED_CAST")

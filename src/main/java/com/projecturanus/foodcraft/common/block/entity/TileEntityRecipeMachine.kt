@@ -29,7 +29,7 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
         inventory.contentChangedListener += {
             if (it in inputSlots || it in outputSlots) {
                 // When there is only one item left in machine, do not lookup recipes again
-                if (recipe == null) recipe = findRecipe()
+                if (recipe == null && progress == 0) recipe = findRecipe()
             }
         }
         inventory.validation = { slot, stack ->
@@ -52,12 +52,12 @@ abstract class TileEntityRecipeMachine<T>(val recipeRegistry: IForgeRegistry<T>,
             // Finish
             if (canFinish()) {
                 // Reset
+                var stack = recipe?.getRecipeOutput()?.copy()?: ItemStack.EMPTY
                 progress = 0
 
                 consumeInput()
                 reset()
                 working = false
-                var stack = recipe?.getRecipeOutput()?.copy()?: ItemStack.EMPTY
                 outputSlots.forEach { slot ->
                     stack = inventory.insertItem(slot, stack, false)
                 }

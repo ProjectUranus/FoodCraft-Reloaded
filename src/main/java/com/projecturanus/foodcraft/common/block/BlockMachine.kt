@@ -37,11 +37,13 @@ val MACHINE_MATERIAL = object : Material(MapColor.IRON) {
     override fun isOpaque() = false
 }
 
-abstract class BlockMachine : BlockHorizontal(Material.IRON), ITileEntityProvider {
+abstract class BlockMachine : BlockHorizontal(MACHINE_MATERIAL), ITileEntityProvider {
 
     init {
         creativeTab = FcTabMachine
         defaultState = blockState.baseState.withProperty(FACING, EnumFacing.NORTH).withProperty(WORKING, false)
+        setHardness(4.0f)
+        setHarvestLevel("pickaxe", 1)
     }
 
     override fun createBlockState(): BlockStateContainer {

@@ -11,7 +11,10 @@
         },
         "A": {
             "type": "forge:ore_dict",
-            "ore": "redstone"
+            "ore": "dustRedstone"
+        },
+        "B": {
+            "item": "minecraft:ice"
         },
         "C": {
             "type": "forge:ore_dict",
@@ -19,10 +22,7 @@
         },
         "D": {
             "type": "forge:ore_dict",
-            "ore": "dyeBrowns"
-        },
-        "B": {
-            "item": "minecraft:ice"
+            "ore": "dyeBrown"
         }
     },
     "result": {

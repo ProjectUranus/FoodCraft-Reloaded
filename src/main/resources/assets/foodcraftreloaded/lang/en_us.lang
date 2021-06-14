@@ -148,15 +148,17 @@ item.foodcraftreloaded.mango.name=Mango
 item.foodcraftreloaded.lemon.name=Lemon
 item.foodcraftreloaded.grape.name=Grape
 item.foodcraftreloaded.persimmon.name=Persimmon
-item.foodcraftreloaded.papaya=Papaya
-item.foodcraftreloaded.hawthorn=Hawthorn
-item.foodcraftreloaded.pomegranate=Pomegranate
+item.foodcraftreloaded.papaya.name=Papaya
+item.foodcraftreloaded.hawthorn.name=Hawthorn
+item.foodcraftreloaded.pomegranate.name=Pomegranate
 item.foodcraftreloaded.date.name=Date
 item.foodcraftreloaded.cherry.name=Cherry
 item.foodcraftreloaded.coconut.name=Coconut
 item.foodcraftreloaded.banana.name=Banana
 item.foodcraftreloaded.strawberry.name=Strawberry
 item.foodcraftreloaded.golden_grape.name=Golden Grape
+item.foodcraftreloaded.loquat.name=Loquat
+item.foodcraftreloaded.longan.name=Longan
 
 # Vegetable
 item.foodcraftreloaded.eggplant.name=Eggplant
@@ -190,6 +192,13 @@ item.foodcraftreloaded.ginger.name=Ginger
 item.foodcraftreloaded.onion.name=Onion
 item.foodcraftreloaded.green_onion.name=Green Onion
 
+# Kitchen knife
+item.foodcraftreloaded.stone_kitchen_knife.name=Stone Knife
+item.foodcraftreloaded.iron_kitchen_knife.name=Iron Knife
+item.foodcraftreloaded.gold_kitchen_knife.name=Gold Knife
+item.foodcraftreloaded.diamond_kitchen_knife.name=Diamond Knife
+item.foodcraftreloaded.emerald_kitchen_knife.name=Emerald Knife
+
 # Sapling
 item.foodcraftreloaded.sapling=%s Sapling
 
@@ -216,7 +225,8 @@ item.foodcraftreloaded.cola.name=Cola™
 item.foodcraftreloaded.tea.name=Tea
 item.foodcraftreloaded.milk_tea.name=Milk Tea
 item.foodcraftreloaded.coffee.name=Coffee
-
+item.foodcraftreloaded.sprite.name=Sprite™
+item.foodcraftreloaded.sugar_with_water.name=Sugar with Water
 
 # Soda
 item.foodcraftreloaded.soda=%s Soda

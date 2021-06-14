@@ -172,6 +172,8 @@ item.foodcraftreloaded.coconut.name=椰子
 item.foodcraftreloaded.banana.name=香蕉
 item.foodcraftreloaded.strawberry.name=草莓
 item.foodcraftreloaded.golden_grape.name=金葡萄
+item.foodcraftreloaded.loquat.name=枇杷
+item.foodcraftreloaded.longan.name=龙眼
 
 # Vegetable
 item.foodcraftreloaded.eggplant.name=茄子
@@ -207,10 +209,10 @@ item.foodcraftreloaded.green_onion.name=葱
 
 # Kitchen knife
 item.foodcraftreloaded.stone_kitchen_knife.name=石刀
-item.foodcraftreloaded.iron_kitchenKnifeIron.name=铁刀
-item.foodcraftreloaded.gold_kitchenKnifeGold.name=金刀
-item.foodcraftreloaded.diamond_kitchenKnifeDiamond.name=钻石刀
-item.foodcraftreloaded.emerald_kitchenKnifeEmerald.name=绿宝石刀
+item.foodcraftreloaded.iron_kitchen_knife.name=铁刀
+item.foodcraftreloaded.gold_kitchen_knife.name=金刀
+item.foodcraftreloaded.diamond_kitchen_knife.name=钻石刀
+item.foodcraftreloaded.emerald_kitchen_knife.name=绿宝石刀
 
 # Sapling
 item.foodcraftreloaded.sapling=%s树苗
@@ -238,6 +240,8 @@ item.foodcraftreloaded.cola.name=可乐™
 item.foodcraftreloaded.tea.name=茶
 item.foodcraftreloaded.milk_tea.name=奶茶
 item.foodcraftreloaded.coffee.name=咖啡
+item.foodcraftreloaded.sprite.name=雪碧
+item.foodcraftreloaded.sugar_with_water.name=白糖兑水
 
 # Cookie
 item.foodcraftreloaded.sandwich_cookie=%s夹心饼干

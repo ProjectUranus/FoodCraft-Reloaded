@@ -8,7 +8,7 @@
     "key": {
         "C": {
             "type": "forge:ore_dict",
-            "ore": "redstone"
+            "ore": "dustRedstone"
         },
         "B": {
             "type": "forge:ore_dict",
