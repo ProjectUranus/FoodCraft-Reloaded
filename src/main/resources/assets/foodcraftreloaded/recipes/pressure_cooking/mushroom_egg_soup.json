@@ -1,0 +1,25 @@
+{
+    "type": "foodcraftreloaded:pressure_cooking",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllmushroom"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "listAllegg"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSalt"
+        }
+    ],
+    "fluidInput": {
+        "fluid": "water",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:mushroom_egg_soup",
+        "count": 1
+    }
+}

@@ -407,16 +407,16 @@ object RegisterHandler {
         // Crops
 
         // Staples
-        food(event.registry, "rice_porridge", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "egg_custard", 8) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "mushroom_egg_soup", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "mushroom_chicken_soup", 9) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "noodles", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "crossing_bridge_noodles", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "pasta", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "preserved_egg_porridge", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "changfen", 7) { creativeTab = FcTabStaple; STAPLES += this }
-        food(event.registry, "laba_porridge", 9) { creativeTab = FcTabStaple; STAPLES += this }
+        staple("rice_porridge", 7)
+        staple("egg_custard", 8)
+        staple("mushroom_egg_soup", 7)
+        staple("mushroom_chicken_soup", 9)
+        staple("noodles", 7)
+        staple("crossing_bridge_noodles", 7)
+        staple("pasta", 7, oreDictNames = *arrayOf("foodPasta"))
+        staple("preserved_egg_porridge", 7)
+        staple("changfen", 7)
+        staple("laba_porridge", 9)
 
         staple("tomato_fried_egg_rice", 18)
         staple("disanxian_rice", 18)
@@ -598,7 +598,7 @@ object RegisterHandler {
         }
 
         iceCream("carrot_ice_cream", Color(0xf4872f), "foodCarroticecream", "listAllicecream").apply {
-            realTranslationKey = "item.carrot.name"
+            realTranslationKey = "item.carrots.name"
             hasSuffix = true
             baseTranslationKey = "item.$MODID.ice_cream.name"
         }
@@ -608,7 +608,7 @@ object RegisterHandler {
             baseTranslationKey = "item.$MODID.ice_cream.name"
         }
         iceCream("melon_ice_cream", Color(0xe848b9), "foodMelonicecream", "listAllicecream").apply {
-            realTranslationKey = "tile.melon_block.name"
+            realTranslationKey = "tile.melon.name"
             hasSuffix = true
             baseTranslationKey = "item.$MODID.ice_cream.name"
         }

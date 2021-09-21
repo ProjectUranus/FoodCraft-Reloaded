@@ -1,0 +1,16 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodDumplingmeat"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "foodDough"
+        }
+    ],
+    "result": {
+        "item": "foodcraftreloaded:dumpling"
+    }
+}

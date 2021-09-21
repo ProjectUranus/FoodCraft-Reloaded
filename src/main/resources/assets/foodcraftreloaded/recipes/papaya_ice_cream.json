@@ -1,0 +1,16 @@
+{
+        "type": "forge:ore_shapeless",
+        "ingredients": [
+            {
+                "item": "foodcraftreloaded:original_ice_cream"
+            },
+            {
+                "type": "forge:ore_dict",
+                "ore": "foodPapayajuice"
+            }
+        ],
+        "result": {
+            "item": "foodcraftreloaded:papaya_ice_cream"
+        }
+    }
+    

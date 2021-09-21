@@ -7,10 +7,14 @@
         },
         {
             "type": "forge:ore_dict",
+            "ore": "cropPeanut"
+        },
+        {
+            "type": "forge:ore_dict",
             "ore": "listAllsugar"
         }
     ],
     "result": {
-        "item": "foodcraftreloaded:sticky_rice_dough"
+        "item": "foodcraftreloaded:peanut_tangyuan_stuffing"
     }
 }

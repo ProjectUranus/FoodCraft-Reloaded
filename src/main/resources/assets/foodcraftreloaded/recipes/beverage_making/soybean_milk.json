@@ -1,0 +1,15 @@
+{
+    "type": "foodcraftreloaded:beverage_making",
+    "ingredient": {
+        "type": "forge:ore_dict",
+        "ore": "cropSoybean"
+    },
+    "cool": false,
+    "fluidInput": {
+        "fluid": "milk",
+        "amount": 1000
+    },
+    "result": {
+        "item": "foodcraftreloaded:soybean_milk"
+    }
+}
