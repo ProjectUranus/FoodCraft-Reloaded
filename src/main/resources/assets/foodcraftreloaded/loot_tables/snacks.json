@@ -2,12 +2,16 @@
     "pools": [
         {
             "name": "snacks_pool",
-            "rolls": 2,
+            "rolls": {
+				"min": 1,
+				"max": 3
+			},
             "entries": [
                 {
                     "type": "item",
                     "name": "foodcraftreloaded:pixian_watercress",
                     "weight": 16,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -22,6 +26,7 @@
                     "type": "item",
                     "name": "foodcraftreloaded:zongye",
                     "weight": 16,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -36,6 +41,7 @@
                     "type": "item",
                     "name": "foodcraftreloaded:coffee",
                     "weight": 10,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -50,6 +56,7 @@
                     "type": "item",
                     "name": "foodcraftreloaded:curry",
                     "weight": 16,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -64,6 +71,7 @@
                     "type": "item",
                     "name": "foodcraftreloaded:walnut_shortbread",
                     "weight": 16,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -78,6 +86,7 @@
                     "type": "item",
                     "name": "foodcraftreloaded:sausage",
                     "weight": 16,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -92,6 +101,7 @@
                     "type": "item",
                     "name": "foodcraftreloaded:lawei_flavor",
                     "weight": 16,
+					"conditions": [],
                     "functions": [
                         {
                             "function": "minecraft:set_count",
