@@ -50,4 +50,8 @@ abstract class TileEntityMachine(val slots: Int) : TileEntity(), ITickable {
         compound.setTag("inventory", inventory.serializeNBT())
         return super.writeToNBT(compound)
     }
+
+    override fun getUpdateTag(): NBTTagCompound {
+        return writeToNBT(NBTTagCompound())
+    }
 }

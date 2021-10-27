@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://files.minecraftforge.net/maven"
         }
         maven {
             name = "sonatype"
@@ -16,8 +16,9 @@ buildscript {
     }
     dependencies {
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.70"
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.70'
+        classpath("com.anatawa12.forge:ForgeGradle:2.3-1.0.+") {
+            changing = true
+        }
     }
 }
 
@@ -37,29 +38,24 @@ group= mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions
 archivesBaseName = mod_id
 
 repositories {
-	jcenter()
+	mavenCentral()
 	maven {
 		// location of the maven that hosts JEI files
 		name = "Progwml6 maven"
-		url = "http://dvs1.progwml6.com/files/maven"
+		url = "https://dvs1.progwml6.com/files/maven"
 	}
 	maven {
-		url "http://maven.shadowfacts.net/"
+		url "https://maven.shadowfacts.net/"
 	}
     maven {
         name = "Cyclops Repo"
         url = "https://oss.jfrog.org/artifactory/simple/libs-release/"
+        metadataSources { artifact() }
     }
-	maven { url "https://kotlin.bintray.com/kotlinx" }
 	maven { // TOP
 		name 'tterrag maven'
-		url "http://maven.tterrag.com/"
+		url "https://maven.tterrag.com/"
 	}
-}
-
-configurations {
-	shade
-	compile.extendsFrom shade
 }
 
 compileKotlin {
@@ -80,19 +76,9 @@ minecraft {
 dependencies {
 	compileOnly "mezz.jei:jei_1.12.2:4.15.0.293:api"
 	compile "net.shadowfacts:Forgelin:1.8.4"
-    deobfCompile "org.cyclops.commoncapabilities:CommonCapabilities:1.12.2-1.4.0-174:deobf"
 
 	compileOnly "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.28-17:api"
     testCompile "junit:junit:4.12"
-}
-
-sourceSets {
-    main {
-        java {
-			srcDir 'src/main/java'
-            srcDir 'src/api/java'
-        }
-    }
 }
 
 processResources

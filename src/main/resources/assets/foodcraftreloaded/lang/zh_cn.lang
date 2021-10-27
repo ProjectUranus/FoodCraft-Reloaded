@@ -161,6 +161,7 @@ item.foodcraftreloaded.peach.name=桃
 item.foodcraftreloaded.orange.name=橘子
 item.foodcraftreloaded.mango.name=芒果
 item.foodcraftreloaded.lemon.name=柠檬
+item.foodcraftreloaded.grape.name=葡萄
 item.foodcraftreloaded.grapefruit.name=柚子
 item.foodcraftreloaded.persimmon.name=柿子
 item.foodcraftreloaded.papaya.name=木瓜
@@ -237,6 +238,7 @@ item.foodcraftreloaded.coconut_juice_milk.name=椰奶
 item.foodcraftreloaded.golden_apple_juice.name=金苹果汁
 item.foodcraftreloaded.golden_grape_juice.name=金葡萄汁
 item.foodcraftreloaded.cola.name=可乐™
+item.foodcraftreloaded.fanta.name=芬达™
 item.foodcraftreloaded.tea.name=茶
 item.foodcraftreloaded.milk_tea.name=奶茶
 item.foodcraftreloaded.coffee.name=咖啡
@@ -280,6 +282,7 @@ itemGroup.foodcraftreloaded.snack=食物工艺|小吃
 
 # Fluid
 fluid.foodcraftreloaded.juice=%s汁
+fluid.cooking_oil=食用油
 
 # Tooltip
 tooltip.fcrfood.heal=饱食度回复: %s

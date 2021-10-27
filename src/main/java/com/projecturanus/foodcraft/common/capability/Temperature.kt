@@ -8,7 +8,8 @@ fun fromMinecraftTemperature(mcTemp: Double): Double {
 
 class Temperature(val initialTemperature: Double = ITemperature.ZERO_CELCIUS,
                   val minTemperature: Double = 0.0,
-                  val maxTemperature: Double = Double.MAX_VALUE): ITemperature {
+                  val maxTemperature: Double = Double.MAX_VALUE):
+    ITemperature {
 
     override fun getMaximumTemperature(): Double {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

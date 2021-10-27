@@ -5,7 +5,8 @@ import net.minecraft.util.NonNullList
 import net.minecraftforge.items.ItemStackHandler
 import org.cyclops.commoncapabilities.api.capability.inventorystate.IInventoryState
 
-class ObservableItemHandler : ItemStackHandler, IInventoryState {
+class ObservableItemHandler : ItemStackHandler,
+    IInventoryState {
     val loadListener: MutableList<() -> Unit> = mutableListOf()
     val contentChangedListener: MutableList<(Int) -> Unit> = mutableListOf()
     var hashInternal: Int = 0

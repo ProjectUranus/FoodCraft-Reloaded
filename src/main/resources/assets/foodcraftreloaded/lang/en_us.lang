@@ -222,6 +222,7 @@ item.foodcraftreloaded.melon_juice.name=Melon Juice
 item.foodcraftreloaded.golden_apple_juice.name=Golden Apple Juice
 item.foodcraftreloaded.golden_grape_juice.name=Golden Grape Juice
 item.foodcraftreloaded.cola.name=Cola™
+item.foodcraftreloaded.fanta.name=FANTA™
 item.foodcraftreloaded.tea.name=Tea
 item.foodcraftreloaded.milk_tea.name=Milk Tea
 item.foodcraftreloaded.coffee.name=Coffee
@@ -284,3 +285,5 @@ tooltip.fcr.energy=Energy: %sJ
 
 # Fluid
 fluid.milk=Milk
+fluid.foodcraftreloaded.juice=%s Juice
+fluid.cooking_oil=Cooking Oil

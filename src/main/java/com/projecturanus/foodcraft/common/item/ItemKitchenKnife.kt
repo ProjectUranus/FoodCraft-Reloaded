@@ -1,6 +1,7 @@
 package com.projecturanus.foodcraft.common.item
 
 import com.projecturanus.foodcraft.MODID
+import com.projecturanus.foodcraft.common.init.FcTabMachine
 import com.projecturanus.foodcraft.common.util.Maskable
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.entity.EntityLivingBase
@@ -9,10 +10,11 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import java.awt.Color
 
-class ItemKitchenKnife(val maxUses: Int, val colorInternal: Color) : Item(), Maskable {
+class ItemKitchenKnife(maxUses: Int, val colorInternal: Color) : Item(), Maskable {
     init {
         maxStackSize = 1
         maxDamage = maxUses
+        creativeTab = FcTabMachine
     }
 
     override fun hitEntity(stack: ItemStack, target: EntityLivingBase?, attacker: EntityLivingBase): Boolean {

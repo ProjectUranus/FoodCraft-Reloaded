@@ -17,6 +17,7 @@ import net.minecraft.client.resources.I18n
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import net.minecraftforge.oredict.OreDictionary
 
 class FryingPanWrapper(val helper: IJeiHelpers, val recipe: FryingPanRecipe): IRecipeWrapper {
 
@@ -56,8 +57,10 @@ class FryingPanCategory(val helper: IJeiHelpers): IRecipeCategory<FryingPanWrapp
 
         stackGroup.init(0, true, 54 - 7, 20 - 8)
         stackGroup.init(1, false, 126 - 7, 20 - 8)
+        stackGroup.init(2, false, 33 - 7, 48 - 8)
 
         stackGroup.set(ingredients)
+        stackGroup.set(2, OreDictionary.getOres("listAlloil"))
     }
 
     override fun getBackground(): IDrawable = helper.guiHelper.createDrawable(TEXTURES, 7, 8, 142, 64)

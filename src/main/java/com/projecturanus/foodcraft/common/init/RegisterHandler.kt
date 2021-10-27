@@ -46,7 +46,7 @@ val saplingFruits = arrayOf(GRAPEFRUIT, CHERRY, COCONUT, BANANA, PEACH, PERSIMMO
 val PLANTS = arrayListOf<BlockCrop>()
 val SAPLINGS = arrayListOf<BlockFruitSapling>()
 val LEAVES = arrayListOf<BlockFruitLeaves>()
-val KITCHEN_KNIFES = arrayListOf<ItemKitchenKnife>()
+val KITCHEN_KNIVES = arrayListOf<ItemKitchenKnife>()
 
 val DEFAULT_MODEL_ITEMS = arrayListOf<Item>()
 
@@ -347,7 +347,7 @@ object RegisterHandler {
         }
 
         // Kitchen Knifes
-        val knifes = listOf("wood" to Color(0x966f33),
+        val knifes = listOf(
             "stone" to Color(0x888c8d),
             "gold" to Color(0xCFB53B),
             "iron" to Color(0xffffff),
@@ -358,7 +358,7 @@ object RegisterHandler {
                 setRegistryName(MODID, "${name}_kitchen_knife")
                 translationKey = "$MODID.${name}_kitchen_knife"
             }
-            KITCHEN_KNIFES += knife
+            KITCHEN_KNIVES += knife
             event.registry.register(knife)
             registerOre("kitchenKnife", ItemStack(knife, 1, OreDictionary.WILDCARD_VALUE))
         }
@@ -565,6 +565,7 @@ object RegisterHandler {
         drink("golden_apple_juice", 20, Color( 0xe7e480), 1, "listAlljuice", "foodGoldenapplejuice", "foodApplejuice")
         drink("soybean_milk", 7, Color(0xfafaf2), -1, "foodSoymilk", "listAllmilk")
         drink("cola", 7, Color(0x512008), -1, "foodCola")
+        drink("fanta", 7, Color(0xed7f1e), -1, "foodFanta")
         drink("sprite", 7, Color(0xededed), -1, "foodSprite")
         drink("melon_juice", 7, Color(0xe848b9), -1, "foodMelonjuice", "listAlljuice")
         drink("tea", 6, Color(0x98a285), -1, "foodTea")

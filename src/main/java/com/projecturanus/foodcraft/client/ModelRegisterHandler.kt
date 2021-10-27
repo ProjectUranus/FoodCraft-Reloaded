@@ -27,7 +27,7 @@ object ModelRegisterHandler {
     @SubscribeEvent
     fun registerModels(event: ModelRegistryEvent) {
         DEFAULT_MODEL_ITEMS.forEach(ModelRegisterHandler::registerDefault)
-        (DRINKS.asSequence().map { it as Item } + ICECREAMS + JAMS + LIQUEURS + KITCHEN_KNIFES).forEach {
+        (DRINKS.asSequence().map { it as Item } + ICECREAMS + JAMS + LIQUEURS + KITCHEN_KNIVES).forEach {
             ModelLoader.setCustomModelResourceLocation(it, 0, (it as Maskable).modelLocation)
         }
         LEAVES.forEach {
@@ -67,7 +67,7 @@ object ModelRegisterHandler {
             if (stack.item is Colorable)
                 (stack.item as Colorable).getColor(tintIndex)
             else -1
-        }, *(DRINKS.asSequence().map { it as Item } + ICECREAMS + JAMS + LIQUEURS + KITCHEN_KNIFES).toList().toTypedArray())
+        }, *(DRINKS.asSequence().map { it as Item } + ICECREAMS + JAMS + LIQUEURS + KITCHEN_KNIVES).toList().toTypedArray())
     }
 
     @JvmStatic

@@ -74,6 +74,10 @@ class TileEntityStove : TileEntity(), ITickable {
         return super.writeToNBT(compound)
     }
 
+    override fun getUpdateTag(): NBTTagCompound {
+        return writeToNBT(NBTTagCompound())
+    }
+
     override fun update() {
         heatHandler.update(0.0)
     }

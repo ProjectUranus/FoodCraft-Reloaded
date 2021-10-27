@@ -11,7 +11,8 @@ import net.minecraftforge.common.util.INBTSerializable
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 import org.cyclops.commoncapabilities.api.capability.work.IWorker
 
-class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompound>, IWorker {
+class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompound>,
+    IWorker {
     data class FuelInfo(val level: Int, val heat: Int)
 
     private var encouragement = 0.0
@@ -221,12 +222,18 @@ class FuelHeatHandler : HeatHandler, FuelHandler, INBTSerializable<NBTTagCompoun
     override fun deserializeNBT(nbt: NBTTagCompound) {
         heat = nbt.getDouble("heat")
         burnTime = nbt.getDouble("burnTime")
+        minHeat = nbt.getDouble("minHeat")
+        maxHeat = nbt.getDouble("maxHeat")
+        cool = nbt.getBoolean("cool")
     }
 
     override fun serializeNBT(): NBTTagCompound {
         val compound = NBTTagCompound()
         compound.setDouble("heat", heat)
         compound.setDouble("burnTime", burnTime)
+        compound.setDouble("minHeat", minHeat)
+        compound.setDouble("maxHeat", maxHeat)
+        compound.setBoolean("cool", cool)
         return compound
     }
 

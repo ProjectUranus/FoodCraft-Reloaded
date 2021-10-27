@@ -6,7 +6,8 @@ import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
 import kotlin.reflect.KProperty0
 
 class WidgetCool(val x: Int, val y: Int, val trueTemperature: KProperty0.Getter<Double>) : Widget() {
-    var temperature: ITemperature = DefaultTemperature()
+    var temperature: ITemperature =
+        DefaultTemperature()
 
     companion object {
         const val WIDTH = 13

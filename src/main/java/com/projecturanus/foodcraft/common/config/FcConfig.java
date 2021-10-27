@@ -21,7 +21,7 @@ public class FcConfig {
 
     @Config.Name("Fruit Tree Biomes Whitelist")
     @Config.Comment("Use ; to split, requires full ResourceLocation name")
-    public static String fruitTreeBiomes = "minecraft:jungle;minecraft:forest;minecraft:forest_hills;minecraft:birch_forest;minecraft:birch_forest_hills;minecraft:mutated_jungle;minecraft:mutated_jungle_edge";
+    public static String fruitTreeBiomes = "minecraft:jungle;minecraft:mutated_jungle;minecraft:mutated_jungle_edge";
 
     @Config.Name("Machine Settings")
     public static MachineConfig machineConfig = new MachineConfig();

@@ -2,7 +2,7 @@
     "type": "forge:ore_shaped",
     "pattern": [
         "AAA",
-        "ABA",
+        "A A",
         "A#A"
     ],
     "key": {
@@ -12,10 +12,6 @@
         "A": {
             "type": "forge:ore_dict",
             "ore": "plankWood"
-        },
-        "B": {
-            "type": "forge:ore_dict",
-            "ore": "kitchenKnife"
         }
     },
     "result": {
