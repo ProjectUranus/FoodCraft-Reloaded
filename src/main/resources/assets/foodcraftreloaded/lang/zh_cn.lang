@@ -216,7 +216,8 @@ item.foodcraftreloaded.diamond_kitchen_knife.name=钻石刀
 item.foodcraftreloaded.emerald_kitchen_knife.name=绿宝石刀
 
 # Sapling
-item.foodcraftreloaded.sapling=%s树苗
+item.foodcraftreloaded.sapling.name=%s树苗
+item.foodcraftreloaded.leaves.name=%s树叶
 
 # Jam
 item.foodcraftreloaded.jam.name=%s果酱

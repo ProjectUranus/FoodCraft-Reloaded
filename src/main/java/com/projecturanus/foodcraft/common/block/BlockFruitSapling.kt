@@ -1,5 +1,7 @@
 package com.projecturanus.foodcraft.common.block
 
+import com.projecturanus.foodcraft.common.config.FcConfig
+import com.projecturanus.foodcraft.worldgen.WorldGenFruitTree
 import net.minecraft.block.*
 import net.minecraft.block.BlockSapling.STAGE
 import net.minecraft.block.state.BlockStateContainer
@@ -11,7 +13,6 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.NonNullList
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
-import net.minecraft.world.gen.feature.WorldGenTrees
 import net.minecraftforge.event.terraingen.TerrainGen
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
@@ -90,13 +91,14 @@ class BlockFruitSapling(val leavesState: IBlockState) : BlockBush(), IGrowable {
     override fun getLocalizedName(): String = I18n.format(baseTranslationKey, I18n.format(realTranslationKey))
 }
 
-fun generateTree(worldIn: World, pos: BlockPos, state: IBlockState, rand: Random, leavesState: IBlockState, isSapling: Boolean = true) {
+fun generateTree(worldIn: World, pos: BlockPos, state: IBlockState, rand: Random, fruitLeafState: IBlockState, isSapling: Boolean = true) {
     if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return
     val logState = Blocks.LOG.defaultState.withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.JUNGLE)
+    val leafState = Blocks.LEAVES.defaultState.withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE)
     val air = Blocks.AIR.defaultState
 
     worldIn.setBlockState(pos, air, 4)
-    val genTrees = WorldGenTrees(true, 4 + rand.nextInt(7), logState, leavesState, false)
+    val genTrees = WorldGenFruitTree(4 + rand.nextInt(7), logState, leafState, fruitLeafState, FcConfig.fruitLeavesChance)
     if (!genTrees.generate(worldIn, rand, pos) && isSapling) {
         worldIn.setBlockState(pos, state, 4)
     }

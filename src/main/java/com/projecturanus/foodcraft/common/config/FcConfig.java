@@ -1,7 +1,7 @@
 package com.projecturanus.foodcraft.common.config;
 
 import com.projecturanus.foodcraft.FoodCraftReloadedKt;
-import com.projecturanus.foodcraft.worldgen.FruitTreeWorldGen;
+import com.projecturanus.foodcraft.worldgen.FruitTreeWorldGenHandler;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -18,6 +18,12 @@ public class FcConfig {
     @Config.RangeDouble(min = 0.0, max = 1.0)
     @Config.SlidingOption
     public static double fruitTreeChance = 0.08;
+
+    @Config.Name("Fruit Leaves Generate Chance")
+    @Config.Comment({"Generate chance for fruit leaves on a fruit tree, default to 0.3 (lower to be more rare)"})
+    @Config.RangeDouble(min = 0.0, max = 1.0)
+    @Config.SlidingOption
+    public static double fruitLeavesChance = 0.3;
 
     @Config.Name("Fruit Tree Biomes Whitelist")
     @Config.Comment("Use ; to split, requires full ResourceLocation name")
@@ -129,7 +135,7 @@ public class FcConfig {
     public static void onReloadConfig(ConfigChangedEvent event) {
         if (event.getModID().equals(FoodCraftReloadedKt.MODID)) {
             ConfigManager.sync(FoodCraftReloadedKt.MODID, Config.Type.INSTANCE);
-            FruitTreeWorldGen.INSTANCE.setBiomeIds(fruitTreeBiomes);
+            FruitTreeWorldGenHandler.INSTANCE.setBiomeIds(fruitTreeBiomes);
         }
     }
 }

@@ -140,19 +140,19 @@ object RegisterHandler {
             } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllveggie")
         }
         plantFruits.forEach {
-                val capitalized = it.toString().replace("_", "").capitalize()
-                val blockCrop = BlockCrop().apply {
-                    setRegistryName(MODID, it.toString())
-                }
-                PLANTS += blockCrop
-                blockQueue += blockCrop
-                itemQueue += crop(null, blockCrop) {
-                    setRegistryName(MODID, it.toString())
-                    creativeTab = FcTabPlant
-                    translationKey = "$MODID.$it"
-                    CROPS += this@crop
-                    blockCrop.cropItem = this
-                } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllfruit")
+            val capitalized = it.toString().replace("_", "").capitalize()
+            val blockCrop = BlockCrop().apply {
+                setRegistryName(MODID, it.toString())
+            }
+            PLANTS += blockCrop
+            blockQueue += blockCrop
+            itemQueue += crop(null, blockCrop) {
+                setRegistryName(MODID, it.toString())
+                creativeTab = FcTabPlant
+                translationKey = "$MODID.$it"
+                CROPS += this@crop
+                blockCrop.cropItem = this
+            } to arrayOf("crop$capitalized", "food$capitalized", "seed$capitalized", "listAllfruit")
         }
         saplingFruits.forEach {
             val fruit = food(name = it.toString(), healAmount = 1, saturation = 0.6f) {}
@@ -172,10 +172,10 @@ object RegisterHandler {
             LEAVES += blockLeaves
             blockQueue += blockSapling
             SAPLINGS += blockSapling
-            itemQueue += ItemBlock(blockLeaves).apply {
+            itemQueue += ItemBlockTranslation(blockLeaves).apply {
                 setRegistryName(MODID, "${it}_leaves")
             } to arrayOf("treeLeaves")
-            itemQueue += ItemBlock(blockSapling).apply {
+            itemQueue += ItemBlockTranslation(blockSapling).apply {
                 setRegistryName(MODID, "${it}_sapling")
             } to arrayOf("treeSapling")
         }

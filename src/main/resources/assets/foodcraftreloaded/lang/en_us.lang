@@ -200,7 +200,8 @@ item.foodcraftreloaded.diamond_kitchen_knife.name=Diamond Knife
 item.foodcraftreloaded.emerald_kitchen_knife.name=Emerald Knife
 
 # Sapling
-item.foodcraftreloaded.sapling=%s Sapling
+item.foodcraftreloaded.sapling.name=%s Sapling
+item.foodcraftreloaded.leaves.name=%s Leaves
 
 # Jam
 item.foodcraftreloaded.jam.name=%s Jam

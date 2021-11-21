@@ -7,6 +7,7 @@ import com.projecturanus.foodcraft.common.item.ItemDrink;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+@SuppressWarnings("unused")
 @GameRegistry.ObjectHolder(FoodCraftReloadedKt.MODID)
 public class FCRItems {
     public static final Item CHOPPING_BOARD = null;
