@@ -14,12 +14,11 @@ class GuiContainerMill(override val container: ContainerMill) : GuiContainerMach
     val heatHandler by lazy { tileEntity.heatHandler }
     val progress get() = container.progress / FcConfig.machineConfig.millProgress.toDouble()
 
-    val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
+    val widgetHeat = WidgetHeat(176, 0, container)
     val widgetProgress by lazy { WidgetProgressBar(176, 14, this::progress.getter) }
 
     override fun initGui() {
         super.initGui()
-        widgetHeat.temperature = heatHandler
         widgetHeat.setWorldAndResolution(mc, width, height)
         widgetProgress.setWorldAndResolution(mc, width, height)
     }

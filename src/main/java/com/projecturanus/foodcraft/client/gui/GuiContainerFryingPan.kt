@@ -20,14 +20,13 @@ class GuiContainerFryingPan(override val container: ContainerFryingPan) : GuiCon
     val heatHandler by lazy { tileEntity.heatHandler }
     val progress get() = container.progress / FcConfig.machineConfig.fryingPanProgress.toDouble()
 
-    val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
+    val widgetHeat = WidgetHeat(176, 0, container)
     val widgetProgress by lazy { WidgetProgressBar(176, 14, this::progress.getter) }
     val rectangle: Rectangle = Rectangle(18, 14, 11, 59)
     val renderer by lazy { FluidStackRenderer(tileEntity.fluidTank.capacity, true, 11, 59) }
 
     override fun initGui() {
         super.initGui()
-        widgetHeat.temperature = heatHandler
         widgetHeat.setWorldAndResolution(mc, width, height)
         widgetProgress.setWorldAndResolution(mc, width, height)
     }

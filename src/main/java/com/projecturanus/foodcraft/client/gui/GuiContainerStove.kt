@@ -14,11 +14,10 @@ class GuiContainerStove(override val container: ContainerStove) : GuiContainerMa
     val fuelHandler by lazy { container.tileEntity.getCapability(InjectedCapabilities.TEMPERATURE, null) as FuelHeatHandler }
     val currentBurnTime = (container.tileEntity as TileEntityStove)::currentItemBurnTime
 
-    val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
+    val widgetHeat = WidgetHeat(176, 0, container)
 
     override fun initGui() {
         super.initGui()
-        widgetHeat.temperature = fuelHandler
         widgetHeat.setWorldAndResolution(mc, width, height)
     }
 

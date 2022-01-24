@@ -1,6 +1,6 @@
 package com.projecturanus.foodcraft.common.network.handler
 
-import com.projecturanus.foodcraft.common.block.container.HeatContainer
+import com.projecturanus.foodcraft.common.heat.PropertyTemperature
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
 import net.minecraft.client.Minecraft
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage
@@ -14,8 +14,10 @@ object ClientContainerHeatUpdateHandler : IMessageHandler<S2CContainerHeatUpdate
     override fun onMessage(message: S2CContainerHeatUpdate, ctx: MessageContext): IMessage? {
         val player = Minecraft.getMinecraft().player
         val container = player.openContainer
-        if (container is HeatContainer) {
+        if (container is PropertyTemperature) {
+            container.minHeat = message.minTemperature
             container.heat = message.temperature
+            container.maxHeat = message.maxTemperature
         }
         return null
     }

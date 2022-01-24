@@ -23,17 +23,15 @@ class GuiContainerBeverageMaking(override val container: ContainerBeverageMaking
     val coolHandler by lazy { tileEntity.coolHandler }
     val progress get() = container.progress / FcConfig.machineConfig.beverageMakingProgress.toDouble()
 
-    val widgetHeat = WidgetHeat(176, 0, container::heatTemperature.getter)
-    val widgetCool = WidgetCool(190, 0, container::coolTemperature.getter)
+    val widgetHeat = WidgetHeat(176, 0, container.tileEntity.heatHandler)
+    val widgetCool = WidgetCool(190, 0, container.tileEntity.coolHandler)
     val widgetProgress by lazy { WidgetProgressBar(176, 14, this::progress.getter) }
     val rectangle: Rectangle = Rectangle(18, 14, 11, 59)
     val renderer by lazy { FluidStackRenderer(tileEntity.fluidTank.capacity, true, 11, 59) }
 
     override fun initGui() {
         super.initGui()
-        widgetHeat.temperature = heatHandler
         widgetHeat.setWorldAndResolution(mc, width, height)
-        widgetCool.temperature = coolHandler
         widgetCool.setWorldAndResolution(mc, width, height)
         widgetProgress.setWorldAndResolution(mc, width, height)
     }

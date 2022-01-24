@@ -15,8 +15,13 @@ object ClientBeverageHeatUpdateHandler : IMessageHandler<S2CBeverageHeatUpdate, 
         val player = Minecraft.getMinecraft().player
         val container = player.openContainer
         if (container is ContainerBeverageMaking) {
-            container.heatTemperature = message.heatTemperature
-            container.coolTemperature = message.coolTemperature
+            container.tileEntity.heatHandler.minHeat = message.heat.minHeat
+            container.tileEntity.heatHandler.temperature = message.heat.heat
+            container.tileEntity.heatHandler.setMaxHeat(message.heat.maxHeat)
+
+            container.tileEntity.coolHandler.minHeat = message.cool.minHeat
+            container.tileEntity.coolHandler.temperature = message.cool.heat
+            container.tileEntity.coolHandler.setMaxHeat(message.cool.maxHeat)
         }
         return null
     }

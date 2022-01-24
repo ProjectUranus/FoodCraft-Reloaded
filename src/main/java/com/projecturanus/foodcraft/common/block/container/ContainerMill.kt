@@ -3,6 +3,7 @@ package com.projecturanus.foodcraft.common.block.container
 import com.projecturanus.foodcraft.MODID
 import com.projecturanus.foodcraft.common.block.container.slot.SlotOutput
 import com.projecturanus.foodcraft.common.block.entity.TileEntityMill
+import com.projecturanus.foodcraft.common.heat.PropertyTemperature
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
 import net.minecraft.entity.player.EntityPlayerMP
@@ -13,8 +14,10 @@ import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
 
-class ContainerMill(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityMill>(playerInventory, tileEntity as TileEntityMill), HeatContainer {
+class ContainerMill(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityMill>(playerInventory, tileEntity as TileEntityMill), PropertyTemperature {
+    override var minHeat = 0.0
     override var heat = 0.0
+    override var maxHeat = 0.0
 
     init {
         val itemHandler = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)!!
@@ -37,7 +40,7 @@ class ContainerMill(playerInventory: InventoryPlayer, tileEntity: TileEntity) : 
         super.detectAndSendChanges()
         listeners.forEach {
             if (it is EntityPlayerMP) {
-                CHANNAL.sendTo(S2CContainerHeatUpdate(tileEntity.heatHandler.temperature), it)
+                CHANNAL.sendTo(S2CContainerHeatUpdate(tileEntity.heatHandler), it)
             }
         }
     }

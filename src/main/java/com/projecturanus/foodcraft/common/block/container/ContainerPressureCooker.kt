@@ -3,6 +3,7 @@ package com.projecturanus.foodcraft.common.block.container
 import com.projecturanus.foodcraft.MODID
 import com.projecturanus.foodcraft.common.block.container.slot.SlotOutput
 import com.projecturanus.foodcraft.common.block.entity.TileEntityPressureCooker
+import com.projecturanus.foodcraft.common.heat.PropertyTemperature
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
 import com.projecturanus.foodcraft.common.network.S2CFluidUpdate
@@ -15,8 +16,11 @@ import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
 
-class ContainerPressureCooker(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityPressureCooker>(playerInventory, tileEntity as TileEntityPressureCooker), HeatContainer, FluidContainer {
+class ContainerPressureCooker(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityPressureCooker>(playerInventory, tileEntity as TileEntityPressureCooker),
+    PropertyTemperature, FluidContainer {
+    override var minHeat = 0.0
     override var heat = 0.0
+    override var maxHeat = 0.0
     override var fluidStack: FluidStack? = null
 
     init {
@@ -44,7 +48,7 @@ class ContainerPressureCooker(playerInventory: InventoryPlayer, tileEntity: Tile
         super.detectAndSendChanges()
         listeners.forEach {
             if (it is EntityPlayerMP) {
-                CHANNAL.sendTo(S2CContainerHeatUpdate(tileEntity.heatHandler.temperature), it)
+                CHANNAL.sendTo(S2CContainerHeatUpdate(tileEntity.heatHandler), it)
                 CHANNAL.sendTo(S2CFluidUpdate(tileEntity.fluidTank.fluid), it)
             }
         }

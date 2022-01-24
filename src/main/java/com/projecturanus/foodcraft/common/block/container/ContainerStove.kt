@@ -2,6 +2,7 @@ package com.projecturanus.foodcraft.common.block.container
 
 import com.projecturanus.foodcraft.MODID
 import com.projecturanus.foodcraft.common.block.entity.TileEntityStove
+import com.projecturanus.foodcraft.common.heat.PropertyTemperature
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
 import net.minecraft.entity.player.EntityPlayer
@@ -13,8 +14,11 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
-class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerMachine(playerInventory, tileEntity), HeatContainer {
+class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerMachine(playerInventory, tileEntity),
+    PropertyTemperature {
+    override var minHeat = 0.0
     override var heat = 0.0
+    override var maxHeat = 0.0
 
     init {
         val itemHandler = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)
@@ -62,7 +66,7 @@ class ContainerStove(playerInventory: InventoryPlayer, tileEntity: TileEntity) :
     override fun detectAndSendChanges() {
         super.detectAndSendChanges()
         listeners.asSequence().filter { it is EntityPlayerMP }.forEach {
-            CHANNAL.sendTo(S2CContainerHeatUpdate((tileEntity as TileEntityStove).heatHandler.temperature), it as EntityPlayerMP)
+            CHANNAL.sendTo(S2CContainerHeatUpdate((tileEntity as TileEntityStove).heatHandler), it as EntityPlayerMP)
         }
     }
 

@@ -1,12 +1,9 @@
 package com.projecturanus.foodcraft.client.gui.widget
 
 import com.projecturanus.foodcraft.common.config.FcConfig
-import org.cyclops.commoncapabilities.api.capability.temperature.DefaultTemperature
 import org.cyclops.commoncapabilities.api.capability.temperature.ITemperature
-import kotlin.reflect.KProperty0
 
-class WidgetHeat(val x: Int, val y: Int, val trueTemperature: KProperty0.Getter<Double>) : Widget() {
-    var temperature: ITemperature = DefaultTemperature()
+class WidgetHeat(val x: Int, val y: Int, val temperature: ITemperature) : Widget() {
 
     companion object {
         const val WIDTH = 14
@@ -18,10 +15,10 @@ class WidgetHeat(val x: Int, val y: Int, val trueTemperature: KProperty0.Getter<
     }
 
     override fun draw(x: Int, y: Int, mouseX: Int, mouseY: Int, partialTicks: Float) {
-        val progress = (((trueTemperature.invoke() - temperature.minimumTemperature) / (temperature.maximumTemperature  - temperature.minimumTemperature)) * 14).toInt()
+        val progress = (((temperature.temperature - temperature.minimumTemperature) / (temperature.maximumTemperature  - temperature.minimumTemperature)) * 14).toInt()
         drawTexturedModalRect(x, y - progress + HEIGHT, this.x, this.y + HEIGHT - progress, WIDTH, progress)
         if (isMouseIn(x, y, mouseX, mouseY) && FcConfig.clientConfig.enableHoverInfo) {
-            this.drawHoveringText(listOf("Heat: ${trueTemperature.invoke()} / ${temperature.maximumTemperature}"), x, y, fontRenderer)
+            this.drawHoveringText(listOf("Heat: ${temperature.temperature} / ${temperature.maximumTemperature}"), x, y, fontRenderer)
         }
     }
 }

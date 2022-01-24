@@ -15,13 +15,12 @@ class GuiContainerPan(override val container: ContainerPan) : GuiContainerMachin
     val progress get() = container.progress / container.minProgress.toDouble()
     val overcookProgress get() = (container.progress - container.minProgress) / (container.maxProgress - container.minProgress).toDouble()
 
-    val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
+    val widgetHeat = WidgetHeat(176, 0, container)
     val widgetProgress by lazy { WidgetProgressBar(176, 14, this::progress.getter) }
     val widgetCookBar by lazy { WidgetCookBar(176, 31, this::overcookProgress.getter) }
 
     override fun initGui() {
         super.initGui()
-        widgetHeat.temperature = heatHandler
         widgetHeat.setWorldAndResolution(mc, width, height)
         widgetProgress.setWorldAndResolution(mc, width, height)
         widgetCookBar.setWorldAndResolution(mc, width, height)

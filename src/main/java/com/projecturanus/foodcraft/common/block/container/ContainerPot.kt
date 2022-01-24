@@ -3,6 +3,7 @@ package com.projecturanus.foodcraft.common.block.container
 import com.projecturanus.foodcraft.MODID
 import com.projecturanus.foodcraft.common.block.container.slot.SlotOutput
 import com.projecturanus.foodcraft.common.block.entity.TileEntityPot
+import com.projecturanus.foodcraft.common.heat.PropertyTemperature
 import com.projecturanus.foodcraft.common.network.CHANNAL
 import com.projecturanus.foodcraft.common.network.S2CContainerHeatUpdate
 import net.minecraft.entity.player.EntityPlayerMP
@@ -13,8 +14,11 @@ import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.SlotItemHandler
 
 
-class ContainerPot(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityPot>(playerInventory, tileEntity as TileEntityPot), HeatContainer {
+class ContainerPot(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityPot>(playerInventory, tileEntity as TileEntityPot),
+    PropertyTemperature {
+    override var minHeat = 0.0
     override var heat = 0.0
+    override var maxHeat = 0.0
     var minProgress = 0
     var maxProgress = 0
 
@@ -44,7 +48,7 @@ class ContainerPot(playerInventory: InventoryPlayer, tileEntity: TileEntity) : C
         super.detectAndSendChanges()
         listeners.forEach {
             if (it is EntityPlayerMP) {
-                CHANNAL.sendTo(S2CContainerHeatUpdate(tileEntity.heatHandler.temperature), it)
+                CHANNAL.sendTo(S2CContainerHeatUpdate(tileEntity.heatHandler), it)
             }
             it.sendWindowProperty(this, 1, tileEntity.recipe?.minTime ?: 0)
             it.sendWindowProperty(this, 2, tileEntity.recipe?.maxTime ?: 0)

@@ -11,17 +11,15 @@ val POT_TEXTURES = ResourceLocation(MODID, "textures/gui/container/pot.png")
 
 class GuiContainerPot(override val container: ContainerPot) : GuiContainerMachine(container, POT_TEXTURES) {
     val tileEntity by lazy { container.tileEntity }
-    val heatHandler by lazy { tileEntity.heatHandler }
     val progress get() = container.progress / container.minProgress.toDouble()
     val overcookProgress get() = (container.progress - container.minProgress) / (container.maxProgress - container.minProgress).toDouble()
 
-    val widgetHeat = WidgetHeat(176, 0, container::heat.getter)
+    val widgetHeat = WidgetHeat(176, 0, container)
     val widgetProgress by lazy { WidgetProgressBar(176, 15, this::progress.getter) }
     val widgetCookBar by lazy { WidgetCookBar(176, 31, this::overcookProgress.getter) }
 
     override fun initGui() {
         super.initGui()
-        widgetHeat.temperature = heatHandler
         widgetHeat.setWorldAndResolution(mc, width, height)
         widgetProgress.setWorldAndResolution(mc, width, height)
         widgetCookBar.setWorldAndResolution(mc, width, height)

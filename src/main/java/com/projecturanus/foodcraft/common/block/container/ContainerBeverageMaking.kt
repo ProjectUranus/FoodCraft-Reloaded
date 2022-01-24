@@ -16,8 +16,6 @@ import net.minecraftforge.items.SlotItemHandler
 
 
 class ContainerBeverageMaking(playerInventory: InventoryPlayer, tileEntity: TileEntity) : ContainerRecipeMachine<TileEntityBeverageMaking>(playerInventory, tileEntity as TileEntityBeverageMaking), FluidContainer {
-    var heatTemperature = 0.0
-    var coolTemperature = 0.0
     override var fluidStack: FluidStack? = null
 
     init {
@@ -43,7 +41,7 @@ class ContainerBeverageMaking(playerInventory: InventoryPlayer, tileEntity: Tile
         super.detectAndSendChanges()
         listeners.forEach {
             if (it is EntityPlayerMP) {
-                CHANNAL.sendTo(S2CBeverageHeatUpdate(tileEntity.heatHandler.temperature, tileEntity.coolHandler.temperature), it)
+                CHANNAL.sendTo(S2CBeverageHeatUpdate(tileEntity.heatHandler, tileEntity.coolHandler), it)
                 CHANNAL.sendTo(S2CFluidUpdate(tileEntity.fluidTank.fluid), it)
             }
         }
